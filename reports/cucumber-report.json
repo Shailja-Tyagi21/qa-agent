@@ -1,0 +1,1113 @@
+[
+  {
+    "description": "  As someone looking for MICHELIN tires\n  I want to find a dealer near me\n  So that I can buy and fit tires locally",
+    "elements": [
+      {
+        "description": "",
+        "id": "dealer-locator;the-dealer-locator-page-loads-with-its-core-elements",
+        "keyword": "Scenario",
+        "line": 12,
+        "name": "The dealer locator page loads with its core elements",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 9,
+            "name": "I am on the \"dealer locator\" page",
+            "match": {
+              "location": "steps/common.steps.js:15"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "the \"dealer search container\" should be visible",
+            "match": {
+              "location": "steps/common.steps.js:35"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "the \"dealer search input\" should be visible",
+            "match": {
+              "location": "steps/common.steps.js:35"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "the \"map\" should be visible",
+            "match": {
+              "location": "steps/common.steps.js:35"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 16,
+            "name": "the \"top cities list\" should be visible",
+            "match": {
+              "location": "steps/common.steps.js:35"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 17,
+            "name": "there should be no console errors",
+            "match": {
+              "location": "steps/common.steps.js:116"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@sanity",
+            "line": 1
+          },
+          {
+            "name": "@dealer",
+            "line": 1
+          },
+          {
+            "name": "@dealer",
+            "line": 11
+          },
+          {
+            "name": "@smoke",
+            "line": 11
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "dealer-locator;searching-a-city-returns-dealer-results",
+        "keyword": "Scenario",
+        "line": 20,
+        "name": "Searching a city returns dealer results",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 9,
+            "name": "I am on the \"dealer locator\" page",
+            "match": {
+              "location": "steps/common.steps.js:15"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 21,
+            "name": "I search for the city \"Atlanta\"",
+            "match": {
+              "location": "steps/dealer-locator.steps.js:15"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 22,
+            "name": "I select the first autocomplete suggestion",
+            "match": {
+              "location": "steps/dealer-locator.steps.js:23"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 23,
+            "name": "the dealer results should be visible",
+            "match": {
+              "location": "steps/dealer-locator.steps.js:41"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 24,
+            "name": "I should see more than 1 \"dealer cards\"",
+            "match": {
+              "location": "steps/common.steps.js:43"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 25,
+            "name": "the URL should contain \"atlanta\"",
+            "match": {
+              "location": "steps/common.steps.js:112"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@sanity",
+            "line": 1
+          },
+          {
+            "name": "@dealer",
+            "line": 1
+          },
+          {
+            "name": "@dealer",
+            "line": 19
+          },
+          {
+            "name": "@search",
+            "line": 19
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "dealer-locator;dealer-cards-show-the-information-needed-to-choose-a-dealer",
+        "keyword": "Scenario",
+        "line": 28,
+        "name": "Dealer cards show the information needed to choose a dealer",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 9,
+            "name": "I am on the \"dealer locator\" page",
+            "match": {
+              "location": "steps/common.steps.js:15"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 29,
+            "name": "I click the first top city",
+            "match": {
+              "location": "steps/dealer-locator.steps.js:33"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 30,
+            "name": "the dealer results should be visible",
+            "match": {
+              "location": "steps/dealer-locator.steps.js:41"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 31,
+            "name": "every dealer card should have a \"title\"",
+            "match": {
+              "location": "steps/dealer-locator.steps.js:45"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 32,
+            "name": "every dealer card should have a \"address\"",
+            "match": {
+              "location": "steps/dealer-locator.steps.js:45"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@sanity",
+            "line": 1
+          },
+          {
+            "name": "@dealer",
+            "line": 1
+          },
+          {
+            "name": "@dealer",
+            "line": 27
+          },
+          {
+            "name": "@results",
+            "line": 27
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "dealer-locator;opening-a-dealer-shows-its-details-page",
+        "keyword": "Scenario",
+        "line": 35,
+        "name": "Opening a dealer shows its details page",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 9,
+            "name": "I am on the \"dealer locator\" page",
+            "match": {
+              "location": "steps/common.steps.js:15"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 36,
+            "name": "I click the first top city",
+            "match": {
+              "location": "steps/dealer-locator.steps.js:33"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 37,
+            "name": "I open the first dealer",
+            "match": {
+              "location": "steps/dealer-locator.steps.js:67"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 38,
+            "name": "the dealer details page should be visible",
+            "match": {
+              "location": "steps/dealer-locator.steps.js:75"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 39,
+            "name": "the \"page heading\" should be visible",
+            "match": {
+              "location": "steps/common.steps.js:35"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@sanity",
+            "line": 1
+          },
+          {
+            "name": "@dealer",
+            "line": 1
+          },
+          {
+            "name": "@dealer",
+            "line": 34
+          },
+          {
+            "name": "@navigation",
+            "line": 34
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "dealer-locator",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "Dealer locator",
+    "tags": [
+      {
+        "name": "@sanity",
+        "line": 1
+      },
+      {
+        "name": "@dealer",
+        "line": 1
+      }
+    ],
+    "uri": "features/dealer-locator.feature"
+  },
+  {
+    "description": "  As someone shopping for tires\n  I want to use the tire search widget on the homepage\n  So that I can start finding the right tire for my vehicle",
+    "elements": [
+      {
+        "description": "",
+        "id": "tire-search-widget;the-homepage-loads-with-the-tire-search-widget",
+        "keyword": "Scenario",
+        "line": 12,
+        "name": "The homepage loads with the tire search widget",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 9,
+            "name": "I am on the \"home\" page",
+            "match": {
+              "location": "steps/common.steps.js:15"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "the \"tire search widget\" should be visible",
+            "match": {
+              "location": "steps/common.steps.js:35"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "the \"page heading\" should be visible",
+            "match": {
+              "location": "steps/common.steps.js:35"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "I should see at least 1 \"productline tabs\"",
+            "match": {
+              "location": "steps/common.steps.js:49"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 16,
+            "name": "there should be no console errors",
+            "match": {
+              "location": "steps/common.steps.js:116"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@sanity",
+            "line": 1
+          },
+          {
+            "name": "@tire",
+            "line": 1
+          },
+          {
+            "name": "@tire",
+            "line": 11
+          },
+          {
+            "name": "@smoke",
+            "line": 11
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "tire-search-widget;switching-productline-changes-the-active-tab",
+        "keyword": "Scenario",
+        "line": 19,
+        "name": "Switching productline changes the active tab",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 9,
+            "name": "I am on the \"home\" page",
+            "match": {
+              "location": "steps/common.steps.js:15"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 20,
+            "name": "the \"Auto\" productline tab should be \"active\"",
+            "match": {
+              "location": "steps/tire-selector.steps.js:34"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 21,
+            "name": "I select the \"Motorcycle\" productline",
+            "match": {
+              "location": "steps/tire-selector.steps.js:46"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 22,
+            "name": "the \"Motorcycle\" productline tab should be \"active\"",
+            "match": {
+              "location": "steps/tire-selector.steps.js:34"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 23,
+            "name": "the \"Auto\" productline tab should be \"inactive\"",
+            "match": {
+              "location": "steps/tire-selector.steps.js:34"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@sanity",
+            "line": 1
+          },
+          {
+            "name": "@tire",
+            "line": 1
+          },
+          {
+            "name": "@tire",
+            "line": 18
+          },
+          {
+            "name": "@widget",
+            "line": 18
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "tire-search-widget;the-search-by-vehicle-modal-opens-and-closes",
+        "keyword": "Scenario",
+        "line": 26,
+        "name": "The search-by-vehicle modal opens and closes",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 9,
+            "name": "I am on the \"home\" page",
+            "match": {
+              "location": "steps/common.steps.js:15"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 27,
+            "name": "I open the tire search modal via \"Search by Vehicle\"",
+            "match": {
+              "location": "steps/tire-selector.steps.js:14"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 28,
+            "name": "the tire search modal should be open",
+            "match": {
+              "location": "steps/tire-selector.steps.js:21"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 29,
+            "name": "I close the tire search modal",
+            "match": {
+              "location": "steps/tire-selector.steps.js:29"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 30,
+            "name": "the tire search modal should be closed",
+            "match": {
+              "location": "steps/tire-selector.steps.js:25"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@sanity",
+            "line": 1
+          },
+          {
+            "name": "@tire",
+            "line": 1
+          },
+          {
+            "name": "@tire",
+            "line": 25
+          },
+          {
+            "name": "@modal",
+            "line": 25
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "tire-search-widget",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "Tire search widget",
+    "tags": [
+      {
+        "name": "@sanity",
+        "line": 1
+      },
+      {
+        "name": "@tire",
+        "line": 1
+      }
+    ],
+    "uri": "features/tire-selector.feature"
+  },
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "scrum-1-—-dealer-locator-test;s1-—-dealer-locator-page-loads-with-its-core-elements",
+        "keyword": "Scenario",
+        "line": 10,
+        "name": "S1 — Dealer locator page loads with its core elements",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 11,
+            "name": "I am on the \"dealer locator\" page",
+            "match": {
+              "location": "steps/common.steps.js:15"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 12,
+            "name": "the \"dealer search input\" should be visible",
+            "match": {
+              "location": "steps/common.steps.js:35"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 13,
+            "name": "the \"top cities list\" should be visible",
+            "match": {
+              "location": "steps/common.steps.js:35"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "there should be no console errors",
+            "match": {
+              "location": "steps/common.steps.js:116"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@generated",
+            "line": 6
+          },
+          {
+            "name": "@SCRUM-1",
+            "line": 6
+          },
+          {
+            "name": "@generated",
+            "line": 9
+          },
+          {
+            "name": "@sanity",
+            "line": 9
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "scrum-1-—-dealer-locator-test;s2-—-find-dealers-link-from-the-homepage-navigates-to-the-dealer-locator-page",
+        "keyword": "Scenario",
+        "line": 17,
+        "name": "S2 — Find Dealers link from the homepage navigates to the dealer locator page",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 18,
+            "name": "I am on the \"home\" page",
+            "match": {
+              "location": "steps/common.steps.js:15"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 19,
+            "name": "I click the \"Find Dealers\" link",
+            "match": {
+              "location": "steps/common.steps.js:63"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 20,
+            "name": "the \"top cities list\" should be visible",
+            "match": {
+              "location": "steps/common.steps.js:35"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 21,
+            "name": "the URL should contain \"dealer-locator\"",
+            "match": {
+              "location": "steps/common.steps.js:112"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@generated",
+            "line": 6
+          },
+          {
+            "name": "@SCRUM-1",
+            "line": 6
+          },
+          {
+            "name": "@generated",
+            "line": 16
+          },
+          {
+            "name": "@ac-1",
+            "line": 16
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "scrum-1-—-dealer-locator-test;s3-—-top-cities-list-shows-at-least-5-cities",
+        "keyword": "Scenario",
+        "line": 24,
+        "name": "S3 — Top-cities list shows at least 5 cities",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 25,
+            "name": "I am on the \"dealer locator\" page",
+            "match": {
+              "location": "steps/common.steps.js:15"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 26,
+            "name": "I should see at least 5 \"top cities\"",
+            "match": {
+              "location": "steps/common.steps.js:49"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@generated",
+            "line": 6
+          },
+          {
+            "name": "@SCRUM-1",
+            "line": 6
+          },
+          {
+            "name": "@generated",
+            "line": 23
+          },
+          {
+            "name": "@ac-2",
+            "line": 23
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "scrum-1-—-dealer-locator-test",
+    "line": 7,
+    "keyword": "Feature",
+    "name": "SCRUM-1 — Dealer Locator Test",
+    "tags": [
+      {
+        "name": "@generated",
+        "line": 6
+      },
+      {
+        "name": "@SCRUM-1",
+        "line": 6
+      }
+    ],
+    "uri": "features/generated/SCRUM-1.feature"
+  }
+]

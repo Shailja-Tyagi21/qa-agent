@@ -1,0 +1,13 @@
+[
+  { "action": "shot",       "label": "baseline" },
+  { "action": "click",      "role": "link", "name": "Find Dealers", "shotAfter": "dealer-locator" },
+  { "action": "fill",       "selector": "input[type='search'], input[role='combobox']", "value": "Atlanta" },
+  { "action": "wait",       "ms": 1200 },
+  { "action": "shot",       "label": "autocomplete-open" },
+  { "action": "press",      "key": "Enter", "wait": 2500 },
+  { "action": "shot",       "label": "results" },
+  { "action": "scrollPage" },
+  { "action": "shot",       "label": "results-full" },
+  { "action": "back" },
+  { "action": "shot",       "label": "back-restored" }
+]

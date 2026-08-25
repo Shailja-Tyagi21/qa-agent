@@ -1,0 +1,185 @@
+{
+  "ticketId": "SCRUM-1",
+  "runType": "full",
+  "deltaScope": null,
+  "title": "Dealer Locator Test",
+  "jiraUrl": "https://hackathon-team-michelin.atlassian.net/browse/SCRUM-1",
+  "mrUrl": null,
+  "targetUrl": "https://www.michelinman.com/",
+  "locale": "en-us",
+  "viewport": "Desktop 1280x800",
+  "testDate": "2026-08-20",
+  "featureSummary": "Verifies the homepage-to-dealer-locator-to-results flow (Find Dealers link, top-cities list, dealer results page), plus a comment-raised question about whether the results sort control actually reorders results.",
+  "mrChangeSummary": null,
+
+  "acceptanceCriteria": [
+    { "id": "AC-1", "requirement": "Clicking \"Find Dealers\" from the homepage navigates to the dealer locator page", "status": "MET", "testCases": ["S2"] },
+    { "id": "AC-2", "requirement": "The dealer locator page shows a top-cities list with at least 5 cities", "status": "MET", "testCases": ["S3"] },
+    { "id": "AC-3", "requirement": "Selecting a city reaches a results page (DRP) showing more than one dealer, each with name, address, and a CTA", "status": "MET", "testCases": ["S4"] }
+  ],
+
+  "commentScenarios": [
+    { "source": "Jira comment", "number": 1, "summary": "Does the sort/filter option on the dealer results page actually reorder the results, or just visually open?", "testCase": "S5", "status": "COVERED", "notes": "Confirmed the sort panel does functionally reorder results, not just open cosmetically." }
+  ],
+
+  "scenarios": [
+    {
+      "id": "S1",
+      "type": "Sanity",
+      "name": "Dealer locator page loads with its core elements",
+      "acCoverage": "AC-1",
+      "viewport": "Desktop",
+      "steps": [
+        "Navigated to https://www.michelinman.com/",
+        "Clicked \"Find Dealers\"",
+        "Waited for the top-cities list to render"
+      ],
+      "expected": "Dealer locator page renders with heading, city/zip search input, map, and top-cities list",
+      "actual": "Page rendered \"Dealer locator for car tires\" heading, search input placeholder \"Enter a city, suburb, town or zip code\", and top-cities list, within ~4ms of the wait resolving",
+      "status": "PASS",
+      "screenshots": ["images/ss_SCRUM-1_en-us_02_after-find-dealers-click.png", "images/ss_SCRUM-1_en-us_03_dealer-locator-top-cities.png"]
+    },
+    {
+      "id": "S2",
+      "type": "Feature",
+      "name": "AC-1 — Find Dealers link from the homepage navigates to the dealer locator page",
+      "acCoverage": "AC-1",
+      "viewport": "Desktop",
+      "steps": [
+        "Loaded the homepage",
+        "Clicked the \"Find Dealers\" link (top nav)"
+      ],
+      "expected": "Browser navigates to the dealer locator page (/auto/dealer-locator)",
+      "actual": "Navigation succeeded — the dealer-locator-only elements (\".dl__top-cities-list\") appeared immediately after the click with no error",
+      "status": "PASS",
+      "screenshots": ["images/ss_SCRUM-1_en-us_01_baseline-homepage.png", "images/ss_SCRUM-1_en-us_02_after-find-dealers-click.png"]
+    },
+    {
+      "id": "S3",
+      "type": "Feature",
+      "name": "AC-2 — Top-cities list shows at least 5 cities",
+      "acCoverage": "AC-2",
+      "viewport": "Desktop",
+      "steps": [
+        "On the dealer locator page, inspected the top-cities list"
+      ],
+      "expected": "At least 5 cities listed",
+      "actual": "Exactly 5 cities present: Atlanta, Chicago, Dallas, Los Angeles, New-York — meets the \"at least 5\" requirement with no headroom above it",
+      "status": "PASS",
+      "screenshots": ["images/ss_SCRUM-1_en-us_03_dealer-locator-top-cities.png"]
+    },
+    {
+      "id": "S4",
+      "type": "Feature",
+      "name": "AC-3 — Selecting a city reaches a results page with more than one dealer, each with name/address/CTA",
+      "acCoverage": "AC-3",
+      "viewport": "Desktop",
+      "steps": [
+        "Clicked \"Atlanta\" in the top-cities list",
+        "Waited for dealer result cards to render",
+        "Scrolled through the results"
+      ],
+      "expected": "Results page shows >1 dealer, each with a name, address, and a CTA",
+      "actual": "\"566 car tire dealers in Atlanta, GA, USA\" heading; first two cards (MIDAS, GORDY TIRE AND AUTOMOTIVE) each show a name, distance/address line, and a \"Contact dealer\" CTA",
+      "status": "PASS",
+      "screenshots": ["images/ss_SCRUM-1_en-us_04_click-atlanta-city.png", "images/ss_SCRUM-1_en-us_05_dealer-results-atlanta.png"]
+    },
+    {
+      "id": "S5",
+      "type": "Comment",
+      "name": "Comment — Does the sort control actually reorder dealer results, or just visually open?",
+      "acCoverage": null,
+      "viewport": "Desktop",
+      "steps": [
+        "On the Atlanta results page, read the first card title under the default \"Sort by: Recommended\" state (\"MIDAS\")",
+        "Clicked \"Sort by\" to open the panel — confirmed options: Recommended, Distance, Name, Number of reviews, Best reviews",
+        "Selected the \"Name\" radio option",
+        "Re-read the first card title after the selection"
+      ],
+      "expected": "Selecting a sort option changes the actual order of the result cards, not just the label on the control",
+      "actual": "First card changed from \"MIDAS\" (Recommended) to \"4 WHEEL PARTS\" (Name, ascending — digit sorts before letters) — the list demonstrably reordered, this is not cosmetic-only",
+      "status": "PASS",
+      "screenshots": ["images/ss_SCRUM-1_en-us_09_sortverify-before-sort-recommended.png", "images/ss_SCRUM-1_en-us_10_sortverify-sort-panel-open.png", "images/ss_SCRUM-1_en-us_11_sortverify-after-sort-by-name.png"]
+    }
+  ],
+
+  "bugs": [],
+
+  "regressionInventory": [
+    { "widget": "theme-michelin-commercial (header/global chrome)", "selector": "container class: theme-michelin-commercial", "action": "not exercised this run", "tested": false, "result": "SKIPPED — full regression census explicitly out of scope for this lightweight first-pass run (user request); 322 interactive elements detected by the live-DOM census but not decomposed/tested" },
+    { "widget": "ds__block (misc content block, homepage)", "selector": "container class: ds__block", "action": "not exercised this run", "tested": false, "result": "SKIPPED — regression census out of scope this run; 11 interactive elements detected" },
+    { "widget": "ts__cta-widget / ts__cta-widget-cta (Tire Selector CTA)", "selector": "container class: ts__cta-widget(-cta)", "action": "not exercised this run", "tested": false, "result": "SKIPPED — regression census out of scope this run; 2 interactive elements each, already a known gap (COVERAGE.md)" },
+    { "widget": "dl__content (dealer results page body: filters, map, cards, pagination)", "selector": "container class: dl__content", "action": "not exercised beyond sort control", "tested": false, "result": "SKIPPED — only the sort control was exercised (S5); the Filters control, map pin interactions, and pagination within this 410-element container were not tested this run" },
+    { "widget": "ds__modal-close", "selector": "container class: ds__modal-close", "action": "not exercised this run", "tested": false, "result": "SKIPPED — regression census out of scope this run; 1 interactive element detected" },
+    { "widget": "dl__map (results map + markers)", "selector": "container class: dl__map", "action": "not exercised this run", "tested": false, "result": "SKIPPED — regression census out of scope this run; 30 interactive elements detected (markers, zoom, keyboard shortcuts)" },
+    { "widget": "ds__block-breadcrumb", "selector": "container class: ds__block-breadcrumb", "action": "not exercised this run", "tested": false, "result": "SKIPPED — regression census out of scope this run; 2 interactive elements detected" },
+    { "widget": "ds__categorie-panel (header mega-nav category panel)", "selector": "container class: ds__categorie-panel hidden", "action": "not exercised this run", "tested": false, "result": "SKIPPED — regression census out of scope this run; 122 interactive elements detected (browse-by links), already a known gap (COVERAGE.md: header mega-nav)" }
+  ],
+
+  "analytics": {
+    "testCase": "TC-AN1",
+    "action": "Clicked \"Find Dealers\", searched/selected a city, and applied a sort selection",
+    "status": "PARTIAL",
+    "evidence": "One first-party request to what appears to be an analytics/logging endpoint (POST-style \"https://dctityd.michelinman.com/status-log\") fired during the session, but it returned HTTP 400. No GA/GTM/Tealium/Segment request or window.dataLayer instrumentation was checked in this lightweight pass, so this is not a confident PASS — flagged for a follow-up run with explicit dataLayer capture."
+  },
+
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 400 ()",
+    "pageerror: Uncaught SyntaxError: Identifier 'userLocale' has already been declared",
+    "Failed to load resource: the server responded with a status of 404 ()",
+    "Loading the script 'data:application/javascript,' violates the Content-Security-Policy directive script-src",
+    "Loading media from 'data:audio/mpeg;base64,...' (repeated 3x — appears tied to the \"Mitch\" chat assistant widget)"
+  ],
+  "networkFailures": [
+    "400 https://dctityd.michelinman.com/status-log",
+    "404 https://cdn-prod-nam.yepgarage.info/upload/network/US/67f69a104e0a5bda041da3ac/en_XX/logo-bmw.png"
+  ],
+  "observations": [
+    "None of the console errors or network failures above coincide with, or appear to affect, the Find Dealers navigation, top-cities list, dealer results, or sort behaviour tested in S1–S5 — they are recorded for the record, not filed as bugs against this ticket's ACs.",
+    "The 'userLocale' duplicate-declaration pageerror suggests a script is being injected/loaded twice somewhere on the page — worth a developer look, but did not visibly break any tested functionality.",
+    "The second, focused recording session (sort verification) observed a similar small number of console errors and network failures of the same apparent origin (chat-widget audio, CSP data: script) — not itemised individually since that session's evidence file was consolidated into this report.",
+    "This run intentionally covered only AC-1, AC-2, AC-3 and the sort/filter comment scenario, per an explicit lightweight-first-pass request. The mandatory boundary checklist (10-item, per interactive widget) and the exhaustive regression census (decomposed, executed) were NOT run — see regressionInventory, which lists discovered-but-unexercised widgets only."
+  ],
+  "warnings": [
+    "Boundary checklist skipped for this run (user request) — filters, empty/single-result states, invalid input, rapid interaction, URL persistence and back-button behaviour on the dealer locator/results flow remain untested.",
+    "Regression census entries below are discovery-only (from the live-DOM census) and are explicitly not decomposed or exercised — see regressionInventory[].result for each."
+  ],
+
+  "viewportSummary": [
+    { "viewport": "Desktop (1280x800)", "tested": true, "issuesFound": "0" },
+    { "viewport": "Mobile (390x844)", "tested": false, "issuesFound": "N/A" },
+    { "viewport": "Tablet (768x1024)", "tested": false, "issuesFound": "N/A" }
+  ],
+
+  "automationGap": {
+    "suiteIndexedAt": "2026-08-20T13:48:02.370Z",
+    "existingCoverage": [
+      "features/dealer-locator.feature — 4 scenarios: page load with core elements, city search via autocomplete, dealer card contents (title/address), details-page navigation"
+    ],
+    "coveredByExisting": ["S1", "S4"],
+    "missingScenarios": [
+      "S3 (MEDIUM): Top-cities list has at least 5 cities (exact-count assertion)",
+      "S5 (HIGH, declared gap): Selecting a sort option (e.g. Name) actually reorders dealer results, not just opens the panel"
+    ],
+    "missingSteps": [
+      { "step": "I select the {string} sort option", "belongsIn": "steps/dealer-locator.steps.js" },
+      { "step": "the first dealer card should change after sorting", "belongsIn": "steps/dealer-locator.steps.js" }
+    ],
+    "missingRegistry": [
+      { "name": "sort control", "kind": "element", "suggestedSelector": "role=button[name=/sort by/i]" }
+    ],
+    "recommendation": "The sort control on the dealer results page (COVERAGE.md's declared gap) works correctly — it demonstrably reorders results — but has zero automated coverage. Adding one step for opening it, one for selecting an option, and one assertion that the first card's title changes would close this gap and match what this run just verified manually."
+  },
+
+  "summary": {
+    "total": 5, "passed": 5, "failed": 0, "partial": 0, "skipped": 0,
+    "bugs": { "total": 0, "blocker": 0, "critical": 0, "major": 0, "minor": 0 }
+  },
+
+  "videoFull": "videos/SCRUM-1_en-us_full.webm",
+  "videoFullMp4": null,
+  "videoClip": "videos/SCRUM-1_en-us_sortverify.webm",
+  "featureFile": "SCRUM-1.feature",
+  "verdict": "APPROVED",
+  "conclusion": "All 3 acceptance criteria met and the sort/filter comment scenario confirmed the control genuinely reorders results (not just a cosmetic panel). Zero bugs found. This was an explicitly reduced first-pass scope — the boundary checklist and full regression census were skipped per request and should follow in a subsequent run."
+}

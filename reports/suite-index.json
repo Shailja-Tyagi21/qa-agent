@@ -1,0 +1,533 @@
+{
+  "generatedAt": "2026-08-20T13:48:02.370Z",
+  "root": "michelin-qa",
+  "framework": "cucumber-js + playwright",
+  "counts": {
+    "stepDefinitions": 35,
+    "featureFiles": 2,
+    "scenarios": 7,
+    "generatedFeatureFiles": 1,
+    "knownGaps": 24
+  },
+  "registry": {
+    "pages": [
+      "home",
+      "auto",
+      "tire selector",
+      "all tires",
+      "tire sizes",
+      "manufacturers",
+      "dealer locator",
+      "dealer results atlanta",
+      "dealer results chicago",
+      "dealer results dallas",
+      "motorcycle",
+      "motorcycle dealer locator",
+      "promotions",
+      "tips and advice",
+      "assistance"
+    ],
+    "elements": [
+      "cookie banner",
+      "header",
+      "main navigation",
+      "footer",
+      "page heading",
+      "find dealers link",
+      "chat assistant",
+      "tire search widget",
+      "auto productline tab",
+      "motorcycle productline tab",
+      "search by vehicle",
+      "search by size",
+      "tire search modal",
+      "modal close button",
+      "search input",
+      "dealer search container",
+      "dealer search input",
+      "locate me button",
+      "map",
+      "top cities list",
+      "first top city",
+      "dealers list",
+      "dealer card",
+      "dealer card title",
+      "dealer card address",
+      "dealer details page",
+      "product cards",
+      "breadcrumb"
+    ],
+    "collections": [
+      "dealer cards",
+      "top cities",
+      "productline tabs",
+      "product cards",
+      "navigation links"
+    ]
+  },
+  "steps": [
+    {
+      "keyword": "Then",
+      "pattern": "every dealer card should have a {string}",
+      "params": [
+        "string"
+      ],
+      "source": "steps/dealer-locator.steps.js"
+    },
+    {
+      "keyword": "Then",
+      "pattern": "every image on the page should have loaded",
+      "params": [],
+      "source": "steps/common.steps.js"
+    },
+    {
+      "keyword": "Given",
+      "pattern": "I am on the {string} page",
+      "params": [
+        "string"
+      ],
+      "source": "steps/common.steps.js"
+    },
+    {
+      "keyword": "When",
+      "pattern": "I capture a screenshot named {string}",
+      "params": [
+        "string"
+      ],
+      "source": "steps/common.steps.js"
+    },
+    {
+      "keyword": "When",
+      "pattern": "I click the {string}",
+      "params": [
+        "string"
+      ],
+      "source": "steps/common.steps.js"
+    },
+    {
+      "keyword": "When",
+      "pattern": "I click the {string} button",
+      "params": [
+        "string"
+      ],
+      "source": "steps/common.steps.js"
+    },
+    {
+      "keyword": "When",
+      "pattern": "I click the {string} link",
+      "params": [
+        "string"
+      ],
+      "source": "steps/common.steps.js"
+    },
+    {
+      "keyword": "When",
+      "pattern": "I click the first top city",
+      "params": [],
+      "source": "steps/dealer-locator.steps.js"
+    },
+    {
+      "keyword": "When",
+      "pattern": "I close the new tab",
+      "params": [],
+      "source": "steps/common.steps.js"
+    },
+    {
+      "keyword": "When",
+      "pattern": "I close the tire search modal",
+      "params": [],
+      "source": "steps/tire-selector.steps.js"
+    },
+    {
+      "keyword": "When",
+      "pattern": "I go back",
+      "params": [],
+      "source": "steps/common.steps.js"
+    },
+    {
+      "keyword": "When",
+      "pattern": "I navigate to the {string} page",
+      "params": [
+        "string"
+      ],
+      "source": "steps/common.steps.js"
+    },
+    {
+      "keyword": "When",
+      "pattern": "I open the first dealer",
+      "params": [],
+      "source": "steps/dealer-locator.steps.js"
+    },
+    {
+      "keyword": "When",
+      "pattern": "I open the tire search modal via {string}",
+      "params": [
+        "string"
+      ],
+      "source": "steps/tire-selector.steps.js"
+    },
+    {
+      "keyword": "When",
+      "pattern": "I press {string}",
+      "params": [
+        "string"
+      ],
+      "source": "steps/common.steps.js"
+    },
+    {
+      "keyword": "When",
+      "pattern": "I reload the page",
+      "params": [],
+      "source": "steps/common.steps.js"
+    },
+    {
+      "keyword": "When",
+      "pattern": "I scroll through the whole page",
+      "params": [],
+      "source": "steps/common.steps.js"
+    },
+    {
+      "keyword": "When",
+      "pattern": "I search for the city {string}",
+      "params": [
+        "string"
+      ],
+      "source": "steps/dealer-locator.steps.js"
+    },
+    {
+      "keyword": "When",
+      "pattern": "I select the {string} productline",
+      "params": [
+        "string"
+      ],
+      "source": "steps/tire-selector.steps.js"
+    },
+    {
+      "keyword": "When",
+      "pattern": "I select the first autocomplete suggestion",
+      "params": [],
+      "source": "steps/dealer-locator.steps.js"
+    },
+    {
+      "keyword": "Then",
+      "pattern": "I should see at least {int} {string}",
+      "params": [
+        "int",
+        "string"
+      ],
+      "source": "steps/common.steps.js"
+    },
+    {
+      "keyword": "Then",
+      "pattern": "I should see more than {int} {string}",
+      "params": [
+        "int",
+        "string"
+      ],
+      "source": "steps/common.steps.js"
+    },
+    {
+      "keyword": "When",
+      "pattern": "I type {string} into the {string}",
+      "params": [
+        "string",
+        "string"
+      ],
+      "source": "steps/common.steps.js"
+    },
+    {
+      "keyword": "Then",
+      "pattern": "the {string} productline tab should be {string}",
+      "params": [
+        "string",
+        "string"
+      ],
+      "source": "steps/tire-selector.steps.js"
+    },
+    {
+      "keyword": "Then",
+      "pattern": "the {string} should be visible",
+      "params": [
+        "string"
+      ],
+      "source": "steps/common.steps.js"
+    },
+    {
+      "keyword": "Then",
+      "pattern": "the {string} should not be visible",
+      "params": [
+        "string"
+      ],
+      "source": "steps/common.steps.js"
+    },
+    {
+      "keyword": "Then",
+      "pattern": "the dealer details page should be visible",
+      "params": [],
+      "source": "steps/dealer-locator.steps.js"
+    },
+    {
+      "keyword": "Then",
+      "pattern": "the dealer results should be visible",
+      "params": [],
+      "source": "steps/dealer-locator.steps.js"
+    },
+    {
+      "keyword": "Then",
+      "pattern": "the page heading should contain {string}",
+      "params": [
+        "string"
+      ],
+      "source": "steps/common.steps.js"
+    },
+    {
+      "keyword": "Then",
+      "pattern": "the page should open in a new tab",
+      "params": [],
+      "source": "steps/common.steps.js"
+    },
+    {
+      "keyword": "Then",
+      "pattern": "the page title should contain {string}",
+      "params": [
+        "string"
+      ],
+      "source": "steps/common.steps.js"
+    },
+    {
+      "keyword": "Then",
+      "pattern": "the tire search modal should be closed",
+      "params": [],
+      "source": "steps/tire-selector.steps.js"
+    },
+    {
+      "keyword": "Then",
+      "pattern": "the tire search modal should be open",
+      "params": [],
+      "source": "steps/tire-selector.steps.js"
+    },
+    {
+      "keyword": "Then",
+      "pattern": "the URL should contain {string}",
+      "params": [
+        "string"
+      ],
+      "source": "steps/common.steps.js"
+    },
+    {
+      "keyword": "Then",
+      "pattern": "there should be no console errors",
+      "params": [],
+      "source": "steps/common.steps.js"
+    }
+  ],
+  "features": [
+    {
+      "file": "features/dealer-locator.feature",
+      "feature": "Dealer locator",
+      "tags": [
+        "@sanity",
+        "@dealer"
+      ],
+      "scenarios": [
+        {
+          "name": "The dealer locator page loads with its core elements",
+          "tags": [
+            "@dealer",
+            "@smoke"
+          ],
+          "steps": [
+            "Then the \"dealer search container\" should be visible",
+            "And the \"dealer search input\" should be visible",
+            "And the \"map\" should be visible",
+            "And the \"top cities list\" should be visible",
+            "And there should be no console errors"
+          ]
+        },
+        {
+          "name": "Searching a city returns dealer results",
+          "tags": [
+            "@dealer",
+            "@search"
+          ],
+          "steps": [
+            "When I search for the city \"Atlanta\"",
+            "And I select the first autocomplete suggestion",
+            "Then the dealer results should be visible",
+            "And I should see more than 1 \"dealer cards\"",
+            "And the URL should contain \"atlanta\""
+          ]
+        },
+        {
+          "name": "Dealer cards show the information needed to choose a dealer",
+          "tags": [
+            "@dealer",
+            "@results"
+          ],
+          "steps": [
+            "When I click the first top city",
+            "Then the dealer results should be visible",
+            "And every dealer card should have a \"title\"",
+            "And every dealer card should have a \"address\""
+          ]
+        },
+        {
+          "name": "Opening a dealer shows its details page",
+          "tags": [
+            "@dealer",
+            "@navigation"
+          ],
+          "steps": [
+            "When I click the first top city",
+            "And I open the first dealer",
+            "Then the dealer details page should be visible",
+            "And the \"page heading\" should be visible"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "features/tire-selector.feature",
+      "feature": "Tire search widget",
+      "tags": [
+        "@sanity",
+        "@tire"
+      ],
+      "scenarios": [
+        {
+          "name": "The homepage loads with the tire search widget",
+          "tags": [
+            "@tire",
+            "@smoke"
+          ],
+          "steps": [
+            "Then the \"tire search widget\" should be visible",
+            "And the \"page heading\" should be visible",
+            "And I should see at least 1 \"productline tabs\"",
+            "And there should be no console errors"
+          ]
+        },
+        {
+          "name": "Switching productline changes the active tab",
+          "tags": [
+            "@tire",
+            "@widget"
+          ],
+          "steps": [
+            "Then the \"Auto\" productline tab should be \"active\"",
+            "When I select the \"Motorcycle\" productline",
+            "Then the \"Motorcycle\" productline tab should be \"active\"",
+            "And the \"Auto\" productline tab should be \"inactive\""
+          ]
+        },
+        {
+          "name": "The search-by-vehicle modal opens and closes",
+          "tags": [
+            "@tire",
+            "@modal"
+          ],
+          "steps": [
+            "When I open the tire search modal via \"Search by Vehicle\"",
+            "Then the tire search modal should be open",
+            "When I close the tire search modal",
+            "Then the tire search modal should be closed"
+          ]
+        }
+      ]
+    }
+  ],
+  "generated": [
+    {
+      "file": "features/generated/EXAMPLE-1.feature",
+      "feature": "EXAMPLE-1 — Dealer results sorting",
+      "tags": [
+        "@generated",
+        "@EXAMPLE-1"
+      ],
+      "scenarios": [
+        {
+          "name": "S1 — Dealer locator loads with search, map and top cities",
+          "tags": [
+            "@generated",
+            "@sanity"
+          ],
+          "steps": [
+            "Then the \"dealer search container\" should be visible",
+            "And the \"map\" should be visible",
+            "And the \"top cities list\" should be visible",
+            "And there should be no console errors"
+          ]
+        },
+        {
+          "name": "S3 — City search reaches a results page with multiple dealers",
+          "tags": [
+            "@generated",
+            "@ac-1"
+          ],
+          "steps": [
+            "When I search for the city \"Atlanta\"",
+            "And I select the first autocomplete suggestion",
+            "Then the dealer results should be visible",
+            "And I should see more than 1 \"dealer cards\""
+          ]
+        },
+        {
+          "name": "S7 — Back from a dealer returns to the results list",
+          "tags": [
+            "@generated",
+            "@from-comment"
+          ],
+          "steps": [
+            "When I click the first top city",
+            "And I open the first dealer",
+            "Then the dealer details page should be visible",
+            "When I go back",
+            "Then the dealer results should be visible"
+          ]
+        },
+        {
+          "name": "S9 — Sorting by rating does not reorder results",
+          "tags": [
+            "@generated",
+            "@todo",
+            "@bug-1"
+          ],
+          "steps": [
+            "When I click the first top city",
+            "Then the dealer results should be visible",
+            "When I click the \"sort control\"",
+            "And I select the \"Highest rated\" sort option",
+            "Then the dealer results should be ordered by rating descending"
+          ]
+        }
+      ]
+    }
+  ],
+  "knownGaps": [
+    "Filter panel — opening, applying, clearing, and the result-count badge",
+    "Sort control — every option, and whether results actually reorder",
+    "Empty state — a city with zero dealers",
+    "Single-result state — layout with exactly one dealer card",
+    "Map interaction — pins matching visible cards, zoom, marker click",
+    "URL parameter persistence — copy the URL, reopen, state restored",
+    "Back-button behaviour after applying filters or sort",
+    "Motorcycle dealer locator (`/motorcycle/dealer-locator`) — no coverage at all",
+    "Dealer details page — reviews, gallery, street view, FAQ accordions",
+    "Completing a search by vehicle (brand → model → year → results)",
+    "Completing a search by tire size (width → ratio → diameter)",
+    "Invalid input handling and the no-match error message",
+    "Clearing the search bar and resetting the flow",
+    "Skip / incomplete-configuration path to results",
+    "Product listing page — cards, filters, sort, pagination",
+    "Product details page",
+    "Analytics — dataLayer pushes and tracking requests on interaction",
+    "Keyboard navigation and focus visibility",
+    "Mobile and tablet viewports",
+    "Broken-image sweep beyond the pages already covered",
+    "Header mega-nav — dropdowns and destination links",
+    "Footer accordion",
+    "Promotions hub and campaign landing pages",
+    "Tips & advice article pages"
+  ],
+  "usage": "qa-agent reads this before writing {ticketId}.feature. Compose generated scenarios from steps[].pattern where possible; tag any step with no match @todo."
+}
