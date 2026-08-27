@@ -256,14 +256,15 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
       },
       {
         name: "post_qa_report",
-        description: "The fast path: give it a ticket id and the path to qa-report.json — it reads the file, attaches the sibling qa-report.html (a self-contained report with screenshots and video already embedded) to the ticket, attaches the raw session video separately for quick playback, and posts a text-only summary comment (verdict, tables, bug narrative — no re-embedded screenshots/video, since those already live in the two attachments). Use this instead of manually calling upload_screenshots + post_qa_summary when you have a qa-report.json already written to disk (the normal case after Phase 7).",
+        description: "The fast path: give it a ticket id and the path to qa-report.json — it reads the file, attaches the sibling qa-report.html (a self-contained report with screenshots and video already embedded) to the ticket, attaches the raw session video separately for quick playback, attaches the generated {ticketId}.feature file (as copied into this same run folder by SKILL.md Phase 7), and posts a text-only summary comment (verdict, tables, bug narrative — no re-embedded screenshots/video, since those already live in the attachments). Use this instead of manually calling upload_screenshots + post_qa_summary when you have a qa-report.json already written to disk (the normal case after Phase 7).",
         inputSchema: {
           type: "object",
           properties: {
             ticket_id:   { type: "string", description: "The JIRA ticket ID" },
             report_path: { type: "string", description: "Path to qa-report.json, e.g. 'qa-runs/SCRUM-1-2026-08-20-1352/qa-report.json'" },
             attach_html_report: { type: "boolean", description: "Set false to skip attaching qa-report.html. Defaults to true." },
-            attach_video: { type: "boolean", description: "Set false to skip attaching the raw session video. Defaults to true." }
+            attach_video: { type: "boolean", description: "Set false to skip attaching the raw session video. Defaults to true." },
+            attach_feature_file: { type: "boolean", description: "Set false to skip attaching the generated {ticketId}.feature file. Defaults to true." }
           },
           required: ["ticket_id", "report_path"]
         }
@@ -503,6 +504,9 @@ function buildAdfReport(args) {
   if (args.videoAttached) {
     content.push(adf.paragraph("Session recording also attached separately for quick playback."));
   }
+  if (args.featureFileAttached) {
+    content.push(adf.paragraph(`Generated Gherkin scaffold (${args.ticketId || 'this ticket'}.feature) also attached.`));
+  }
 
   return adf.doc(...content);
 }
@@ -580,6 +584,20 @@ async function postAdfComment(ticketId, body) {
         }
       }
 
+      // The generated .feature file — SKILL.md's Phase 7 copies it alongside
+      // qa-report.json in this same run folder (features/generated/ stays
+      // the copy Cucumber discovers; this is a duplicate for the ticket).
+      let featureFileAttached = false;
+      const featureFilePath = report.ticketId ? resolve(reportDir, `${report.ticketId}.feature`) : null;
+      if (args.attach_feature_file !== false && featureFilePath && existsSync(featureFilePath)) {
+        try {
+          await uploadFilesToJira(args.ticket_id, [featureFilePath]);
+          featureFileAttached = true;
+        } catch (err) {
+          console.error(`[jira-mcp] failed to attach ${report.ticketId}.feature: ${err.message}`);
+        }
+      }
+
       const body = buildAdfReport({
         ticketId: report.ticketId,
         title: report.title || report.featureSummary,
@@ -597,7 +615,8 @@ async function postAdfComment(ticketId, body) {
         observations: report.observations,
         reportPath,
         htmlReportAttached,
-        videoAttached
+        videoAttached,
+        featureFileAttached
       });
 
       const data = await postAdfComment(args.ticket_id, body);
@@ -606,7 +625,7 @@ async function postAdfComment(ticketId, body) {
           type: "text",
           text: JSON.stringify({
             id: data.id, created: data.created,
-            reportPath, htmlReportAttached, videoAttached
+            reportPath, htmlReportAttached, videoAttached, featureFileAttached
           })
         }]
       };

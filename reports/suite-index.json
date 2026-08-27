@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-08-26T12:19:01.658Z",
+  "generatedAt": "2026-08-27T10:59:57.498Z",
   "root": "michelin-qa",
   "framework": "cucumber-js + playwright",
   "counts": {
     "stepDefinitions": 35,
     "featureFiles": 2,
     "scenarios": 7,
-    "generatedFeatureFiles": 0,
+    "generatedFeatureFiles": 1,
     "knownGaps": 24
   },
   "registry": {
@@ -436,7 +436,117 @@
       ]
     }
   ],
-  "generated": [],
+  "generated": [
+    {
+      "file": "features/generated/SCRUM-68.feature",
+      "feature": "SCRUM-68 — Dealer locator renders and functions correctly at mobile viewport 390x844",
+      "tags": [
+        "@generated",
+        "@SCRUM-68"
+      ],
+      "scenarios": [
+        {
+          "name": "S1 — Dealer locator page loads with its core elements at 390x844",
+          "tags": [
+            "@generated",
+            "@sanity"
+          ],
+          "steps": [
+            "Then the \"dealer search input\" should be visible",
+            "And the \"top cities list\" should be visible",
+            "And the \"map\" should be visible",
+            "And there should be no console errors"
+          ]
+        },
+        {
+          "name": "S3 — \"Locate me\" button is visible and tappable on load",
+          "tags": [
+            "@generated",
+            "@ac-1",
+            "@bug-1",
+            "@todo"
+          ],
+          "steps": [
+            "Then the \"locate me button\" should be visible"
+          ]
+        },
+        {
+          "name": "S7 — Selecting a city reaches the results page",
+          "tags": [
+            "@generated",
+            "@ac-3"
+          ],
+          "steps": [
+            "When I click the first top city",
+            "Then the dealer results should be visible",
+            "And I should see more than 1 \"dealer cards\""
+          ]
+        },
+        {
+          "name": "S8 — Dealer card addresses are not truncated on mobile",
+          "tags": [
+            "@generated",
+            "@ac-3",
+            "@bug-2",
+            "@todo"
+          ],
+          "steps": [
+            "When I click the first top city",
+            "Then the dealer results should be visible",
+            "And every dealer card should have a \"address\""
+          ]
+        },
+        {
+          "name": "S10 — Find Dealers is reachable from the mobile nav in under 3 taps",
+          "tags": [
+            "@generated",
+            "@from-comment",
+            "@todo"
+          ],
+          "steps": [
+            "When I click the \"main navigation\"",
+            "Then the \"find dealers link\" should be visible"
+          ]
+        },
+        {
+          "name": "S11 — Back button restores the search page after selecting a city",
+          "tags": [
+            "@generated",
+            "@boundary"
+          ],
+          "steps": [
+            "When I click the first top city",
+            "And I go back",
+            "Then the \"dealer search input\" should be visible"
+          ]
+        },
+        {
+          "name": "S12 — Atlanta results state persists on a fresh URL load",
+          "tags": [
+            "@generated",
+            "@boundary"
+          ],
+          "steps": [
+            "Given I am on the \"dealer results atlanta\" page",
+            "Then the dealer results should be visible",
+            "And the URL should contain \"atlanta\""
+          ]
+        },
+        {
+          "name": "S13 — Dealer locator product-line switch (Auto to Motorcycle)",
+          "tags": [
+            "@generated",
+            "@regression",
+            "@todo"
+          ],
+          "steps": [
+            "When I click the \"auto productline tab\"",
+            "Then the dealer results should be visible"
+          ]
+        }
+      ]
+    }
+  ],
   "knownGaps": [
     "Filter panel — opening, applying, clearing, and the result-count badge",
     "Sort control — every option, and whether results actually reorder",
