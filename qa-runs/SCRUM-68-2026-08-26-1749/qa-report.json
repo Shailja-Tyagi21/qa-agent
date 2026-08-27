@@ -1,0 +1,285 @@
+{
+  "ticketId": "SCRUM-68",
+  "title": "Mobile test — dealer locator at 390×844",
+  "featureSummary": "Verify the dealer locator page (search input, Locate me button, top-cities scroller, results page) renders and functions correctly at mobile viewport 390×844.",
+  "locale": "en-us",
+  "viewport": "Mobile (390×844)",
+  "targetUrl": "https://www.michelinman.com/auto/dealer-locator",
+  "jiraUrl": "https://michelinqa.atlassian.net/browse/SCRUM-68",
+  "testDate": "2026-08-26",
+  "verdict": "CONDITIONAL",
+  "conclusion": "2 MAJOR bugs found on mobile (390×844): the 'Locate me' button is not visible/tappable until the search input is focused (AC-1), and dealer card addresses are CSS-truncated on the results page (AC-3). Top-cities scroller (AC-2) and the mobile nav → Find Dealers path (comment scenario) both pass cleanly.",
+  "summary": { "total": 17, "passed": 14, "failed": 2, "partial": 1, "skipped": 0 },
+  "acceptanceCriteria": [
+    {
+      "id": "AC-1",
+      "requirement": "The dealer search input and \"Locate me\" button are both fully visible and tappable at 390px width, with no horizontal overflow on the page",
+      "testCases": ["S2", "S3", "S4"],
+      "status": "PARTIAL"
+    },
+    {
+      "id": "AC-2",
+      "requirement": "The top cities horizontal scroller is swipeable on mobile, and every city can be scrolled into view and tapped — the fade gradient must not visually cover or block taps on the last visible city",
+      "testCases": ["S5", "S6"],
+      "status": "MET"
+    },
+    {
+      "id": "AC-3",
+      "requirement": "Selecting a city from mobile reaches the results page, and dealer cards stack in a single readable column with no text truncation or overlapping elements",
+      "testCases": ["S7", "S8", "S9"],
+      "status": "PARTIAL"
+    }
+  ],
+  "commentScenarios": [
+    {
+      "source": "Jira comment",
+      "number": 1,
+      "summary": "Does the header navigation collapse into a hamburger/mobile menu, and if so, is \"Find Dealers\" still reachable from it in fewer than 3 taps?",
+      "testCase": "S10",
+      "status": "PASS",
+      "notes": "Tapping the hamburger icon (top-left) opens the mobile nav overlay, which shows a \"Find Dealers\" CTA directly at the bottom — reachable in 1 tap, well under the 3-tap bar."
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "S1", "type": "Sanity", "name": "Dealer locator page loads with its core elements at 390×844",
+      "viewport": "Mobile (390×844)", "status": "PASS",
+      "steps": ["Navigate to /auto/dealer-locator on a 390×844 viewport", "Dismiss consent banner", "Observe page load"],
+      "expected": "Heading, productline selector, search input and top-cities list render without error.",
+      "actual": "Page loaded correctly; heading \"Dealer Locator For Car Tires\", search input and city chips (Atlanta/Chicago/Dallas/Los Angeles partially visible) all rendered as expected.",
+      "screenshots": ["images/ss_SCRUM-68_en-us_S1_baseline-mobile.png"]
+    },
+    {
+      "id": "S2", "type": "Feature", "acCoverage": "AC-1", "name": "Search input is visible and tappable on load",
+      "viewport": "Mobile (390×844)", "status": "PASS",
+      "steps": ["Load the dealer locator page", "Inspect the \"Enter a city, suburb, town or zip code\" input"],
+      "expected": "Input box fully visible, full width within the 390px viewport, tappable.",
+      "actual": "Input renders full-width with visible search icon; no clipping.",
+      "screenshots": ["images/ss_SCRUM-68_en-us_S1_baseline-mobile.png"]
+    },
+    {
+      "id": "S3", "type": "Feature", "acCoverage": "AC-1", "name": "\"Locate me\" button is visible and tappable on load",
+      "viewport": "Mobile (390×844)", "status": "FAIL",
+      "steps": ["Load the dealer locator page (no interaction)", "Inspect .dl__autocomplete-locate (the \"Locate me\" icon button)"],
+      "expected": "\"Locate me\" button fully visible and tappable at 390px width immediately on load, per AC-1.",
+      "actual": "Button has opacity:0 and a bounding box partly off-canvas (x:-2) on initial load — hidden and not natively clickable. It only becomes visible (opacity:1) after the user taps into the search input first. See BUG-1.",
+      "screenshots": ["images/ss_SCRUM-68_en-us_bug1_locate-me-hidden-initial.png"]
+    },
+    {
+      "id": "S4", "type": "Boundary", "acCoverage": "AC-1", "name": "No horizontal page overflow at 390px width",
+      "viewport": "Mobile (390×844)", "status": "PASS",
+      "steps": ["Load the dealer locator page", "Compare document.documentElement.scrollWidth to window.innerWidth"],
+      "expected": "scrollWidth <= innerWidth — no horizontal scrollbar/overflow.",
+      "actual": "scrollWidth === innerWidth === 390. No horizontal overflow found anywhere on the page.",
+      "screenshots": ["images/ss_SCRUM-68_en-us_S1_baseline-mobile.png"]
+    },
+    {
+      "id": "S5", "type": "Feature", "acCoverage": "AC-2", "name": "Top-cities scroller is swipeable and all 5 cities can be reached",
+      "viewport": "Mobile (390×844)", "status": "PASS",
+      "steps": ["Locate .dl__top-cities-list (scrollWidth 548 / clientWidth 358)", "Simulate a touch swipe / wheel scroll to the right"],
+      "expected": "The list scrolls horizontally, and Atlanta, Chicago, Dallas, Los Angeles and New York all become reachable.",
+      "actual": "List scrolled from 0 to 189.5px (its max scrollLeft, 548-358=190), confirming all 5 cities are reachable by a native swipe/scroll gesture.",
+      "screenshots": ["images/ss_SCRUM-68_en-us_S4_top-cities-scrolled-end.png"]
+    },
+    {
+      "id": "S6", "type": "Boundary", "acCoverage": "AC-2", "name": "Fade gradient does not block taps on the last visible city",
+      "viewport": "Mobile (390×844)", "status": "PASS",
+      "steps": ["Scroll the top-cities list to its max scroll position (New York fully visible)", "Hit-test the point under the right-edge gradient, over the New York link"],
+      "expected": "A tap anywhere on the New York chip, including under the gradient overlay, must reach the link — not be intercepted by the gradient.",
+      "actual": "The gradient overlay has pointer-events:none; elementFromPoint at the overlapping region resolves to the <a class=\"ds__btn\"> New York link itself. Taps pass through cleanly. Visually, \"New-York\" is fully legible in the screenshot (note: label reads \"New-York\" with a hyphen — see Observations).",
+      "screenshots": ["images/ss_SCRUM-68_en-us_S4_top-cities-scrolled-end.png"]
+    },
+    {
+      "id": "S7", "type": "Feature", "acCoverage": "AC-3", "name": "Selecting Atlanta reaches the results page with single-column cards",
+      "viewport": "Mobile (390×844)", "status": "PASS",
+      "steps": ["Click the \"Atlanta\" top-city link", "Observe the results page layout"],
+      "expected": "Navigates to /auto/dealer-locator/atlanta; dealer cards stack in one readable column matching the 390px viewport.",
+      "actual": "Navigated to the Atlanta results page (563 dealers); cards (Midas, Gordy Tire and Automotive, ...) stack cleanly in a single column at full card width.",
+      "screenshots": ["images/ss_SCRUM-68_en-us_S7_atlanta-results-mobile.png"]
+    },
+    {
+      "id": "S8", "type": "Feature", "acCoverage": "AC-3", "name": "Dealer card addresses are not truncated",
+      "viewport": "Mobile (390×844)", "status": "FAIL",
+      "steps": ["On the Atlanta results page, inspect the address line of each visible card", "Compare scrollWidth vs clientWidth of the address element"],
+      "expected": "Full street address is readable with no ellipsis/clipping, per AC-3.",
+      "actual": "Address `<span>` elements are styled with white-space:nowrap; text-overflow:ellipsis at a fixed 300px width — e.g. \"1590 HOWELL MILL RD NW, Georgia, ATLANT…\" is cut off. Reproduced on 2 of 2 addresses checked and confirmed again in a fresh browser context. See BUG-2.",
+      "screenshots": ["images/ss_SCRUM-68_en-us_bug2_see-map-overlap.png"]
+    },
+    {
+      "id": "S9", "type": "Boundary", "acCoverage": "AC-3", "name": "No overlapping elements between cards",
+      "viewport": "Mobile (390×844)", "status": "PARTIAL",
+      "steps": ["On the Atlanta results page, check the bounding boxes of the \"See map\" quick-link and the \"Contact dealer\" CTA on the Gordy Tire card"],
+      "expected": "No two interactive elements should visually overlap, per AC-3.",
+      "actual": "Overlap between the \"See map\" pill and the \"Contact dealer\" CTA reproduced on 2 of 4 checks across fresh contexts (screenshot attached) — timing-dependent on when the star-rating badge finishes rendering and shifts card height. Not consistently reproducible enough to meet the Fail Recheck Gate for a confirmed bug; recorded as an observation, not BUG-3.",
+      "screenshots": ["images/ss_SCRUM-68_en-us_bug2_see-map-overlap.png"]
+    },
+    {
+      "id": "S10", "type": "Comment scenario", "name": "Find Dealers is reachable from the mobile nav in under 3 taps",
+      "viewport": "Mobile (390×844)", "status": "PASS",
+      "steps": ["Tap the hamburger menu icon (top-left)", "Observe the resulting nav overlay"],
+      "expected": "\"Find Dealers\" reachable in fewer than 3 taps from the collapsed mobile nav.",
+      "actual": "1 tap: the hamburger opens directly to an overlay with a \"Find Dealers\" link/button visible near the bottom, alongside \"Tire Selector\".",
+      "screenshots": ["images/ss_SCRUM-68_en-us_S9_hamburger-menu-open.png"]
+    },
+    {
+      "id": "S11", "type": "Boundary", "name": "Back button restores the search page after selecting a city",
+      "viewport": "Mobile (390×844)", "status": "PASS",
+      "steps": ["Navigate to the Atlanta results page", "Press the browser back button"],
+      "expected": "Returns cleanly to /auto/dealer-locator.",
+      "actual": "Back button returned to https://www.michelinman.com/auto/dealer-locator with the empty search input restored — no stuck state.",
+      "screenshots": []
+    },
+    {
+      "id": "S12", "type": "Boundary", "name": "Atlanta results state persists on a fresh URL load",
+      "viewport": "Mobile (390×844)", "status": "PASS",
+      "steps": ["Open /auto/dealer-locator/atlanta directly in a brand-new tab (simulating a copied URL)"],
+      "expected": "Results render directly without needing to re-search.",
+      "actual": "Fresh tab loaded straight into the Atlanta results page title and dealer cards (Midas, Gordy Tire) with no extra interaction needed.",
+      "screenshots": []
+    },
+    {
+      "id": "S13", "type": "Regression", "name": "Product-line switch (Auto → Motorcycle) on the dealer locator",
+      "viewport": "Mobile (390×844)", "status": "PASS",
+      "steps": ["Open the \"Auto\" product-line dropdown", "Select \"Motorcycle\""],
+      "expected": "Switches the active product line without breaking the layout.",
+      "actual": "Dropdown opened, \"Motorcycle\" selected, control label updated to \" Motorcycle \" with no layout break.",
+      "screenshots": ["images/ss_SCRUM-68_en-us_S12_productline-switch-motorcycle.png"]
+    },
+    {
+      "id": "S14", "type": "Regression", "name": "Map zoom control responds",
+      "viewport": "Mobile (390×844)", "status": "PASS",
+      "steps": ["Locate the map zoom-in control", "Click it"],
+      "expected": "Map zoom control is present and clickable.",
+      "actual": "Zoom-in control found and clicked successfully with no error.",
+      "screenshots": []
+    },
+    {
+      "id": "S15", "type": "Regression", "name": "Footer link group renders with working hrefs",
+      "viewport": "Mobile (390×844)", "status": "PASS",
+      "steps": ["Scroll to the footer", "Inspect the first footer link"],
+      "expected": "Footer link block renders with a valid href.",
+      "actual": "First footer link (\"Automotive Tires\" → /auto) present with a valid relative href.",
+      "screenshots": []
+    },
+    {
+      "id": "S16", "type": "Regression", "name": "Breadcrumb \"Home\" link is present",
+      "viewport": "Mobile (390×844)", "status": "PASS",
+      "steps": ["Inspect the breadcrumb row"],
+      "expected": "Breadcrumb shows Home / Auto / Find a dealer.",
+      "actual": "Breadcrumb present with a working \"Home\" link.",
+      "screenshots": []
+    },
+    {
+      "id": "S17", "type": "Analytics", "name": "TC-AN1 — analytics events fire during dealer-locator interaction",
+      "viewport": "Mobile (390×844)", "status": "PASS",
+      "steps": ["Snapshot window.dataLayer.length before interaction (12)", "Perform navigation + product-line switch interactions", "Snapshot window.dataLayer.length after (18)"],
+      "expected": "At least one dataLayer push or analytics request fires after an interaction.",
+      "actual": "window.dataLayer grew from 12 to 18 entries across the session's interactions — analytics instrumentation is firing.",
+      "screenshots": []
+    }
+  ],
+  "bugs": [
+    {
+      "id": "BUG-1",
+      "title": "\"Locate me\" button is invisible and not tappable on initial page load (390×844)",
+      "severity": "MAJOR",
+      "confidence": "HIGH",
+      "scenario": "S3",
+      "url": "https://www.michelinman.com/auto/dealer-locator",
+      "steps": [
+        "Load https://www.michelinman.com/auto/dealer-locator at 390×844 (fresh, no interaction)",
+        "Inspect .dl__autocomplete-locate — computed opacity is 0, tabindex is -1, bounding box x:-2 (partly off-canvas)",
+        "elementFromPoint at the button's own coordinates resolves to the parent .dl__dealer-search__container, not the button — a native Playwright click times out waiting for actionability",
+        "Tap/focus the search input — opacity becomes 1 and the button becomes visible (tabindex stays -1)"
+      ],
+      "expected": "Per AC-1, the \"Locate me\" button is fully visible and tappable at 390px width without any prior interaction.",
+      "actual": "The button is invisible (opacity:0) and not hit-testable at the point a user would tap on initial load. It only appears once the search input is focused — a workaround exists, but AC-1 is not met as written for the page's initial state.",
+      "impact": "A mobile user landing on the page cannot see or use \"Locate me\" until they first tap into the search field, which is not an obvious affordance and directly contradicts AC-1.",
+      "screenshots": ["images/ss_SCRUM-68_en-us_bug1_locate-me-hidden-initial.png"]
+    },
+    {
+      "id": "BUG-2",
+      "title": "Dealer card street addresses are CSS-truncated with an ellipsis on mobile results cards",
+      "severity": "MAJOR",
+      "confidence": "HIGH",
+      "scenario": "S8",
+      "url": "https://www.michelinman.com/auto/dealer-locator/atlanta",
+      "steps": [
+        "Load https://www.michelinman.com/auto/dealer-locator/atlanta at 390×844",
+        "Inspect the address <span> under each dealer card — white-space:nowrap, text-overflow:ellipsis, fixed width:300px",
+        "scrollWidth (343–361px) exceeds clientWidth (300px) for every address checked",
+        "Reproduced identically in a second, fresh browser context on the same URL"
+      ],
+      "expected": "Per AC-3, dealer card addresses must render with no text truncation on mobile.",
+      "actual": "Addresses are visibly cut off with an ellipsis, e.g. \"1590 HOWELL MILL RD NW, Georgia, ATLANT…\" — the full address is not readable in the card without opening the external map link.",
+      "impact": "Users cannot read the full dealer address directly on the results card at 390px width, contradicting AC-3's explicit no-truncation requirement.",
+      "screenshots": ["images/ss_SCRUM-68_en-us_bug2_see-map-overlap.png"]
+    }
+  ],
+  "regressionInventory": [
+    { "widget": "dealer search input (dl__content)", "selector": "input[placeholder*='Enter a city']", "action": "type + observe", "tested": true, "result": "Visible, full-width, tappable at 390px — see S2." },
+    { "widget": "Locate me button (dl__content)", "selector": ".dl__autocomplete-locate", "action": "inspect visibility/tappability on load", "tested": true, "result": "FAIL — hidden until search input is focused. See BUG-1 / S3." },
+    { "widget": "top cities list (dl__top-cities)", "selector": ".dl__top-cities-list", "action": "swipe/scroll through all 5 cities + tap-through under gradient", "tested": true, "result": "PASS — all 5 reachable, gradient does not block taps. See S5/S6." },
+    { "widget": "product-line switch dropdown (dl__content)", "selector": ".dl__product-line-switch__dropdown-button", "action": "open, select Motorcycle, verify label updates", "tested": true, "result": "PASS — switched cleanly. See S13." },
+    { "widget": "map widget (dl__map)", "selector": ".dl__map [class*='zoom-in']", "action": "click zoom-in control", "tested": true, "result": "PASS — control present and clickable. See S14." },
+    { "widget": "dealer result cards (results page)", "selector": "[class*='card-dealer']", "action": "render + read address text", "tested": true, "result": "FAIL — address text CSS-truncated with ellipsis. See BUG-2 / S8." },
+    { "widget": "\"See map\" quick-link vs \"Contact dealer\" CTA (results page)", "selector": "button/a:has-text('See map')", "action": "bounding-box overlap check against adjacent CTA", "tested": true, "result": "Intermittent overlap, 2 of 4 checks — see S9 / Observations." },
+    { "widget": "hamburger / mobile nav menu (header)", "selector": ".ds__btn-icon", "action": "open menu, verify Find Dealers reachable", "tested": true, "result": "PASS — 1 tap to Find Dealers. See S10." },
+    { "widget": "footer link grid (ds__block)", "selector": ".ds__block a", "action": "verify first link renders with valid href", "tested": true, "result": "PASS — see S15." },
+    { "widget": "breadcrumb (ds__block-breadcrumb)", "selector": ".ds__block-breadcrumb a", "action": "verify Home link present", "tested": true, "result": "PASS — see S16." },
+    { "widget": "chat assistant \"Mitch\" (ts__cta-widget)", "selector": ".ts__cta-widget", "action": "open only, no deeper interaction", "tested": false, "result": "SKIPPED — third-party embed, per site-reference.md standing constraints." }
+  ],
+  "analytics": {
+    "testCase": "TC-AN1",
+    "action": "Selected Atlanta from the top-cities list, then switched the product-line dropdown from Auto to Motorcycle",
+    "status": "PASS",
+    "evidence": "window.dataLayer.length grew from 12 (page load) to 18 after the session's interactions, indicating GTM/dataLayer pushes are firing."
+  },
+  "consoleErrors": [
+    "24 console errors captured, all of the same two recurring types (not caused by test actions):",
+    "Repeated CSP violations: \"Loading media from 'data:audio/mpeg;base64,...' violates ... default-src *\" — a third-party chat-widget (\"Mitch\") notification sound blocked by CSP.",
+    "Repeated \"Failed to load resource: the server responded with a status of 400/404\" tied to the network failures listed below."
+  ],
+  "networkFailures": [
+    "400 https://dctityd.michelinman.com/status-log (repeated, first-party — a status/analytics logging endpoint; no visible UI impact observed)",
+    "404 https://cdn-prod-nam.yepgarage.info/.../logo-bmw.png (third-party dealer-network partner logo)",
+    "404 https://cdn-prod-nam.yepgarage.info/.../logo-audi.png (third-party dealer-network partner logo)",
+    "404 https://cdn-prod-nam.yepgarage.info/.../logo-genesis.png (third-party dealer-network partner logo)"
+  ],
+  "viewportSummary": [
+    { "viewport": "Desktop (1280×800)", "tested": false, "issuesFound": "N/A — ticket scoped exclusively to mobile (390×844)" },
+    { "viewport": "Mobile (390×844)", "tested": true, "issuesFound": "2 MAJOR bugs (BUG-1, BUG-2), 1 intermittent layout observation" }
+  ],
+  "observations": [
+    "\"New-York\" top-city label uses a hyphen (\"New-York\") instead of \"New York\" — likely a raw-slug label leaking into the UI; MINOR copy issue, not covered by any AC.",
+    "The \"Locate me\" button keeps tabindex=\"-1\" even after it becomes visible (post search-input focus), so it remains unreachable via keyboard/switch-control navigation — an accessibility gap beyond AC-1's literal wording, worth a follow-up ticket.",
+    "Intermittent overlap between the \"See map\" quick-link and a card's \"Contact dealer\" CTA (Gordy Tire card, Atlanta results) reproduced in 2 of 4 checks — appears tied to the timing of the star-rating badge render shifting card height. Flagged for developer review even though it did not meet the two-for-two Fail Recheck Gate for a confirmed bug.",
+    "404s for BMW/Audi/Genesis partner network logos from a third-party CDN (cdn-prod-nam.yepgarage.info) were observed in the network log; not confirmed as visually broken within this run's scope (Filters panel was not opened) — recommend a follow-up check.",
+    "CDL-xxx known-defect references: none found in the ticket or comments for this area."
+  ],
+  "automationGap": {
+    "suiteIndexedAt": "2026-08-25T13:20:44.155Z",
+    "existingCoverage": [
+      "features/dealer-locator.feature — 4 scenarios: page load with core elements, city search returns results, dealer cards show title/address, opening a dealer shows its details page (desktop only, no viewport override)"
+    ],
+    "coveredByExisting": ["S1", "S7"],
+    "missingScenarios": [
+      { "scenario": "S3", "summary": "\"Locate me\" button visible/tappable on initial mobile load", "priority": "HIGH", "declaredGap": true },
+      { "scenario": "S8", "summary": "Dealer card address text is not truncated on mobile", "priority": "HIGH", "declaredGap": true },
+      { "scenario": "S9", "summary": "No overlapping elements between adjacent card CTAs on mobile", "priority": "MEDIUM", "declaredGap": true },
+      { "scenario": "S5/S6", "summary": "Top-cities scroller swipe + fade-gradient tap-through on mobile", "priority": "MEDIUM", "declaredGap": true },
+      { "scenario": "S10", "summary": "Mobile hamburger nav → Find Dealers reachable in <3 taps", "priority": "MEDIUM", "declaredGap": true }
+    ],
+    "missingSteps": [
+      { "step": "the {string} button should be visible without prior interaction", "belongsIn": "steps/dealer-locator.steps.js" },
+      { "step": "every dealer card address should not be truncated", "belongsIn": "steps/dealer-locator.steps.js" },
+      { "step": "I open the mobile navigation menu", "belongsIn": "steps/common.steps.js" }
+    ],
+    "missingRegistry": [
+      { "name": "dealer locator productline switch", "kind": "element", "suggestedSelector": ".dl__product-line-switch__dropdown-button" }
+    ],
+    "recommendation": "\"Mobile and tablet viewports\" is already a declared knownGap for this suite. This run confirms it is where two real MAJOR bugs live (the Locate me button and address truncation) — closing S1, S3, S7, S11 and S12 as automated mobile-viewport scenarios (all buildable from existing step vocabulary) would give regression coverage for the two bugs found here at minimal cost."
+  },
+  "videoFull": "videos/SCRUM-68_en-us_full.webm",
+  "featureFile": "features/generated/SCRUM-68.feature"
+}

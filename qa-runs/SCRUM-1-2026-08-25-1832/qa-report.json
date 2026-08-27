@@ -1,0 +1,213 @@
+{
+  "ticketId": "SCRUM-1",
+  "featureSummary": "Dealer Locator: Find Dealers CTA on homepage reaches the dealer locator page, which shows a top-cities list, and selecting a city reaches a results (DRP) page with more than one dealer.",
+  "locale": "en-us",
+  "viewport": "Desktop (1280x800)",
+  "targetUrl": "https://www.michelinman.com/",
+  "testDate": "2026-08-25",
+  "verdict": "APPROVED",
+  "summary": {
+    "total": 12,
+    "passed": 11,
+    "failed": 0,
+    "partial": 1,
+    "skipped": 0,
+    "bugs": { "blocker": 0, "critical": 0, "major": 0, "minor": 0 }
+  },
+  "acceptanceCriteria": [
+    {
+      "id": "AC-1",
+      "requirement": "Clicking \"Find Dealers\" from the homepage navigates to the dealer locator page",
+      "testCases": ["S2"],
+      "status": "MET"
+    },
+    {
+      "id": "AC-2",
+      "requirement": "The dealer locator page shows a top-cities list with at least 5 cities",
+      "testCases": ["S4"],
+      "status": "MET"
+    },
+    {
+      "id": "AC-3",
+      "requirement": "Selecting a city reaches a results page (DRP) showing more than one dealer, each with name, address, and a CTA",
+      "testCases": ["S6"],
+      "status": "MET"
+    }
+  ],
+  "commentScenarios": [
+    {
+      "source": "Jira comment",
+      "number": 1,
+      "summary": "Does the sort/filter option on the dealer results page actually reorder the results, or just visually open?",
+      "testCase": "S8, S10 (sort) / S9, S12 (filter)",
+      "status": "COVERED — both sort and filter genuinely change the results, not just visually open",
+      "notes": "Sort by Name: first result changed MIDAS -> 4 WHEEL PARTS, URL changed to ?sort=name. Filters panel opens (Services/Networks facets); selecting the \"Air Conditioning\" service filter and applying it reduced results from 566 to 5 dealers — a genuine filter, not a cosmetic-only control."
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "S1",
+      "type": "Sanity",
+      "name": "Homepage loads cleanly with no blocking errors",
+      "viewport": "Desktop",
+      "status": "PASS",
+      "steps": ["Navigate to https://www.michelinman.com/", "Dismiss consent banner", "Confirm title and URL"],
+      "expected": "Homepage loads, title reflects Michelin USA, no navigation errors",
+      "actual": "Title 'Explore Michelin Tires, Products & More | Michelin USA' loaded, consent banner dismissed successfully",
+      "screenshots": ["images/ss_SCRUM-1_en-us_S1_homepage-baseline.png"]
+    },
+    {
+      "id": "S2",
+      "type": "Feature",
+      "acCoverage": "AC-1",
+      "name": "Find Dealers link navigates from homepage to dealer locator page",
+      "viewport": "Desktop",
+      "status": "PASS",
+      "steps": ["Highlight and screenshot the \"Find Dealers\" link", "Click the \"Find Dealers\" link", "Wait for navigation"],
+      "expected": "Browser navigates to the dealer locator page",
+      "actual": "Navigated to https://www.michelinman.com/auto/dealer-locator",
+      "screenshots": ["images/ss_SCRUM-1_en-us_S2_find-dealers-link-highlighted.png", "images/ss_SCRUM-1_en-us_S2_dealer-locator-page.png"]
+    },
+    {
+      "id": "S3",
+      "type": "Feature",
+      "acCoverage": "AC-1",
+      "name": "Console/network health check immediately after AC-1 navigation",
+      "viewport": "Desktop",
+      "status": "PARTIAL",
+      "steps": ["Inspect captured console errors and network failures right after landing on the dealer locator page"],
+      "expected": "No first-party errors that break the visible dealer-locator flow",
+      "actual": "Only third-party/analytics noise observed (CSP-blocked data: audio/script, a 400 on an analytics-looking endpoint, 404s on third-party dealer-logo images) — none affect the tested flow. Logged as observations, not bugs.",
+      "screenshots": []
+    },
+    {
+      "id": "S4",
+      "type": "Feature",
+      "acCoverage": "AC-2",
+      "name": "Top-cities list shows at least 5 cities on the dealer locator page",
+      "viewport": "Desktop",
+      "status": "PASS",
+      "steps": ["Census anchors on the dealer locator page", "Highlight the top-cities links", "Screenshot"],
+      "expected": "At least 5 city links present",
+      "actual": "Exactly 5 auto dealer-locator city links found: Atlanta, Chicago, Dallas, Los Angeles, New-York — meets \"at least 5\" with no headroom",
+      "screenshots": ["images/ss_SCRUM-1_en-us_S4_top-cities-list-highlighted.png"]
+    },
+    {
+      "id": "S5",
+      "type": "Boundary",
+      "acCoverage": "AC-2",
+      "name": "Top-cities list boundary: exact minimum count, no duplicate/broken entries",
+      "viewport": "Desktop",
+      "status": "PASS",
+      "steps": ["Cross-check city link hrefs against expected slugs (atlanta, chicago, dallas, los-angeles, new-york)"],
+      "expected": "Each city link has a distinct, well-formed href with no duplicates",
+      "actual": "All 5 hrefs are distinct and correctly slugged under /auto/dealer-locator/{city}",
+      "screenshots": []
+    },
+    {
+      "id": "S6",
+      "type": "Feature",
+      "acCoverage": "AC-3",
+      "name": "Selecting Atlanta reaches a results page with more than one dealer card (name, address, CTA)",
+      "viewport": "Desktop",
+      "status": "PASS",
+      "steps": ["Click the Atlanta top-city link", "Wait for navigation", "Census dealer cards on the results page", "Highlight and screenshot the first card"],
+      "expected": "Results page loads with multiple dealer cards, each showing name, address, and a CTA",
+      "actual": "Navigated to /auto/dealer-locator/atlanta; multiple .dl__card-dealer cards found, each with a title (e.g. MIDAS), address, and a \"Contact dealer\" CTA",
+      "screenshots": ["images/ss_SCRUM-1_en-us_S6_atlanta-first-dealer-card.png"]
+    },
+    {
+      "id": "S7",
+      "type": "Boundary",
+      "acCoverage": "AC-3",
+      "name": "Dealer card CTA is a real, clickable contact action",
+      "viewport": "Desktop",
+      "status": "PASS",
+      "steps": ["Locate the \"Contact dealer\" CTA on the first card", "Confirm it is a real interactive button element in the card"],
+      "expected": "CTA is a functioning, non-decorative control",
+      "actual": "\"Contact dealer\" is a real <button class=\"ds__btn\"> nested inside the dealer card contact-cta wrapper",
+      "screenshots": []
+    },
+    {
+      "id": "S8",
+      "type": "Comment scenario",
+      "name": "Sort by Name genuinely reorders dealer results (not just visually opens)",
+      "viewport": "Desktop",
+      "status": "PASS",
+      "steps": ["Record first card title before sort (MIDAS)", "Click \"Sort by: Recommended\" control", "Screenshot the open sort panel", "Click the \"Name\" option", "Record first card title after sort", "Screenshot reordered result"],
+      "expected": "First result changes and reflects real reordering by name",
+      "actual": "First card changed from MIDAS to 4 WHEEL PARTS; URL also changed to ?sort=name — genuine reorder, not a cosmetic-only interaction",
+      "screenshots": ["images/ss_SCRUM-1_en-us_S8_sort-panel-open.png", "images/ss_SCRUM-1_en-us_S8_sort-by-name-reordered.png"]
+    },
+    {
+      "id": "S9",
+      "type": "Comment scenario",
+      "name": "Filters control on dealer results page opens a usable panel",
+      "viewport": "Desktop",
+      "status": "PASS",
+      "steps": ["Click the \"Filters\" button", "Screenshot"],
+      "expected": "A visible filter panel/dialog opens with filter controls",
+      "actual": "A slide-in panel opens showing \"Services\" and \"Networks\" filter facets and a \"See results\" action. Note: an initial DOM-diff-based check on this run produced a false-positive miss (wrong class selector) before the screenshot proved the panel does open; corrected after visual verification.",
+      "screenshots": ["images/ss_SCRUM-1_en-us_S9_filters-panel-open.png"]
+    },
+    {
+      "id": "S12",
+      "type": "Comment scenario",
+      "name": "Applying a Services filter genuinely narrows dealer results",
+      "viewport": "Desktop",
+      "status": "PASS",
+      "steps": ["Open Filters panel", "Expand \"Services\" facet", "Check the \"Air Conditioning\" option", "Click \"See results\"", "Compare dealer count before/after"],
+      "expected": "Applying a filter reduces/changes the dealer result set, not just visually toggles",
+      "actual": "Dealer count dropped from 566 to 5 after applying the \"Air Conditioning\" service filter — a genuine, functioning filter",
+      "screenshots": ["images/ss_SCRUM-1_en-us_S12_filter-applied-result.png"]
+    },
+    {
+      "id": "S10",
+      "type": "Boundary",
+      "name": "Sort state boundary: URL persistence and back-button behaviour",
+      "viewport": "Desktop",
+      "status": "PASS",
+      "steps": ["Open a fresh tab directly on .../atlanta?sort=name", "Confirm first card is 4 WHEEL PARTS", "Navigate back on the original tab (sorted -> unsorted)", "Confirm first card reverts to MIDAS"],
+      "expected": "Sort state survives a copy-URL-to-fresh-tab test, and the back button restores the previous (unsorted) state",
+      "actual": "Fresh tab on ?sort=name correctly showed 4 WHEEL PARTS first; back button correctly restored the unsorted list with MIDAS first",
+      "screenshots": []
+    },
+    {
+      "id": "S11",
+      "type": "Analytics",
+      "name": "TC-AN1 — analytics signal fires on interaction",
+      "viewport": "Desktop",
+      "status": "PASS",
+      "steps": ["Snapshot window.dataLayer length and start capturing analytics-looking requests before first interaction", "Perform navigation and sort interaction", "Compare dataLayer length and captured requests"],
+      "expected": "At least one analytics request or dataLayer push captured after interaction",
+      "actual": "window.dataLayer grew from 15 to 31 entries; 52 analytics-looking network requests captured",
+      "screenshots": []
+    }
+  ],
+  "bugs": [],
+  "analytics": {
+    "testCase": "TC-AN1",
+    "action": "Sort control interaction (Recommended -> Name) after page load",
+    "status": "PASS",
+    "evidence": "dataLayer length 15 -> 31; 52 analytics-looking requests captured (gtm/analytics/collect endpoints)"
+  },
+  "regressionInventory": [
+    { "widget": "Find Dealers link (homepage header)", "selector": "role=link[name=/find dealers/i]", "action": "click, verify navigation", "tested": true, "result": "Navigates to /auto/dealer-locator" },
+    { "widget": "Top cities list (dealer locator page)", "selector": "a[href*=\"/auto/dealer-locator/{city}\"]", "action": "census + click Atlanta", "tested": true, "result": "5 links present, Atlanta navigates to results page" },
+    { "widget": "Dealer result cards (DRP)", "selector": ".dl__card-dealer.result", "action": "census cards, verify name/address/CTA", "tested": true, "result": "Multiple cards found, each with name, address and Contact dealer CTA" },
+    { "widget": "Sort by control", "selector": "role=button[name=/sort by/i]", "action": "open panel, select Name, verify reorder", "tested": true, "result": "Genuinely reorders results and mutates URL to ?sort=name" },
+    { "widget": "Filters control", "selector": "role=button[name=/^filters$/i]", "action": "click, verify visible panel, apply a Services filter and verify result count changes", "tested": true, "result": "PASS — panel opens with Services/Networks facets; applying Air Conditioning filter reduced results 566 -> 5" },
+    { "widget": "Pagination controls", "selector": "text=1,2,3,…,29", "action": "verify present", "tested": false, "result": "SKIPPED — out of scope for this focused run (AC-1/2/3 + sort/filter only, per user request)" },
+    { "widget": "Map view toggle (Map/Satellite)", "selector": "text=Map, text=Satellite", "action": "toggle and verify", "tested": false, "result": "SKIPPED — third-party map embed, out of scope for this focused run" },
+    { "widget": "Locate me geolocation button", "selector": "role=button[name=/locate me/i]", "action": "click and verify geolocation prompt/behaviour", "tested": false, "result": "SKIPPED — out of scope for this focused run (AC-1/2/3 + sort/filter only, per user request)" }
+  ],
+  "observations": [
+    "Console: CSP blocks of an injected data: audio/script and a 400 on an analytics-looking endpoint (dctityd.michelinman.com/status-log) observed on every page — appears environmental/third-party, does not affect tested flows.",
+    "Network: 404s on third-party dealer-logo CDN images (cdn-prod-nam.yepgarage.info/.../logo-bmw.png, logo-audi.png) on the results page — broken third-party brand logos, cosmetic only, does not block AC-1/2/3 or sort/filter functionality.",
+    "Self-correction note: an initial DOM-diff heuristic (className regex) reported the Filters control as non-functional (candidate MAJOR bug). Before finalizing, the required screenshot evidence showed the panel actually opens correctly, and a follow-up check confirmed applying a filter genuinely narrows results (566 -> 5). The false-positive was retracted per the Bug Verification Protocol — flagged here for transparency, not filed as a bug.",
+    "Scope note: this run was explicitly focused on AC-1, AC-2, AC-3 and the sort/filter comment scenario per the request. Full regression census (pagination, map, geolocation, boundary checklist beyond sort/filter/URL) was intentionally not exhaustive and is flagged for a follow-up full run.",
+    "Automation gap: both the sort control and the filter control have zero automated coverage in this suite despite both working correctly — recommended as a top priority for the next automation pass."
+  ],
+  "videoFull": "videos/SCRUM-1_en-us_full.webm",
+  "videoClip": null
+}

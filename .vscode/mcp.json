@@ -4,6 +4,10 @@
       "type": "stdio",
       "command": "node",
       "args": ["${workspaceFolder}/mcp-servers/jira-mcp-server.mjs"]
+    },
+    "playwright": {
+      "command": "npx",
+      "args": ["-y", "@playwright/mcp@latest"]
     }
   }
 }

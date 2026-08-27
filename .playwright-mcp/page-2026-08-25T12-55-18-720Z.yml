@@ -1,0 +1,789 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e15]:
+    - generic:
+      - list:
+        - listitem [ref=e16]:
+          - link "Go to page content" [ref=e17] [cursor=pointer]:
+            - /url: "#page-content"
+        - listitem [ref=e18]:
+          - link "Go to page navigation" [ref=e19] [cursor=pointer]:
+            - /url: "#page-navigation"
+    - generic [ref=e22]:
+      - generic [ref=e23]:
+        - generic [ref=e24]: Subscribe to Michelin Auto News & Tire Insights.
+        - link "Subscribe" [ref=e25] [cursor=pointer]:
+          - /url: https://www.michelinman.com/auto/newsletter
+      - button [ref=e26] [cursor=pointer]
+    - banner [ref=e31]:
+      - generic [ref=e33]:
+        - button [ref=e35] [cursor=pointer]
+        - link "Go to home page" [ref=e39] [cursor=pointer]:
+          - /url: https://www.michelinman.com/
+    - generic [ref=e43]:
+      - generic [ref=e44]:
+        - heading "FIND THE TIRE THAT MEETS YOUR NEEDS" [level=1] [ref=e47]:
+          - generic [ref=e48]: FIND THE TIRE
+          - generic [ref=e49]: THAT MEETS YOUR NEEDS
+        - generic [ref=e53]:
+          - generic [ref=e55]:
+            - button "Auto" [ref=e56] [cursor=pointer]
+            - button "Moto" [ref=e60] [cursor=pointer]
+            - button "Bicycle" [ref=e63] [cursor=pointer]
+            - button "Classic" [ref=e66] [cursor=pointer]
+            - button "Motorsports" [ref=e69] [cursor=pointer]
+          - generic [ref=e74]:
+            - button "Search by Vehicle" [ref=e75] [cursor=pointer]:
+              - generic [ref=e80]:
+                - generic [ref=e81]: Search by
+                - generic [ref=e82]: Vehicle
+            - button "Search by Size" [ref=e86] [cursor=pointer]:
+              - generic [ref=e91]:
+                - generic [ref=e92]: Search by
+                - generic [ref=e93]: Size
+      - generic [ref=e100]:
+        - heading "Featured News" [level=2] [ref=e102]
+        - generic [ref=e105]:
+          - generic [ref=e106]:
+            - button "Previous" [disabled] [ref=e107]
+            - button "Next" [ref=e110] [cursor=pointer]
+          - list [ref=e117]:
+            - listitem [ref=e118]:
+              - generic [ref=e120]:
+                - complementary [ref=e121]:
+                  - link [ref=e122] [cursor=pointer]:
+                    - /url: /stories/articles/imsa-paddock-says-goodbye
+                    - img "brian3" [ref=e124]
+                - generic [ref=e127]:
+                  - heading "A Familiar Face in the IMSA Paddock Says Goodbye at Watkins Glen" [level=3] [ref=e128]
+                  - generic [ref=e129]: The 2026 Sahlen's Six Hours of The Glen delivered another memorable chapter in IMSA endurance racing. As teams battled through six grueling hours where strategy, reliability, and execution mattered as much as outright speed, one longtime Michelin team member was taking in the event from a different perspective.
+                  - link "View article" [ref=e130] [cursor=pointer]:
+                    - /url: /stories/articles/imsa-paddock-says-goodbye
+            - listitem [ref=e132]:
+              - generic [ref=e134]:
+                - complementary [ref=e135]:
+                  - link "landscape web":
+                    - /url: /stories/articles/route-66-with-harley-davidson
+                    - generic:
+                      - img "landscape web"
+                - generic [ref=e138]:
+                  - heading "Riding the Spirit of Route 66 with Harley-Davidson" [level=3] [ref=e139]
+                  - generic [ref=e140]: "There are few roads as iconic as Route 66. Stretching across America’s heartland, it has long represented freedom, adventure and the joy of the open road. For Michelin, that spirit feels especially familiar. Since our earliest days developing tires for bicycles in the late 1800s, we have been driven by a simple purpose: helping people go farther, explore more and experience the journey with confidence."
+                  - link "View article" [ref=e141] [cursor=pointer]:
+                    - /url: /stories/articles/route-66-with-harley-davidson
+            - listitem [ref=e143]:
+              - generic [ref=e145]:
+                - complementary [ref=e146]:
+                  - link "michelinman origins header 1600 max":
+                    - /url: https://www.michelinman.com/why-michelin/michelin-man-origin
+                    - generic:
+                      - img "michelinman origins header 1600 max"
+                - generic [ref=e149]:
+                  - heading "The birth and evolution of the original Michelin Man" [level=3] [ref=e150]
+                  - generic [ref=e151]: Discover the story of one of the world’s most recognizable mascots and learn how an everyday object becomes an icon.
+                  - link "Learn More" [ref=e152] [cursor=pointer]:
+                    - /url: https://www.michelinman.com/why-michelin/michelin-man-origin
+            - listitem [ref=e154]:
+              - generic [ref=e156]:
+                - complementary [ref=e157]:
+                  - link "cr hottopic":
+                    - /url: https://www.michelinman.com/why-michelin/trust
+                    - generic:
+                      - img "cr hottopic"
+                - generic [ref=e160]:
+                  - heading "Named Best Tire Brand of 2026." [level=3] [ref=e161]
+                  - generic [ref=e162]: Best Tire Brand for 4 Consecutive Years, according to Consumer Reports. * Consumer Reports does not endorse products or services.
+                  - link "Learn More" [ref=e163] [cursor=pointer]:
+                    - /url: https://www.michelinman.com/why-michelin/trust
+            - listitem [ref=e165]:
+              - generic [ref=e167]:
+                - complementary [ref=e168]:
+                  - link "mich motorsports web banner 2 1":
+                    - /url: https://news.motorsport.michelin.com/en/
+                    - generic:
+                      - img "mich motorsports web banner 2 1"
+                - generic [ref=e171]:
+                  - heading "LATEST MOTORSPORT NEWS" [level=3] [ref=e172]
+                  - link "Discover More" [ref=e173] [cursor=pointer]:
+                    - /url: https://news.motorsport.michelin.com/en/
+          - list [ref=e178]:
+            - listitem [ref=e179]
+            - listitem [ref=e180]
+            - listitem [ref=e181]
+            - listitem [ref=e182]
+            - listitem [ref=e183]
+    - main [ref=e184]:
+      - generic [ref=e188]:
+        - paragraph [ref=e189]: Site Search
+        - generic [ref=e191]:
+          - generic [ref=e192]: What can I help you find today?
+          - textbox "What can I help you find today?" [ref=e193]
+          - button "Search" [ref=e194] [cursor=pointer]
+        - paragraph [ref=e197]:
+          - generic [ref=e200]: AI-generated results may be inaccurate. Verify important information before use.
+      - generic [ref=e204]:
+        - generic [ref=e206]:
+          - heading "Every Mile" [level=3] [ref=e210]
+          - separator [ref=e212]
+          - heading "Every Moment" [level=3] [ref=e216]
+          - separator [ref=e218]
+          - heading "Trust Michelin" [level=3] [ref=e222]
+        - img "Trust mascot icon" [ref=e225]
+      - generic [ref=e230]:
+        - complementary [ref=e231]:
+          - img "mich hero 4" [ref=e233]
+        - generic [ref=e234]:
+          - generic [ref=e236]:
+            - heading "TIRE SELECTION MADE EASY" [level=2] [ref=e239]:
+              - generic [ref=e240]: TIRE SELECTION
+              - generic [ref=e241]: MADE EASY
+            - generic [ref=e242]: Choosing the right tires for your vehicle is essential for a reliable, comfortable, and efficient driving experience.
+          - generic [ref=e244]:
+            - link "Explore" [ref=e245] [cursor=pointer]:
+              - /url: https://www.michelinman.com/auto/find-tires
+            - link "View all tires" [ref=e247] [cursor=pointer]:
+              - /url: https://www.michelinman.com/auto/browse-tires/all-tires?from=home
+      - generic [ref=e251]:
+        - generic [ref=e253]:
+          - heading "ELEVATE YOUR DRIVING EXPERIENCE WITH THE BEST MICHELIN TIRE" [level=2] [ref=e256]:
+            - generic [ref=e257]: ELEVATE YOUR DRIVING EXPERIENCE
+            - generic [ref=e258]: WITH THE BEST MICHELIN TIRE
+          - generic [ref=e259]: Choosing the right tires for your vehicle is essential for a reliable, comfortable, and efficient driving experience. Whether you're navigating city streets, embarking on long road trips, or tackling challenging terrains, the right set of tires can make all the difference. At Michelin, we're committed to helping you make informed decisions about your tire selection.
+        - generic [ref=e262]:
+          - tablist [ref=e263]:
+            - tab "For personal use" [selected] [ref=e264] [cursor=pointer]
+            - tab "For business" [ref=e265] [cursor=pointer]
+          - tabpanel "For personal use" [ref=e266]:
+            - list [ref=e269]:
+              - listitem [ref=e270]:
+                - link "Four-wheel drive vehicle on rugged terrain emphasizing tire durability. Car, SUV & Van Discover" [ref=e271] [cursor=pointer]:
+                  - /url: https://www.michelinman.com/auto
+                  - img "Four-wheel drive vehicle on rugged terrain emphasizing tire durability." [ref=e274]
+                  - generic [ref=e275]:
+                    - heading "Car, SUV & Van" [level=3] [ref=e278]
+                    - generic: Discover
+              - listitem [ref=e282]:
+                - link "Stylish modern vehicle with sleek tires on a scenic drive. Motorcycle Discover" [ref=e283] [cursor=pointer]:
+                  - /url: https://www.michelinman.com/motorcycle
+                  - img "Stylish modern vehicle with sleek tires on a scenic drive." [ref=e286]
+                  - generic [ref=e287]:
+                    - heading "Motorcycle" [level=3] [ref=e290]
+                    - generic: Discover
+              - listitem [ref=e294]:
+                - link "mtb homepage picture Bicycle Discover" [ref=e295] [cursor=pointer]:
+                  - /url: https://www.michelinman.com/bicycle
+                  - img "mtb homepage picture" [ref=e298]
+                  - generic [ref=e299]:
+                    - heading "Bicycle" [level=3] [ref=e302]
+                    - generic: Discover
+              - listitem [ref=e306]:
+                - link "Classic car with premium tires parked under a bright sky. Classic Discover" [ref=e307] [cursor=pointer]:
+                  - /url: https://www.michelinman.com/classic
+                  - img "Classic car with premium tires parked under a bright sky." [ref=e310]
+                  - generic [ref=e311]:
+                    - heading "Classic" [level=3] [ref=e314]
+                    - generic: Discover
+              - listitem [ref=e318]:
+                - link "High-speed motorsport vehicle with performance tires on the track. Motorsport Discover" [ref=e319] [cursor=pointer]:
+                  - /url: https://www.michelinman.com/motorsport/sport-tires
+                  - img "High-speed motorsport vehicle with performance tires on the track." [ref=e322]
+                  - generic [ref=e323]:
+                    - heading "Motorsport" [level=3] [ref=e326]
+                    - generic: Discover
+      - generic [ref=e333]:
+        - complementary [ref=e334]:
+          - button [ref=e336]:
+            - img "video" [ref=e338]
+            - generic "Play" [ref=e339]
+        - generic [ref=e342]:
+          - heading "WE INNOVATE EVERY DAY FOR A BETTER TOMORROW" [level=2] [ref=e343]
+          - generic [ref=e344]: We move the world forward on the road and far beyond
+          - link "Learn more" [ref=e346] [cursor=pointer]:
+            - /url: https://www.michelinman.com/why-michelin/trust
+      - generic [ref=e351]:
+        - generic [ref=e354]:
+          - heading "EVERYDAY INNOVATION" [level=2] [ref=e357]:
+            - generic [ref=e358]: EVERYDAY
+            - generic [ref=e359]: INNOVATION
+          - generic [ref=e360]: Discover how our technologies improve mobility everyday. Innovation has been part of our DNA since 1889.
+        - generic [ref=e363]:
+          - generic [ref=e364]:
+            - button "Previous" [disabled] [ref=e365]
+            - button "Next" [ref=e368] [cursor=pointer]
+          - list [ref=e375]:
+            - listitem [ref=e376]:
+              - generic [ref=e377]:
+                - complementary [ref=e378]:
+                  - img "innovation cropped v2" [ref=e380]
+                - generic [ref=e382]:
+                  - heading "Trust Michelin For a Better Life in Motion" [level=3] [ref=e384]
+                  - link "Learn more" [ref=e386] [cursor=pointer]:
+                    - /url: https://www.michelinman.com/why-michelin/trust
+            - listitem [ref=e388]:
+              - generic [ref=e389]:
+                - complementary [ref=e390]:
+                  - img "bts wet pm trendy restau hyund io psev rvb" [ref=e392]
+                - generic [ref=e394]:
+                  - heading "We Lead The Way In Electric Mobility" [level=3] [ref=e396]
+                  - link "Learn more" [ref=e398] [cursor=pointer]:
+                    - /url: https://www.michelinman.com/auto/electric-vehicle-tires
+            - listitem [ref=e400]:
+              - generic [ref=e401]:
+                - complementary [ref=e402]:
+                  - img "Hero image emphasizing vehicle safety and performance." [ref=e404]
+                - generic [ref=e406]:
+                  - heading "Safety Enables a World of Opportunity" [level=3] [ref=e408]
+                  - link "Learn more" [ref=e410] [cursor=pointer]:
+                    - /url: https://www.michelinman.com/auto/safer-mobility
+      - generic [ref=e415]:
+        - generic [ref=e416]:
+          - heading "WHY IS MICHELIN THE BEST CHOICE FOR YOU?" [level=2] [ref=e418]:
+            - generic [ref=e419]: WHY IS MICHELIN THE
+            - generic [ref=e420]: BEST CHOICE FOR YOU?
+          - link "Learn more" [ref=e421] [cursor=pointer]:
+            - /url: https://www.michelinman.com/auto/awards-and-recognition
+        - link "Most Awarded Tire Brand" [ref=e423] [cursor=pointer]:
+          - /url: https://www.michelinman.com/why-michelin/trust
+          - heading "Most Awarded Tire Brand" [level=3] [ref=e429]
+        - link "Premium Partners" [ref=e432] [cursor=pointer]:
+          - /url: https://www.michelinman.com/partnership
+          - heading "Premium Partners" [level=3] [ref=e438]
+      - generic [ref=e442]:
+        - generic [ref=e445]:
+          - heading "EXPERIENCE THE MICHELIN WAY OF LIFE" [level=2] [ref=e448]:
+            - generic [ref=e449]: EXPERIENCE
+            - generic [ref=e450]: THE MICHELIN WAY OF LIFE
+          - generic [ref=e451]: Make the most of your next journey. See our best recommendations for Travels, Hotels, Restaurants, and Lifestyle products.
+        - list [ref=e454]:
+          - listitem [ref=e455]:
+            - 'link "Scenic view promoting Via Michelin navigation services. Maps & travel apps ViaMichelin, road maps and travel guides: explore the world with Michelin! Discover" [ref=e456] [cursor=pointer]':
+              - /url: https://www.viamichelin.com/
+              - img "Scenic view promoting Via Michelin navigation services." [ref=e459]
+              - generic [ref=e460]:
+                - heading "Maps & travel apps" [level=3] [ref=e463]
+                - generic:
+                  - generic: "ViaMichelin, road maps and travel guides: explore the world with Michelin!"
+                  - generic [ref=e465]: Discover
+          - listitem [ref=e468]:
+            - link "Tablet view showcasing hostel options with Michelin recommendations. Hotels Book your next stay in the world’s most exciting luxury and boutique hotels, selected by Michelin. Discover" [ref=e469] [cursor=pointer]:
+              - /url: https://www.tablethotels.com/
+              - img "Tablet view showcasing hostel options with Michelin recommendations." [ref=e472]
+              - generic [ref=e473]:
+                - heading "Hotels" [level=3] [ref=e476]
+                - generic:
+                  - generic: Book your next stay in the world’s most exciting luxury and boutique hotels, selected by Michelin.
+                  - generic [ref=e478]: Discover
+          - listitem [ref=e481]:
+            - link "Image highlighting the Michelin Red Guide for 2024. Gastronomy Our choice of the best restaurants all around the globe with the Michelin Guide Discover" [ref=e482] [cursor=pointer]:
+              - /url: https://guide.michelin.com/en/
+              - img "Image highlighting the Michelin Red Guide for 2024." [ref=e485]
+              - generic [ref=e486]:
+                - heading "Gastronomy" [level=3] [ref=e489]
+                - generic:
+                  - generic: Our choice of the best restaurants all around the globe with the Michelin Guide
+                  - generic [ref=e491]: Discover
+          - listitem [ref=e494]:
+            - link "l1320208 enhanced nr 1 Accessories & Footwear Enhance your journey and go off the beaten track with Michelin products, vehicle accessories and shoes. Discover" [ref=e495] [cursor=pointer]:
+              - /url: https://www.michelinman.com/lifestyle
+              - img "l1320208 enhanced nr 1" [ref=e498]
+              - generic [ref=e499]:
+                - heading "Accessories & Footwear" [level=3] [ref=e502]
+                - generic:
+                  - generic: Enhance your journey and go off the beaten track with Michelin products, vehicle accessories and shoes.
+                  - generic [ref=e504]: Discover
+      - generic [ref=e509]:
+        - heading "HOW CAN WE HELP?" [level=2] [ref=e511]:
+          - generic [ref=e512]: HOW CAN WE
+          - generic [ref=e513]: HELP?
+        - list [ref=e515]:
+          - listitem [ref=e516]:
+            - generic [ref=e517]:
+              - complementary [ref=e518]:
+                - generic [ref=e519]:
+                  - img "chat icon"
+              - generic [ref=e522]:
+                - heading "Chat with us" [level=3] [ref=e523]
+                - generic [ref=e524]: Click on Mitch, our virtual tire expert, on the bottom right corner to start your chat.
+          - listitem [ref=e525]:
+            - generic [ref=e526]:
+              - complementary [ref=e527]:
+                - generic [ref=e528]:
+                  - img "phone ring icon"
+              - generic [ref=e530]:
+                - generic [ref=e531]:
+                  - heading "Call or Text" [level=3] [ref=e532]
+                  - generic [ref=e533]: 8am - 7pm EST (Mon-Fri) and 9am - 1pm EST (Sat)
+                - link "Call or Text" [ref=e535] [cursor=pointer]:
+                  - /url: tel:1-866-866-6605
+          - listitem [ref=e537]:
+            - generic [ref=e538]:
+              - complementary [ref=e539]:
+                - generic [ref=e540]:
+                  - img "send email icon"
+              - generic [ref=e542]:
+                - generic [ref=e543]:
+                  - heading "Email us" [level=3] [ref=e544]
+                  - generic [ref=e545]: We want to hear from you. If you have questions or comments about tires for your vehicle, fill out this form and we will reply within 2-3 business days.
+                - link "Email us" [ref=e547] [cursor=pointer]:
+                  - /url: https://www.michelinman.com/auto/assistance/contact-us-form
+          - listitem [ref=e549]:
+            - generic [ref=e550]:
+              - complementary [ref=e551]:
+                - generic [ref=e552]:
+                  - img "mail icon"
+              - generic [ref=e554]:
+                - generic [ref=e555]:
+                  - heading "Subscribe to our newsletter" [level=3] [ref=e556]
+                  - generic [ref=e557]: For the latest special offers, product launches and road safety tips.
+                - link "Subscribe" [ref=e559] [cursor=pointer]:
+                  - /url: https://www.michelinman.com/auto/newsletter
+    - contentinfo [ref=e564]:
+      - generic [ref=e565]:
+        - list [ref=e567]:
+          - listitem [ref=e568]:
+            - link [ref=e569] [cursor=pointer]:
+              - /url: https://www.facebook.com/MichelinUSA/
+              - img "Facebook" [ref=e570]
+          - listitem [ref=e572]:
+            - link [ref=e573] [cursor=pointer]:
+              - /url: https://www.youtube.com/user/Michelin/playlists
+              - img "Youtube" [ref=e574]
+          - listitem [ref=e576]:
+            - link [ref=e577] [cursor=pointer]:
+              - /url: https://www.instagram.com/michelinusa/
+              - img "Instagram" [ref=e578]
+          - listitem [ref=e580]:
+            - link [ref=e581] [cursor=pointer]:
+              - /url: https://x.com/michelinusa
+              - img "Twitter" [ref=e582]
+        - list [ref=e586]:
+          - listitem [ref=e587]:
+            - text: Automotive
+            - list "Automotive" [ref=e589]:
+              - listitem [ref=e590]:
+                - link "Browse All Car Tires" [ref=e591] [cursor=pointer]:
+                  - /url: /auto/browse-tires/all-tires
+              - listitem [ref=e593]:
+                - link "Browse by Car Tire Sizes" [ref=e594] [cursor=pointer]:
+                  - /url: /auto/car-tire-sizes
+              - listitem [ref=e596]:
+                - link "Browse by Vehicle Manufacturer" [ref=e597] [cursor=pointer]:
+                  - /url: /auto/manufacturers
+              - listitem [ref=e599]:
+                - link "Browse by Driving Needs" [ref=e600] [cursor=pointer]:
+                  - /url: /auto/find-tires
+              - listitem [ref=e602]:
+                - link "Browse by Season, Category or Family" [ref=e603] [cursor=pointer]:
+                  - /url: /auto/find-tires-by-season-category-or-family
+              - listitem [ref=e605]:
+                - link "Browse All Classic Tires" [ref=e606] [cursor=pointer]:
+                  - /url: /classic/browse-tires/all-tires
+              - listitem [ref=e608]:
+                - link "Browse Motorsports Tires" [ref=e609] [cursor=pointer]:
+                  - /url: /motorsport/browse-tires/all-tires
+              - listitem [ref=e611]:
+                - link "Michelin Tire Selector Tool" [ref=e612] [cursor=pointer]:
+                  - /url: /auto/find-the-perfect-tire
+              - listitem [ref=e614]:
+                - link "Car Tire Promotions" [ref=e615] [cursor=pointer]:
+                  - /url: /deals-promotions-and-rebates
+              - listitem [ref=e617]:
+                - link "Locate car tire dealers" [ref=e618] [cursor=pointer]:
+                  - /url: /auto/dealer-locator
+          - listitem [ref=e620]:
+            - text: Motorcycle
+            - list "Motorcycle" [ref=e622]:
+              - listitem [ref=e623]:
+                - link "Browse All Motorcycle Tires" [ref=e624] [cursor=pointer]:
+                  - /url: /motorcycle/browse-tires/all-tires
+              - listitem [ref=e626]:
+                - link "Browse by Motorcycle Tire Size" [ref=e627] [cursor=pointer]:
+                  - /url: /motorcycle/motorcycle-tire-sizes
+              - listitem [ref=e629]:
+                - link "Browse by Riding Experience" [ref=e630] [cursor=pointer]:
+                  - /url: /motorcycle/browse-tires/by-usage
+              - listitem [ref=e632]:
+                - link "Browse by Product Family" [ref=e633] [cursor=pointer]:
+                  - /url: /motorcycle/browse-tires/by-family
+              - listitem [ref=e635]:
+                - link "Browse by Manufacturer" [ref=e636] [cursor=pointer]:
+                  - /url: /motorcycle/manufacturers
+              - listitem [ref=e638]:
+                - link "Locate motorcycle tire dealers" [ref=e639] [cursor=pointer]:
+                  - /url: /motorcycle/dealer-locator
+              - listitem [ref=e641]:
+                - link "Motorcycle Tire Promotions" [ref=e642] [cursor=pointer]:
+                  - /url: /motorcycle/promotions
+              - listitem [ref=e644]:
+                - link "Michelin Bib Mousse" [ref=e645] [cursor=pointer]:
+                  - /url: /motorcycle/accessories/michelin-bib-mousse
+              - listitem [ref=e647]:
+                - link "Off-Road Rim Band" [ref=e648] [cursor=pointer]:
+                  - /url: /motorcycle/accessories/off-road-rim-band
+          - listitem [ref=e650]:
+            - text: Bicycle
+            - list "Bicycle" [ref=e652]:
+              - listitem [ref=e653]:
+                - link "Browse All Bicycle Tires" [ref=e654] [cursor=pointer]:
+                  - /url: /bicycle/browse-tires/all-tires
+              - listitem [ref=e656]:
+                - link "Browse by Road Usage" [ref=e657] [cursor=pointer]:
+                  - /url: /bicycle/road
+              - listitem [ref=e659]:
+                - link "Browse by Gravel Usage" [ref=e660] [cursor=pointer]:
+                  - /url: /bicycle/gravel
+              - listitem [ref=e662]:
+                - link "Browse by MTB Usage" [ref=e663] [cursor=pointer]:
+                  - /url: /bicycle/mtb
+              - listitem [ref=e665]:
+                - link "Browse by E-Bike Usage" [ref=e666] [cursor=pointer]:
+                  - /url: /bicycle/e-bike
+              - listitem [ref=e668]:
+                - link "Browse by Commuting & Tour Usage" [ref=e669] [cursor=pointer]:
+                  - /url: /bicycle/city
+              - listitem [ref=e671]:
+                - link "Browse by Kids Usage" [ref=e672] [cursor=pointer]:
+                  - /url: /bicycle/kids
+              - listitem [ref=e674]:
+                - link "Browse by City Tubes" [ref=e675] [cursor=pointer]:
+                  - /url: /bicycle/bicycle-tubes/bicycle-tubes-city
+              - listitem [ref=e677]:
+                - link "Browse by MTB Tubes" [ref=e678] [cursor=pointer]:
+                  - /url: /bicycle/bicycle-tubes/bicycle-tubes-mtb
+              - listitem [ref=e680]:
+                - link "Browse by Road Tubes" [ref=e681] [cursor=pointer]:
+                  - /url: /bicycle/bicycle-tubes/bicycle-tubes-road
+          - listitem [ref=e683]:
+            - text: Find Tires by Vehicle Type
+            - list [ref=e685]:
+              - listitem [ref=e686]:
+                - link "EV Ready" [ref=e687] [cursor=pointer]:
+                  - /url: /auto/browse-tires/by-category/ev-ready
+              - listitem [ref=e689]:
+                - link "Light Truck" [ref=e690] [cursor=pointer]:
+                  - /url: /auto/browse-tires/by-category/light-truck
+              - listitem [ref=e692]:
+                - link "Luxury Performance Touring" [ref=e693] [cursor=pointer]:
+                  - /url: /auto/browse-tires/by-category/luxury-performance-touring
+              - listitem [ref=e695]:
+                - link "Passenger Car / Minivan" [ref=e696] [cursor=pointer]:
+                  - /url: /auto/browse-tires/by-category/passenger-car-minivan
+              - listitem [ref=e698]:
+                - link "SUV Crossover" [ref=e699] [cursor=pointer]:
+                  - /url: /auto/browse-tires/by-category/suv-crossover
+              - listitem [ref=e701]:
+                - link "Ultra high performance" [ref=e702] [cursor=pointer]:
+                  - /url: /auto/browse-tires/by-category/ultra-high-performance-sport
+          - listitem [ref=e704]:
+            - text: Automotive Support
+            - list "Automotive" [ref=e706]:
+              - listitem [ref=e707]:
+                - link "Newsletter Subscription" [ref=e708] [cursor=pointer]:
+                  - /url: /auto/newsletter
+              - listitem [ref=e710]:
+                - link "FAQs for Car Tires" [ref=e711] [cursor=pointer]:
+                  - /url: /auto/assistance/michelin-faqs
+              - listitem [ref=e713]:
+                - link "Register Your Car Tires" [ref=e714] [cursor=pointer]:
+                  - /url: /auto/registertires
+              - listitem [ref=e716]:
+                - link "Automotive Tires Warranty" [ref=e717] [cursor=pointer]:
+                  - /url: /auto/assistance/warranty
+              - listitem [ref=e719]:
+                - link "Car Owner's Manual" [ref=e720] [cursor=pointer]:
+                  - /url: https://dgaddcosprod.blob.core.windows.net/b2c-experience-production/attachments/cl3t42v4v06oc01qvi1ihty9p-michelin-replacement-tires-owner-s-manual-warranty.pdf
+              - listitem [ref=e722]:
+                - link "Car Tire Promo Redemption" [ref=e723] [cursor=pointer]:
+                  - /url: https://www.tirerewardcenter.com/Michelin/MichHome.aspx
+              - listitem [ref=e725]:
+                - link "Safety Recalls" [ref=e726] [cursor=pointer]:
+                  - /url: /why-michelin/safety-recalls
+              - listitem [ref=e728]:
+                - link "Automotive Press Room" [ref=e729] [cursor=pointer]:
+                  - /url: https://michelinmedia.com/
+          - listitem [ref=e731]:
+            - text: Motorcycle Support
+            - list "Motorcycle" [ref=e733]:
+              - listitem [ref=e734]:
+                - link "Motorcycle Tires Newsletter Subscription" [ref=e735] [cursor=pointer]:
+                  - /url: /motorcycle/newsletter-2w
+              - listitem [ref=e737]:
+                - link "FAQs for Motorcycle Tires" [ref=e738] [cursor=pointer]:
+                  - /url: /motorcycle/faq-motorcycle
+              - listitem [ref=e740]:
+                - link "Register Your Motorcycle Tires" [ref=e741] [cursor=pointer]:
+                  - /url: /motorcycle/registertires
+              - listitem [ref=e743]:
+                - link "Motorcycle Tires Warranty" [ref=e744] [cursor=pointer]:
+                  - /url: /motorcycle/assistance/motorcycle-and-scooter-warranty
+              - listitem [ref=e746]:
+                - link "Motorcycle Tires Owner's Manual" [ref=e747] [cursor=pointer]:
+                  - /url: https://cxf-prod.azureedge.net/b2c-experience-production/attachments/clr7ywsfy05nq01m33a1d9cks-motorcycle-tire-owner-s-manual-warranty-12-23-eng-final.pdf
+          - listitem [ref=e749]:
+            - text: Bicycle Support
+            - list "Bicycle" [ref=e751]:
+              - listitem [ref=e752]:
+                - link "Bicycle Retailer News" [ref=e753] [cursor=pointer]:
+                  - /url: /bicycle/retailer-news
+              - listitem [ref=e755]:
+                - link "World Series Main Partner" [ref=e756] [cursor=pointer]:
+                  - /url: /bicycle/whoop-uci-mtb-world-series-main-partner
+              - listitem [ref=e758]:
+                - link "Bicycle Technologies" [ref=e759] [cursor=pointer]:
+                  - /url: /bicycle/technologies-bicycle
+              - listitem [ref=e761]:
+                - link "Bicycle Tires Promotions" [ref=e762] [cursor=pointer]:
+                  - /url: /deals-promotions-and-rebates
+              - listitem [ref=e764]:
+                - link "Locate Bicycle Tire Dealers" [ref=e765] [cursor=pointer]:
+                  - /url: /bicycle/dealer-locator
+          - listitem [ref=e767]:
+            - text: Car Tires Tips and Advice
+            - list [ref=e769]:
+              - listitem [ref=e770]:
+                - link "Tires 101" [ref=e771] [cursor=pointer]:
+                  - /url: /auto/auto-tips-and-advice/tires-101
+              - listitem [ref=e773]:
+                - link "Michelin Tire Maintenance" [ref=e774] [cursor=pointer]:
+                  - /url: /auto/auto-tips-and-advice/tire-maintenance
+              - listitem [ref=e776]:
+                - link "Tire Buying Guide" [ref=e777] [cursor=pointer]:
+                  - /url: /auto/auto-tips-and-advice/tire-buying-guide
+              - listitem [ref=e779]:
+                - link "Driving Tips" [ref=e780] [cursor=pointer]:
+                  - /url: /auto/auto-tips-and-advice/driving-tips
+              - listitem [ref=e782]:
+                - link "Car Emergencies" [ref=e783] [cursor=pointer]:
+                  - /url: /auto/auto-tips-and-advice/car-emergencies
+              - listitem [ref=e785]:
+                - link "Tire Damage" [ref=e786] [cursor=pointer]:
+                  - /url: /auto/auto-tips-and-advice/tire-damage
+              - listitem [ref=e788]:
+                - link "Electric Mobility Guide" [ref=e789] [cursor=pointer]:
+                  - /url: /auto/auto-tips-and-advice/electric-mobility-guide
+              - listitem [ref=e791]:
+                - link "Car Tire Pressure Guide" [ref=e792] [cursor=pointer]:
+                  - /url: /auto/auto-tips-and-advice/tire-pressure
+              - listitem [ref=e794]:
+                - link "Winter Driving" [ref=e795] [cursor=pointer]:
+                  - /url: /auto/auto-tips-and-advice/winter-driving
+              - listitem [ref=e797]:
+                - link "Preparation for Winter" [ref=e798] [cursor=pointer]:
+                  - /url: /auto/auto-tips-and-advice/preparation-for-winter
+          - listitem [ref=e800]:
+            - text: Auto Sizes
+            - list [ref=e802]:
+              - listitem [ref=e803]:
+                - link "Shop 15-Inch Car Tires" [ref=e804] [cursor=pointer]:
+                  - /url: /auto/car-tire-sizes/15-inch-tires
+              - listitem [ref=e806]:
+                - link "Shop 16-Inch Car Tires" [ref=e807] [cursor=pointer]:
+                  - /url: /auto/car-tire-sizes/16-inch-tires
+              - listitem [ref=e809]:
+                - link "Shop 17-Inch Car Tires" [ref=e810] [cursor=pointer]:
+                  - /url: /auto/car-tire-sizes/17-inch-tires
+              - listitem [ref=e812]:
+                - link "Shop 18-Inch Car Tires" [ref=e813] [cursor=pointer]:
+                  - /url: /auto/car-tire-sizes/18-inch-tires
+              - listitem [ref=e815]:
+                - link "Shop 19-Inch Car Tires" [ref=e816] [cursor=pointer]:
+                  - /url: /auto/car-tire-sizes/19-inch-tires
+              - listitem [ref=e818]:
+                - link "Shop 19.5-Inch Car Tires" [ref=e819] [cursor=pointer]:
+                  - /url: /auto/car-tire-sizes/19.5-inch-tires
+              - listitem [ref=e821]:
+                - link "Shop 20-Inch Car Tires" [ref=e822] [cursor=pointer]:
+                  - /url: /auto/car-tire-sizes/20-inch-tires
+              - listitem [ref=e824]:
+                - link "Shop 21-Inch Car Tires" [ref=e825] [cursor=pointer]:
+                  - /url: /auto/car-tire-sizes/21-inch-tires
+              - listitem [ref=e827]:
+                - link "Shop 22-Inch Car Tires" [ref=e828] [cursor=pointer]:
+                  - /url: /auto/car-tire-sizes/22-inch-tires
+              - listitem [ref=e830]:
+                - link "Shop 23-Inch Car Tires" [ref=e831] [cursor=pointer]:
+                  - /url: /auto/car-tire-sizes/23-inch-tires
+              - listitem [ref=e833]:
+                - link "Shop 24-Inch Car Tires" [ref=e834] [cursor=pointer]:
+                  - /url: /auto/car-tire-sizes/24-inch-tires
+          - listitem [ref=e836]:
+            - text: Moto Sizes
+            - list [ref=e838]:
+              - listitem [ref=e839]:
+                - link "Shop 8-Inch Motorcycle Tires" [ref=e840] [cursor=pointer]:
+                  - /url: /motorcycle/motorcycle-tire-sizes/8-inch-tires
+              - listitem [ref=e842]:
+                - link "Shop 10-Inch Motorcycle Tires" [ref=e843] [cursor=pointer]:
+                  - /url: /motorcycle/motorcycle-tire-sizes/10-inch-tires
+              - listitem [ref=e845]:
+                - link "Shop 11-Inch Motorcycle Tires" [ref=e846] [cursor=pointer]:
+                  - /url: /motorcycle/motorcycle-tire-sizes/11-inch-tires
+              - listitem [ref=e848]:
+                - link "Shop 12-Inch Motorcycle Tires" [ref=e849] [cursor=pointer]:
+                  - /url: /motorcycle/motorcycle-tire-sizes/12-inch-tires
+              - listitem [ref=e851]:
+                - link "Shop 13-Inch Motorcycle Tires" [ref=e852] [cursor=pointer]:
+                  - /url: /motorcycle/motorcycle-tire-sizes/13-inch-tires
+              - listitem [ref=e854]:
+                - link "Shop 14-Inch Motorcycle Tires" [ref=e855] [cursor=pointer]:
+                  - /url: /motorcycle/motorcycle-tire-sizes/14-inch-tires
+              - listitem [ref=e857]:
+                - link "Shop 15-Inch Motorcycle Tires" [ref=e858] [cursor=pointer]:
+                  - /url: /motorcycle/motorcycle-tire-sizes/15-inch-tires
+              - listitem [ref=e860]:
+                - link "Shop 16-Inch Motorcycle Tires" [ref=e861] [cursor=pointer]:
+                  - /url: /motorcycle/motorcycle-tire-sizes/16-inch-tires
+              - listitem [ref=e863]:
+                - link "Shop 16.5-Inch Motorcycle Tires" [ref=e864] [cursor=pointer]:
+                  - /url: /motorcycle/motorcycle-tire-sizes/16.5-inch-tires
+              - listitem [ref=e866]:
+                - link "Shop 17-Inch Motorcycle Tires" [ref=e867] [cursor=pointer]:
+                  - /url: /motorcycle/motorcycle-tire-sizes/17-inch-tires
+              - listitem [ref=e869]:
+                - link "Shop 18-Inch Motorcycle Tires" [ref=e870] [cursor=pointer]:
+                  - /url: /motorcycle/motorcycle-tire-sizes/18-inch-tires
+              - listitem [ref=e872]:
+                - link "Shop 19-Inch Motorcycle Tires" [ref=e873] [cursor=pointer]:
+                  - /url: /motorcycle/motorcycle-tire-sizes/19-inch-tires
+              - listitem [ref=e875]:
+                - link "Shop 21-Inch Motorcycle Tires" [ref=e876] [cursor=pointer]:
+                  - /url: /motorcycle/motorcycle-tire-sizes/21-inch-tires
+          - listitem [ref=e878]:
+            - text: Auto Manufacturer
+            - list [ref=e880]:
+              - listitem [ref=e881]:
+                - link "Toyota" [ref=e882] [cursor=pointer]:
+                  - /url: /auto/manufacturers/toyota
+              - listitem [ref=e884]:
+                - link "Honda" [ref=e885] [cursor=pointer]:
+                  - /url: /auto/manufacturers/honda
+              - listitem [ref=e887]:
+                - link "Ford" [ref=e888] [cursor=pointer]:
+                  - /url: /auto/manufacturers/ford
+              - listitem [ref=e890]:
+                - link "Chevrolet" [ref=e891] [cursor=pointer]:
+                  - /url: /auto/manufacturers/chevrolet
+              - listitem [ref=e893]:
+                - link "Nissan" [ref=e894] [cursor=pointer]:
+                  - /url: /auto/manufacturers/nissan
+              - listitem [ref=e896]:
+                - link "Hyundai" [ref=e897] [cursor=pointer]:
+                  - /url: /auto/manufacturers/hyundai
+              - listitem [ref=e899]:
+                - link "Kia" [ref=e900] [cursor=pointer]:
+                  - /url: /auto/manufacturers/kia
+              - listitem [ref=e902]:
+                - link "Jeep" [ref=e903] [cursor=pointer]:
+                  - /url: /auto/manufacturers/jeep
+              - listitem [ref=e905]:
+                - link "Subaru" [ref=e906] [cursor=pointer]:
+                  - /url: /auto/manufacturers/subaru
+              - listitem [ref=e908]:
+                - link "Volkswagen" [ref=e909] [cursor=pointer]:
+                  - /url: /auto/manufacturers/volkswagen
+              - listitem [ref=e911]:
+                - link "BMW" [ref=e912] [cursor=pointer]:
+                  - /url: /auto/manufacturers/bmw
+              - listitem [ref=e914]:
+                - link "Mercedes-Benz" [ref=e915] [cursor=pointer]:
+                  - /url: /auto/manufacturers/mercedes-benz
+              - listitem [ref=e917]:
+                - link "Audi" [ref=e918] [cursor=pointer]:
+                  - /url: /auto/manufacturers/audi
+              - listitem [ref=e920]:
+                - link "Lexus" [ref=e921] [cursor=pointer]:
+                  - /url: /auto/manufacturers/lexus
+              - listitem [ref=e923]:
+                - link "Mazda" [ref=e924] [cursor=pointer]:
+                  - /url: /auto/manufacturers/mazda
+              - listitem [ref=e926]:
+                - link "GMC" [ref=e927] [cursor=pointer]:
+                  - /url: /auto/manufacturers/gmc
+              - listitem [ref=e929]:
+                - link "Dodge" [ref=e930] [cursor=pointer]:
+                  - /url: /auto/manufacturers/dodge
+              - listitem [ref=e932]:
+                - link "Ram" [ref=e933] [cursor=pointer]:
+                  - /url: /auto/manufacturers/ram
+              - listitem [ref=e935]:
+                - link "Tesla" [ref=e936] [cursor=pointer]:
+                  - /url: /auto/manufacturers/tesla
+              - listitem [ref=e938]:
+                - link "Volvo" [ref=e939] [cursor=pointer]:
+                  - /url: /auto/manufacturers/volvo
+          - listitem [ref=e941]:
+            - text: Moto Manufacturer
+            - list [ref=e943]:
+              - listitem [ref=e944]:
+                - link "Harley-Davidson" [ref=e945] [cursor=pointer]:
+                  - /url: /motorcycle/manufacturers/harley-davidson
+              - listitem [ref=e947]:
+                - link "Honda" [ref=e948] [cursor=pointer]:
+                  - /url: /motorcycle/manufacturers/honda
+              - listitem [ref=e950]:
+                - link "Yamaha" [ref=e951] [cursor=pointer]:
+                  - /url: /motorcycle/manufacturers/yamaha
+              - listitem [ref=e953]:
+                - link "Kawasaki" [ref=e954] [cursor=pointer]:
+                  - /url: /motorcycle/manufacturers/kawasaki
+              - listitem [ref=e956]:
+                - link "Suzuki" [ref=e957] [cursor=pointer]:
+                  - /url: /motorcycle/manufacturers/suzuki
+              - listitem [ref=e959]:
+                - link "BMW Motorrad" [ref=e960] [cursor=pointer]:
+                  - /url: /motorcycle/manufacturers/bmw
+              - listitem [ref=e962]:
+                - link "Ducati" [ref=e963] [cursor=pointer]:
+                  - /url: /motorcycle/manufacturers/ducati
+              - listitem [ref=e965]:
+                - link "Triumph" [ref=e966] [cursor=pointer]:
+                  - /url: /motorcycle/manufacturers/triumph
+              - listitem [ref=e968]:
+                - link "KTM" [ref=e969] [cursor=pointer]:
+                  - /url: /motorcycle/manufacturers/ktm
+              - listitem [ref=e971]:
+                - link "Indian Motorcycle" [ref=e972] [cursor=pointer]:
+                  - /url: /motorcycle/manufacturers/indian-motorcycle
+              - listitem [ref=e974]:
+                - link "Aprilia" [ref=e975] [cursor=pointer]:
+                  - /url: /motorcycle/manufacturers/aprilia
+              - listitem [ref=e977]:
+                - link "Husqvarna" [ref=e978] [cursor=pointer]:
+                  - /url: /motorcycle/manufacturers/husqvarna
+              - listitem [ref=e980]:
+                - link "Vespa" [ref=e981] [cursor=pointer]:
+                  - /url: /motorcycle/manufacturers/vespa
+              - listitem [ref=e983]:
+                - link "Moto Guzzi" [ref=e984] [cursor=pointer]:
+                  - /url: /motorcycle/manufacturers/moto-guzzi
+              - listitem [ref=e986]:
+                - link "Royal Enfield" [ref=e987] [cursor=pointer]:
+                  - /url: /motorcycle/manufacturers/royal-enfield
+      - generic [ref=e990]:
+        - list [ref=e991]:
+          - listitem [ref=e992]:
+            - link "Legal & Privacy Center" [ref=e993] [cursor=pointer]:
+              - /url: /legal-privacy-center
+          - listitem [ref=e995]:
+            - link "Privacy Notice" [ref=e996] [cursor=pointer]:
+              - /url: /legal-privacy-center/privacy-notice
+          - listitem [ref=e998]:
+            - link "Website Terms of Use" [ref=e999] [cursor=pointer]:
+              - /url: /legal-privacy-center/terms-of-use
+          - listitem [ref=e1001]:
+            - link "Accessibility Statement" [ref=e1002] [cursor=pointer]:
+              - /url: /accessibility-statement
+          - listitem [ref=e1004]:
+            - button "Your Privacy Choices" [ref=e1005] [cursor=pointer]
+          - listitem [ref=e1008]:
+            - link "Site map" [ref=e1009] [cursor=pointer]:
+              - /url: /auto/assistance/site-map
+          - listitem [ref=e1011]:
+            - link "Careers" [ref=e1012] [cursor=pointer]:
+              - /url: https://jobs.michelinman.com/
+          - listitem [ref=e1014]:
+            - link "Code of Ethics" [ref=e1015] [cursor=pointer]:
+              - /url: https://ethique.michelin.com/en/
+        - generic [ref=e1017]: Copyright © 2026 Michelin North America, Inc. All rights reserved. The Michelin Man is a registered trademark owned by Michelin.
+  - generic:
+    - region:
+      - button "Chat with us" [ref=e1018] [cursor=pointer]

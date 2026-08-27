@@ -1,0 +1,507 @@
+- generic [ref=e2228]:
+  - generic:
+    - list:
+      - listitem [ref=e2229]:
+        - link "Go to page content" [ref=e2230] [cursor=pointer]:
+          - /url: "#page-content"
+      - listitem [ref=e2231]:
+        - link "Go to page navigation" [ref=e2232] [cursor=pointer]:
+          - /url: "#page-navigation"
+  - banner [ref=e2235]:
+    - generic [ref=e2237]:
+      - button [ref=e2239] [cursor=pointer]
+      - link "Go to home page" [ref=e2243] [cursor=pointer]:
+        - /url: https://www.michelinman.com/
+  - main [ref=e2246]:
+    - generic [ref=e2255]:
+      - generic [ref=e2256]:
+        - heading "Dealer Locator For Car Tires" [level=1] [ref=e2258]
+        - generic [ref=e2259]:
+          - list [ref=e2261]:
+            - combobox [ref=e2262]:
+              - listitem [ref=e2263]:
+                - generic [ref=e2266]: Auto
+          - generic [ref=e2269]:
+            - generic [ref=e2271]:
+              - combobox "Enter a city, suburb, town or zip code" [ref=e2272]
+              - button "Search"
+            - combobox [ref=e2273]:
+              - button [ref=e2274]:
+                - generic [ref=e2276]: Locate me
+      - list [ref=e2280]:
+        - generic [ref=e2281]:
+          - listitem [ref=e2282]:
+            - link "Atlanta" [ref=e2283] [cursor=pointer]:
+              - /url: https://www.michelinman.com/auto/dealer-locator/atlanta
+          - listitem [ref=e2285]:
+            - link "Chicago" [ref=e2286] [cursor=pointer]:
+              - /url: https://www.michelinman.com/auto/dealer-locator/chicago
+          - listitem [ref=e2288]:
+            - link "Dallas" [ref=e2289] [cursor=pointer]:
+              - /url: https://www.michelinman.com/auto/dealer-locator/dallas
+          - listitem [ref=e2291]:
+            - link "Los Angeles" [ref=e2292] [cursor=pointer]:
+              - /url: https://www.michelinman.com/auto/dealer-locator/los-angeles
+          - listitem [ref=e2294]:
+            - link "New-York" [ref=e2295] [cursor=pointer]:
+              - /url: https://www.michelinman.com/auto/dealer-locator/new-york
+    - navigation "Fil d'ariane" [ref=e2303]:
+      - list [ref=e2304]:
+        - listitem [ref=e2305]:
+          - link "Home" [ref=e2306] [cursor=pointer]:
+            - /url: https://www.michelinman.com/
+        - listitem [ref=e2309]:
+          - text: /
+          - link "Auto" [ref=e2310] [cursor=pointer]:
+            - /url: https://www.michelinman.com/auto
+        - listitem [ref=e2311]:
+          - text: /
+          - generic [ref=e2312]: Find a dealer
+  - contentinfo [ref=e2316]:
+    - generic [ref=e2317]:
+      - list [ref=e2319]:
+        - listitem [ref=e2320]:
+          - link [ref=e2321] [cursor=pointer]:
+            - /url: https://www.facebook.com/MichelinUSA/
+            - img "Facebook" [ref=e2322]
+        - listitem [ref=e2324]:
+          - link [ref=e2325] [cursor=pointer]:
+            - /url: https://www.youtube.com/user/Michelin/playlists
+            - img "Youtube" [ref=e2326]
+        - listitem [ref=e2328]:
+          - link [ref=e2329] [cursor=pointer]:
+            - /url: https://www.instagram.com/michelinusa/
+            - img "Instagram" [ref=e2330]
+        - listitem [ref=e2332]:
+          - link [ref=e2333] [cursor=pointer]:
+            - /url: https://x.com/michelinusa
+            - img "Twitter" [ref=e2334]
+      - list [ref=e2338]:
+        - listitem [ref=e2339]:
+          - text: Automotive
+          - list "Automotive" [ref=e2341]:
+            - listitem [ref=e2342]:
+              - link "Browse All Car Tires" [ref=e2343] [cursor=pointer]:
+                - /url: /auto/browse-tires/all-tires
+            - listitem [ref=e2345]:
+              - link "Browse by Car Tire Sizes" [ref=e2346] [cursor=pointer]:
+                - /url: /auto/car-tire-sizes
+            - listitem [ref=e2348]:
+              - link "Browse by Vehicle Manufacturer" [ref=e2349] [cursor=pointer]:
+                - /url: /auto/manufacturers
+            - listitem [ref=e2351]:
+              - link "Browse by Driving Needs" [ref=e2352] [cursor=pointer]:
+                - /url: /auto/find-tires
+            - listitem [ref=e2354]:
+              - link "Browse by Season, Category or Family" [ref=e2355] [cursor=pointer]:
+                - /url: /auto/find-tires-by-season-category-or-family
+            - listitem [ref=e2357]:
+              - link "Browse All Classic Tires" [ref=e2358] [cursor=pointer]:
+                - /url: /classic/browse-tires/all-tires
+            - listitem [ref=e2360]:
+              - link "Browse Motorsports Tires" [ref=e2361] [cursor=pointer]:
+                - /url: /motorsport/browse-tires/all-tires
+            - listitem [ref=e2363]:
+              - link "Michelin Tire Selector Tool" [ref=e2364] [cursor=pointer]:
+                - /url: /auto/find-the-perfect-tire
+            - listitem [ref=e2366]:
+              - link "Car Tire Promotions" [ref=e2367] [cursor=pointer]:
+                - /url: /deals-promotions-and-rebates
+            - listitem [ref=e2369]:
+              - link "Locate car tire dealers" [ref=e2370] [cursor=pointer]:
+                - /url: /auto/dealer-locator
+        - listitem [ref=e2372]:
+          - text: Motorcycle
+          - list "Motorcycle" [ref=e2374]:
+            - listitem [ref=e2375]:
+              - link "Browse All Motorcycle Tires" [ref=e2376] [cursor=pointer]:
+                - /url: /motorcycle/browse-tires/all-tires
+            - listitem [ref=e2378]:
+              - link "Browse by Motorcycle Tire Size" [ref=e2379] [cursor=pointer]:
+                - /url: /motorcycle/motorcycle-tire-sizes
+            - listitem [ref=e2381]:
+              - link "Browse by Riding Experience" [ref=e2382] [cursor=pointer]:
+                - /url: /motorcycle/browse-tires/by-usage
+            - listitem [ref=e2384]:
+              - link "Browse by Product Family" [ref=e2385] [cursor=pointer]:
+                - /url: /motorcycle/browse-tires/by-family
+            - listitem [ref=e2387]:
+              - link "Browse by Manufacturer" [ref=e2388] [cursor=pointer]:
+                - /url: /motorcycle/manufacturers
+            - listitem [ref=e2390]:
+              - link "Locate motorcycle tire dealers" [ref=e2391] [cursor=pointer]:
+                - /url: /motorcycle/dealer-locator
+            - listitem [ref=e2393]:
+              - link "Motorcycle Tire Promotions" [ref=e2394] [cursor=pointer]:
+                - /url: /motorcycle/promotions
+            - listitem [ref=e2396]:
+              - link "Michelin Bib Mousse" [ref=e2397] [cursor=pointer]:
+                - /url: /motorcycle/accessories/michelin-bib-mousse
+            - listitem [ref=e2399]:
+              - link "Off-Road Rim Band" [ref=e2400] [cursor=pointer]:
+                - /url: /motorcycle/accessories/off-road-rim-band
+        - listitem [ref=e2402]:
+          - text: Bicycle
+          - list "Bicycle" [ref=e2404]:
+            - listitem [ref=e2405]:
+              - link "Browse All Bicycle Tires" [ref=e2406] [cursor=pointer]:
+                - /url: /bicycle/browse-tires/all-tires
+            - listitem [ref=e2408]:
+              - link "Browse by Road Usage" [ref=e2409] [cursor=pointer]:
+                - /url: /bicycle/road
+            - listitem [ref=e2411]:
+              - link "Browse by Gravel Usage" [ref=e2412] [cursor=pointer]:
+                - /url: /bicycle/gravel
+            - listitem [ref=e2414]:
+              - link "Browse by MTB Usage" [ref=e2415] [cursor=pointer]:
+                - /url: /bicycle/mtb
+            - listitem [ref=e2417]:
+              - link "Browse by E-Bike Usage" [ref=e2418] [cursor=pointer]:
+                - /url: /bicycle/e-bike
+            - listitem [ref=e2420]:
+              - link "Browse by Commuting & Tour Usage" [ref=e2421] [cursor=pointer]:
+                - /url: /bicycle/city
+            - listitem [ref=e2423]:
+              - link "Browse by Kids Usage" [ref=e2424] [cursor=pointer]:
+                - /url: /bicycle/kids
+            - listitem [ref=e2426]:
+              - link "Browse by City Tubes" [ref=e2427] [cursor=pointer]:
+                - /url: /bicycle/bicycle-tubes/bicycle-tubes-city
+            - listitem [ref=e2429]:
+              - link "Browse by MTB Tubes" [ref=e2430] [cursor=pointer]:
+                - /url: /bicycle/bicycle-tubes/bicycle-tubes-mtb
+            - listitem [ref=e2432]:
+              - link "Browse by Road Tubes" [ref=e2433] [cursor=pointer]:
+                - /url: /bicycle/bicycle-tubes/bicycle-tubes-road
+        - listitem [ref=e2435]:
+          - text: Find Tires by Vehicle Type
+          - list [ref=e2437]:
+            - listitem [ref=e2438]:
+              - link "EV Ready" [ref=e2439] [cursor=pointer]:
+                - /url: /auto/browse-tires/by-category/ev-ready
+            - listitem [ref=e2441]:
+              - link "Light Truck" [ref=e2442] [cursor=pointer]:
+                - /url: /auto/browse-tires/by-category/light-truck
+            - listitem [ref=e2444]:
+              - link "Luxury Performance Touring" [ref=e2445] [cursor=pointer]:
+                - /url: /auto/browse-tires/by-category/luxury-performance-touring
+            - listitem [ref=e2447]:
+              - link "Passenger Car / Minivan" [ref=e2448] [cursor=pointer]:
+                - /url: /auto/browse-tires/by-category/passenger-car-minivan
+            - listitem [ref=e2450]:
+              - link "SUV Crossover" [ref=e2451] [cursor=pointer]:
+                - /url: /auto/browse-tires/by-category/suv-crossover
+            - listitem [ref=e2453]:
+              - link "Ultra high performance" [ref=e2454] [cursor=pointer]:
+                - /url: /auto/browse-tires/by-category/ultra-high-performance-sport
+        - listitem [ref=e2456]:
+          - text: Automotive Support
+          - list "Automotive" [ref=e2458]:
+            - listitem [ref=e2459]:
+              - link "Newsletter Subscription" [ref=e2460] [cursor=pointer]:
+                - /url: /auto/newsletter
+            - listitem [ref=e2462]:
+              - link "FAQs for Car Tires" [ref=e2463] [cursor=pointer]:
+                - /url: /auto/assistance/michelin-faqs
+            - listitem [ref=e2465]:
+              - link "Register Your Car Tires" [ref=e2466] [cursor=pointer]:
+                - /url: /auto/registertires
+            - listitem [ref=e2468]:
+              - link "Automotive Tires Warranty" [ref=e2469] [cursor=pointer]:
+                - /url: /auto/assistance/warranty
+            - listitem [ref=e2471]:
+              - link "Car Owner's Manual" [ref=e2472] [cursor=pointer]:
+                - /url: https://dgaddcosprod.blob.core.windows.net/b2c-experience-production/attachments/cl3t42v4v06oc01qvi1ihty9p-michelin-replacement-tires-owner-s-manual-warranty.pdf
+            - listitem [ref=e2474]:
+              - link "Car Tire Promo Redemption" [ref=e2475] [cursor=pointer]:
+                - /url: https://www.tirerewardcenter.com/Michelin/MichHome.aspx
+            - listitem [ref=e2477]:
+              - link "Safety Recalls" [ref=e2478] [cursor=pointer]:
+                - /url: /why-michelin/safety-recalls
+            - listitem [ref=e2480]:
+              - link "Automotive Press Room" [ref=e2481] [cursor=pointer]:
+                - /url: https://michelinmedia.com/
+        - listitem [ref=e2483]:
+          - text: Motorcycle Support
+          - list "Motorcycle" [ref=e2485]:
+            - listitem [ref=e2486]:
+              - link "Motorcycle Tires Newsletter Subscription" [ref=e2487] [cursor=pointer]:
+                - /url: /motorcycle/newsletter-2w
+            - listitem [ref=e2489]:
+              - link "FAQs for Motorcycle Tires" [ref=e2490] [cursor=pointer]:
+                - /url: /motorcycle/faq-motorcycle
+            - listitem [ref=e2492]:
+              - link "Register Your Motorcycle Tires" [ref=e2493] [cursor=pointer]:
+                - /url: /motorcycle/registertires
+            - listitem [ref=e2495]:
+              - link "Motorcycle Tires Warranty" [ref=e2496] [cursor=pointer]:
+                - /url: /motorcycle/assistance/motorcycle-and-scooter-warranty
+            - listitem [ref=e2498]:
+              - link "Motorcycle Tires Owner's Manual" [ref=e2499] [cursor=pointer]:
+                - /url: https://cxf-prod.azureedge.net/b2c-experience-production/attachments/clr7ywsfy05nq01m33a1d9cks-motorcycle-tire-owner-s-manual-warranty-12-23-eng-final.pdf
+        - listitem [ref=e2501]:
+          - text: Bicycle Support
+          - list "Bicycle" [ref=e2503]:
+            - listitem [ref=e2504]:
+              - link "Bicycle Retailer News" [ref=e2505] [cursor=pointer]:
+                - /url: /bicycle/retailer-news
+            - listitem [ref=e2507]:
+              - link "World Series Main Partner" [ref=e2508] [cursor=pointer]:
+                - /url: /bicycle/whoop-uci-mtb-world-series-main-partner
+            - listitem [ref=e2510]:
+              - link "Bicycle Technologies" [ref=e2511] [cursor=pointer]:
+                - /url: /bicycle/technologies-bicycle
+            - listitem [ref=e2513]:
+              - link "Bicycle Tires Promotions" [ref=e2514] [cursor=pointer]:
+                - /url: /deals-promotions-and-rebates
+            - listitem [ref=e2516]:
+              - link "Locate Bicycle Tire Dealers" [ref=e2517] [cursor=pointer]:
+                - /url: /bicycle/dealer-locator
+        - listitem [ref=e2519]:
+          - text: Car Tires Tips and Advice
+          - list [ref=e2521]:
+            - listitem [ref=e2522]:
+              - link "Tires 101" [ref=e2523] [cursor=pointer]:
+                - /url: /auto/auto-tips-and-advice/tires-101
+            - listitem [ref=e2525]:
+              - link "Michelin Tire Maintenance" [ref=e2526] [cursor=pointer]:
+                - /url: /auto/auto-tips-and-advice/tire-maintenance
+            - listitem [ref=e2528]:
+              - link "Tire Buying Guide" [ref=e2529] [cursor=pointer]:
+                - /url: /auto/auto-tips-and-advice/tire-buying-guide
+            - listitem [ref=e2531]:
+              - link "Driving Tips" [ref=e2532] [cursor=pointer]:
+                - /url: /auto/auto-tips-and-advice/driving-tips
+            - listitem [ref=e2534]:
+              - link "Car Emergencies" [ref=e2535] [cursor=pointer]:
+                - /url: /auto/auto-tips-and-advice/car-emergencies
+            - listitem [ref=e2537]:
+              - link "Tire Damage" [ref=e2538] [cursor=pointer]:
+                - /url: /auto/auto-tips-and-advice/tire-damage
+            - listitem [ref=e2540]:
+              - link "Electric Mobility Guide" [ref=e2541] [cursor=pointer]:
+                - /url: /auto/auto-tips-and-advice/electric-mobility-guide
+            - listitem [ref=e2543]:
+              - link "Car Tire Pressure Guide" [ref=e2544] [cursor=pointer]:
+                - /url: /auto/auto-tips-and-advice/tire-pressure
+            - listitem [ref=e2546]:
+              - link "Winter Driving" [ref=e2547] [cursor=pointer]:
+                - /url: /auto/auto-tips-and-advice/winter-driving
+            - listitem [ref=e2549]:
+              - link "Preparation for Winter" [ref=e2550] [cursor=pointer]:
+                - /url: /auto/auto-tips-and-advice/preparation-for-winter
+        - listitem [ref=e2552]:
+          - text: Auto Sizes
+          - list [ref=e2554]:
+            - listitem [ref=e2555]:
+              - link "Shop 15-Inch Car Tires" [ref=e2556] [cursor=pointer]:
+                - /url: /auto/car-tire-sizes/15-inch-tires
+            - listitem [ref=e2558]:
+              - link "Shop 16-Inch Car Tires" [ref=e2559] [cursor=pointer]:
+                - /url: /auto/car-tire-sizes/16-inch-tires
+            - listitem [ref=e2561]:
+              - link "Shop 17-Inch Car Tires" [ref=e2562] [cursor=pointer]:
+                - /url: /auto/car-tire-sizes/17-inch-tires
+            - listitem [ref=e2564]:
+              - link "Shop 18-Inch Car Tires" [ref=e2565] [cursor=pointer]:
+                - /url: /auto/car-tire-sizes/18-inch-tires
+            - listitem [ref=e2567]:
+              - link "Shop 19-Inch Car Tires" [ref=e2568] [cursor=pointer]:
+                - /url: /auto/car-tire-sizes/19-inch-tires
+            - listitem [ref=e2570]:
+              - link "Shop 19.5-Inch Car Tires" [ref=e2571] [cursor=pointer]:
+                - /url: /auto/car-tire-sizes/19.5-inch-tires
+            - listitem [ref=e2573]:
+              - link "Shop 20-Inch Car Tires" [ref=e2574] [cursor=pointer]:
+                - /url: /auto/car-tire-sizes/20-inch-tires
+            - listitem [ref=e2576]:
+              - link "Shop 21-Inch Car Tires" [ref=e2577] [cursor=pointer]:
+                - /url: /auto/car-tire-sizes/21-inch-tires
+            - listitem [ref=e2579]:
+              - link "Shop 22-Inch Car Tires" [ref=e2580] [cursor=pointer]:
+                - /url: /auto/car-tire-sizes/22-inch-tires
+            - listitem [ref=e2582]:
+              - link "Shop 23-Inch Car Tires" [ref=e2583] [cursor=pointer]:
+                - /url: /auto/car-tire-sizes/23-inch-tires
+            - listitem [ref=e2585]:
+              - link "Shop 24-Inch Car Tires" [ref=e2586] [cursor=pointer]:
+                - /url: /auto/car-tire-sizes/24-inch-tires
+        - listitem [ref=e2588]:
+          - text: Moto Sizes
+          - list [ref=e2590]:
+            - listitem [ref=e2591]:
+              - link "Shop 8-Inch Motorcycle Tires" [ref=e2592] [cursor=pointer]:
+                - /url: /motorcycle/motorcycle-tire-sizes/8-inch-tires
+            - listitem [ref=e2594]:
+              - link "Shop 10-Inch Motorcycle Tires" [ref=e2595] [cursor=pointer]:
+                - /url: /motorcycle/motorcycle-tire-sizes/10-inch-tires
+            - listitem [ref=e2597]:
+              - link "Shop 11-Inch Motorcycle Tires" [ref=e2598] [cursor=pointer]:
+                - /url: /motorcycle/motorcycle-tire-sizes/11-inch-tires
+            - listitem [ref=e2600]:
+              - link "Shop 12-Inch Motorcycle Tires" [ref=e2601] [cursor=pointer]:
+                - /url: /motorcycle/motorcycle-tire-sizes/12-inch-tires
+            - listitem [ref=e2603]:
+              - link "Shop 13-Inch Motorcycle Tires" [ref=e2604] [cursor=pointer]:
+                - /url: /motorcycle/motorcycle-tire-sizes/13-inch-tires
+            - listitem [ref=e2606]:
+              - link "Shop 14-Inch Motorcycle Tires" [ref=e2607] [cursor=pointer]:
+                - /url: /motorcycle/motorcycle-tire-sizes/14-inch-tires
+            - listitem [ref=e2609]:
+              - link "Shop 15-Inch Motorcycle Tires" [ref=e2610] [cursor=pointer]:
+                - /url: /motorcycle/motorcycle-tire-sizes/15-inch-tires
+            - listitem [ref=e2612]:
+              - link "Shop 16-Inch Motorcycle Tires" [ref=e2613] [cursor=pointer]:
+                - /url: /motorcycle/motorcycle-tire-sizes/16-inch-tires
+            - listitem [ref=e2615]:
+              - link "Shop 16.5-Inch Motorcycle Tires" [ref=e2616] [cursor=pointer]:
+                - /url: /motorcycle/motorcycle-tire-sizes/16.5-inch-tires
+            - listitem [ref=e2618]:
+              - link "Shop 17-Inch Motorcycle Tires" [ref=e2619] [cursor=pointer]:
+                - /url: /motorcycle/motorcycle-tire-sizes/17-inch-tires
+            - listitem [ref=e2621]:
+              - link "Shop 18-Inch Motorcycle Tires" [ref=e2622] [cursor=pointer]:
+                - /url: /motorcycle/motorcycle-tire-sizes/18-inch-tires
+            - listitem [ref=e2624]:
+              - link "Shop 19-Inch Motorcycle Tires" [ref=e2625] [cursor=pointer]:
+                - /url: /motorcycle/motorcycle-tire-sizes/19-inch-tires
+            - listitem [ref=e2627]:
+              - link "Shop 21-Inch Motorcycle Tires" [ref=e2628] [cursor=pointer]:
+                - /url: /motorcycle/motorcycle-tire-sizes/21-inch-tires
+        - listitem [ref=e2630]:
+          - text: Auto Manufacturer
+          - list [ref=e2632]:
+            - listitem [ref=e2633]:
+              - link "Toyota" [ref=e2634] [cursor=pointer]:
+                - /url: /auto/manufacturers/toyota
+            - listitem [ref=e2636]:
+              - link "Honda" [ref=e2637] [cursor=pointer]:
+                - /url: /auto/manufacturers/honda
+            - listitem [ref=e2639]:
+              - link "Ford" [ref=e2640] [cursor=pointer]:
+                - /url: /auto/manufacturers/ford
+            - listitem [ref=e2642]:
+              - link "Chevrolet" [ref=e2643] [cursor=pointer]:
+                - /url: /auto/manufacturers/chevrolet
+            - listitem [ref=e2645]:
+              - link "Nissan" [ref=e2646] [cursor=pointer]:
+                - /url: /auto/manufacturers/nissan
+            - listitem [ref=e2648]:
+              - link "Hyundai" [ref=e2649] [cursor=pointer]:
+                - /url: /auto/manufacturers/hyundai
+            - listitem [ref=e2651]:
+              - link "Kia" [ref=e2652] [cursor=pointer]:
+                - /url: /auto/manufacturers/kia
+            - listitem [ref=e2654]:
+              - link "Jeep" [ref=e2655] [cursor=pointer]:
+                - /url: /auto/manufacturers/jeep
+            - listitem [ref=e2657]:
+              - link "Subaru" [ref=e2658] [cursor=pointer]:
+                - /url: /auto/manufacturers/subaru
+            - listitem [ref=e2660]:
+              - link "Volkswagen" [ref=e2661] [cursor=pointer]:
+                - /url: /auto/manufacturers/volkswagen
+            - listitem [ref=e2663]:
+              - link "BMW" [ref=e2664] [cursor=pointer]:
+                - /url: /auto/manufacturers/bmw
+            - listitem [ref=e2666]:
+              - link "Mercedes-Benz" [ref=e2667] [cursor=pointer]:
+                - /url: /auto/manufacturers/mercedes-benz
+            - listitem [ref=e2669]:
+              - link "Audi" [ref=e2670] [cursor=pointer]:
+                - /url: /auto/manufacturers/audi
+            - listitem [ref=e2672]:
+              - link "Lexus" [ref=e2673] [cursor=pointer]:
+                - /url: /auto/manufacturers/lexus
+            - listitem [ref=e2675]:
+              - link "Mazda" [ref=e2676] [cursor=pointer]:
+                - /url: /auto/manufacturers/mazda
+            - listitem [ref=e2678]:
+              - link "GMC" [ref=e2679] [cursor=pointer]:
+                - /url: /auto/manufacturers/gmc
+            - listitem [ref=e2681]:
+              - link "Dodge" [ref=e2682] [cursor=pointer]:
+                - /url: /auto/manufacturers/dodge
+            - listitem [ref=e2684]:
+              - link "Ram" [ref=e2685] [cursor=pointer]:
+                - /url: /auto/manufacturers/ram
+            - listitem [ref=e2687]:
+              - link "Tesla" [ref=e2688] [cursor=pointer]:
+                - /url: /auto/manufacturers/tesla
+            - listitem [ref=e2690]:
+              - link "Volvo" [ref=e2691] [cursor=pointer]:
+                - /url: /auto/manufacturers/volvo
+        - listitem [ref=e2693]:
+          - text: Moto Manufacturer
+          - list [ref=e2695]:
+            - listitem [ref=e2696]:
+              - link "Harley-Davidson" [ref=e2697] [cursor=pointer]:
+                - /url: /motorcycle/manufacturers/harley-davidson
+            - listitem [ref=e2699]:
+              - link "Honda" [ref=e2700] [cursor=pointer]:
+                - /url: /motorcycle/manufacturers/honda
+            - listitem [ref=e2702]:
+              - link "Yamaha" [ref=e2703] [cursor=pointer]:
+                - /url: /motorcycle/manufacturers/yamaha
+            - listitem [ref=e2705]:
+              - link "Kawasaki" [ref=e2706] [cursor=pointer]:
+                - /url: /motorcycle/manufacturers/kawasaki
+            - listitem [ref=e2708]:
+              - link "Suzuki" [ref=e2709] [cursor=pointer]:
+                - /url: /motorcycle/manufacturers/suzuki
+            - listitem [ref=e2711]:
+              - link "BMW Motorrad" [ref=e2712] [cursor=pointer]:
+                - /url: /motorcycle/manufacturers/bmw
+            - listitem [ref=e2714]:
+              - link "Ducati" [ref=e2715] [cursor=pointer]:
+                - /url: /motorcycle/manufacturers/ducati
+            - listitem [ref=e2717]:
+              - link "Triumph" [ref=e2718] [cursor=pointer]:
+                - /url: /motorcycle/manufacturers/triumph
+            - listitem [ref=e2720]:
+              - link "KTM" [ref=e2721] [cursor=pointer]:
+                - /url: /motorcycle/manufacturers/ktm
+            - listitem [ref=e2723]:
+              - link "Indian Motorcycle" [ref=e2724] [cursor=pointer]:
+                - /url: /motorcycle/manufacturers/indian-motorcycle
+            - listitem [ref=e2726]:
+              - link "Aprilia" [ref=e2727] [cursor=pointer]:
+                - /url: /motorcycle/manufacturers/aprilia
+            - listitem [ref=e2729]:
+              - link "Husqvarna" [ref=e2730] [cursor=pointer]:
+                - /url: /motorcycle/manufacturers/husqvarna
+            - listitem [ref=e2732]:
+              - link "Vespa" [ref=e2733] [cursor=pointer]:
+                - /url: /motorcycle/manufacturers/vespa
+            - listitem [ref=e2735]:
+              - link "Moto Guzzi" [ref=e2736] [cursor=pointer]:
+                - /url: /motorcycle/manufacturers/moto-guzzi
+            - listitem [ref=e2738]:
+              - link "Royal Enfield" [ref=e2739] [cursor=pointer]:
+                - /url: /motorcycle/manufacturers/royal-enfield
+    - generic [ref=e2742]:
+      - list [ref=e2743]:
+        - listitem [ref=e2744]:
+          - link "Legal & Privacy Center" [ref=e2745] [cursor=pointer]:
+            - /url: /legal-privacy-center
+        - listitem [ref=e2747]:
+          - link "Privacy Notice" [ref=e2748] [cursor=pointer]:
+            - /url: /legal-privacy-center/privacy-notice
+        - listitem [ref=e2750]:
+          - link "Website Terms of Use" [ref=e2751] [cursor=pointer]:
+            - /url: /legal-privacy-center/terms-of-use
+        - listitem [ref=e2753]:
+          - link "Accessibility Statement" [ref=e2754] [cursor=pointer]:
+            - /url: /accessibility-statement
+        - listitem [ref=e2756]:
+          - button "Your Privacy Choices" [ref=e2757] [cursor=pointer]
+        - listitem [ref=e2760]:
+          - link "Site map" [ref=e2761] [cursor=pointer]:
+            - /url: /auto/assistance/site-map
+        - listitem [ref=e2763]:
+          - link "Careers" [ref=e2764] [cursor=pointer]:
+            - /url: https://jobs.michelinman.com/
+        - listitem [ref=e2766]:
+          - link "Code of Ethics" [ref=e2767] [cursor=pointer]:
+            - /url: https://ethique.michelin.com/en/
+      - generic [ref=e2769]: Copyright © 2026 Michelin North America, Inc. All rights reserved. The Michelin Man is a registered trademark owned by Michelin.

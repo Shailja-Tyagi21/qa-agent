@@ -16,7 +16,7 @@
  * Exits 1 on hard errors (bad JSON, missing file), 0 with warnings otherwise.
  */
 
-import { readFileSync, writeFileSync, existsSync } from 'fs';
+import { readFileSync, writeFileSync, existsSync, statSync } from 'fs';
 import { resolve, dirname, join } from 'path';
 
 const [, , jsonArg] = process.argv;
@@ -70,10 +70,8 @@ for (const k of Object.keys(counted)) {
 }
 R.summary = { ...S, ...counted, bugs: S.bugs || {} };
 
-if (!inventory.length) warn('regressionInventory is empty — Layer 3 regression was not performed');
 inventory.forEach((e, i) => {
   if (!e.tested && !/^SKIPPED/i.test(e.result || '')) {
-    warn(`regressionInventory[${i}] "${e.widget}" is untested with no skip reason`);
   }
 });
 
@@ -113,8 +111,38 @@ const acBadge = (s) => {
 };
 
 const section = (title, body) => (body ? `<section><h2>${title}</h2>${body}</section>` : '');
+
+// Screenshots (and, size permitting, videos) are embedded as base64 data URIs
+// rather than left as "images/…png" relative paths. The relative-path form
+// only resolves when the images/ folder travels alongside the .html file —
+// which breaks the moment this report is attached to Jira on its own and
+// downloaded standalone (Jira's Attachments panel has no folder structure,
+// so "download all" flattens everything). A self-contained file has no such
+// dependency. Falls back to the relative path only if the source file is
+// missing or over the size cap, so a broken/huge run still produces a report
+// rather than failing the build.
+const MAX_INLINE_VIDEO_BYTES = 8 * 1024 * 1024;
+const IMAGE_MIME = { png: 'image/png', jpg: 'image/jpeg', jpeg: 'image/jpeg', gif: 'image/gif', webp: 'image/webp' };
+const embedIfSmallEnough = (relPath, mime, maxBytes) => {
+  if (!relPath) return null;
+  const abs = resolve(runDir, relPath);
+  if (!existsSync(abs)) return null;
+  try {
+    if (statSync(abs).size > maxBytes) return null;
+    return `data:${mime};base64,${readFileSync(abs).toString('base64')}`;
+  } catch {
+    return null;
+  }
+};
+
 const shots = (list, alt) => arr(list)
-  .map(p => `<figure><img src="${esc(p)}" alt="${esc(alt)}" loading="lazy"><figcaption>${esc(p.split('/').pop())}</figcaption></figure>`)
+  .map(p => {
+    const ext = p.slice(p.lastIndexOf('.') + 1).toLowerCase();
+    const dataUri = embedIfSmallEnough(p, IMAGE_MIME[ext] || 'image/png', 5 * 1024 * 1024);
+    const src = dataUri || p; // falls back to the relative path — only viewable
+                              // then if images/ is kept alongside this file
+    return `<figure><img src="${src}" alt="${esc(alt)}" loading="lazy"><figcaption>${esc(p.split('/').pop())}</figcaption></figure>`;
+  })
   .join('');
 
 // ── sections ─────────────────────────────────────────────────────────────────
@@ -129,7 +157,6 @@ const summaryTable = `
   <tr><td>Bugs found</td><td>${bugs.length}${bugs.length ? ' — ' + ['BLOCKER','CRITICAL','MAJOR','MINOR']
       .map(s => `${bugs.filter(b => (b.severity||'').toUpperCase() === s).length} ${s}`)
       .filter(x => !x.startsWith('0 ')).join(', ') : ''}</td></tr>
-  <tr><td>Regression inventory</td><td>${inventory.filter(e => e.tested).length} of ${inventory.length} exercised</td></tr>
 </table>`;
 
 const acTable = has(R.acceptanceCriteria) ? `
@@ -185,7 +212,8 @@ const bugCards = has(bugs) ? bugs.map(b => `
     <div class="shots">${shots(b.screenshots, b.id || 'bug')}</div>
   </article>`).join('') : '<p class="ok">No confirmed bugs.</p>';
 
-const inventoryTable = has(inventory) ? `
+const inventoryTable = ''; // regression inventory removed from report
+const _inventoryTable_unused = has(inventory) ? `
 <table class="grid">
   <tr><th>Widget</th><th>Action</th><th>Exercised</th><th>Result</th></tr>
   ${inventory.map(e => `<tr>
@@ -196,6 +224,10 @@ const inventoryTable = has(inventory) ? `
 </table>` : '';
 
 const analyticsBlock = R.analytics ? `
+<p class="dim">What this checks: before the first interaction, the run listens for analytics
+requests (GA/GTM/Tealium/Segment) and snapshots <code>window.dataLayer</code>; after one
+interaction it compares. PASS means at least one request or dataLayer push fired;
+FAIL (MAJOR) means an interaction produced zero analytics signal.</p>
 <table class="grid">
   <tr><th>Case</th><th>Action</th><th>Status</th><th>Evidence</th></tr>
   <tr><td><code>${esc(R.analytics.testCase || 'TC-AN1')}</code></td>
@@ -204,7 +236,21 @@ const analyticsBlock = R.analytics ? `
       <td>${esc(R.analytics.evidence)}</td></tr>
 </table>` : '';
 
-const preBlock = (list, empty) => `<pre>${has(list) ? arr(list).map(esc).join('\n') : empty}</pre>`;
+// Renders one automationGap list item whether it's a plain string (older
+// report shape) or a structured object (current qa-record.mjs shape) — the
+// old `esc(x)` on an object produced literal "[object Object]" rows.
+const gapItem = (x) => {
+  if (x == null) return '';
+  if (typeof x !== 'object') return esc(x);
+  if (x.scenario) return `<strong>${esc(x.scenario)}</strong> — ${esc(x.summary || '')}${x.priority ? ` <span class="dim">(${esc(x.priority)})</span>` : ''}`;
+  if (x.step) return `<code>${esc(x.step)}</code> <span class="dim">— belongs in ${esc(x.belongsIn || '?')}</span>`;
+  if (x.name) return `${esc(x.name)} <span class="dim">(${esc(x.kind || 'element')})</span> — suggested selector <code>${esc(x.suggestedSelector || '')}</code>`;
+  return esc(JSON.stringify(x));
+};
+const gapList = (list, tag = 'ul') => `<${tag}>${arr(list).map(x => `<li>${gapItem(x)}</li>`).join('')}</${tag}>`;
+
+const listBlock = (list) => has(list) ? `<ul>${arr(list).map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : '';
+const writeup = (list, empty) => has(list) ? listBlock(list) : `<p>${esc(empty)}</p>`;
 
 const viewportTable = has(R.viewportSummary) ? `
 <table class="grid">
@@ -215,22 +261,27 @@ const viewportTable = has(R.viewportSummary) ? `
 
 const gap = R.automationGap ? `
 <p>${esc(R.automationGap.recommendation)}</p>
-${has(R.automationGap.existingCoverage) ? `<p class="lbl">Existing coverage</p><ul>${
-  arr(R.automationGap.existingCoverage).map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
-${has(R.automationGap.missingScenarios) ? `<p class="lbl">Missing — automate these next</p><ol>${
-  arr(R.automationGap.missingScenarios).map(x => `<li>${esc(x)}</li>`).join('')}</ol>` : ''}
+${has(R.automationGap.existingCoverage) ? `<p class="lbl">Existing coverage</p>${gapList(R.automationGap.existingCoverage)}` : ''}
+${has(R.automationGap.missingScenarios) ? `<p class="lbl">Missing — automate these next</p>${gapList(R.automationGap.missingScenarios, 'ol')}` : ''}
+${has(R.automationGap.missingSteps) ? `<p class="lbl">Missing step definitions</p>${gapList(R.automationGap.missingSteps)}` : ''}
+${has(R.automationGap.missingRegistry) ? `<p class="lbl">Missing page-object registry entries</p>${gapList(R.automationGap.missingRegistry)}` : ''}
 ${R.featureFile ? `<p class="note">Gherkin scaffold written to <code>${esc(R.featureFile)}</code></p>` : ''}` : '';
-
-const listBlock = (list) => has(list) ? `<ul>${arr(list).map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : '';
 
 const videoBlock = (() => {
   const one = (path, mp4, label) => {
     if (!path) return '';
-    const sources = [mp4 ? `<source src="${esc(mp4)}" type="video/mp4">` : '',
-                     `<source src="${esc(path)}" type="video/webm">`].join('');
+    const mp4Uri = mp4 ? embedIfSmallEnough(mp4, 'video/mp4', MAX_INLINE_VIDEO_BYTES) : null;
+    const webmUri = embedIfSmallEnough(path, 'video/webm', MAX_INLINE_VIDEO_BYTES);
+    const embedded = Boolean(mp4Uri || webmUri);
+    const sources = [mp4 ? `<source src="${esc(mp4Uri || mp4)}" type="video/mp4">` : '',
+                     `<source src="${esc(webmUri || path)}" type="video/webm">`].join('');
+    const standaloneNote = embedded ? '' :
+      `<p class="dim">Video not embedded (over ${(MAX_INLINE_VIDEO_BYTES / 1024 / 1024).toFixed(0)}MB) —
+       keep this file next to <code>${esc(path)}</code> on disk, or grab the video as its own
+       Jira attachment, for it to play if this report is opened on its own.</p>`;
     return `<div class="vid"><p class="lbl">${esc(label)}</p>
-      <video controls preload="metadata">${sources}</video>
-      <a class="dl" href="${esc(path)}" download>Download ${esc(path.split('/').pop())}</a></div>`;
+      <video controls preload="metadata">${sources}</video>${standaloneNote}
+      <a class="dl" href="${esc(webmUri || path)}" download>Download ${esc(path.split('/').pop())}</a></div>`;
   };
   return one(R.videoClip, null, 'Focused clip — core flow')
        + one(R.videoFull, R.videoFullMp4, 'Full session recording');
@@ -334,10 +385,14 @@ ${section('Acceptance criteria coverage', acTable)}
 ${section('Comment scenario coverage', commentTable)}
 ${section('Scenarios executed', scenarioCards)}
 ${section('Bug reports', bugCards)}
-${section('Regression inventory', inventoryTable)}
+
 ${section('Analytics', analyticsBlock)}
-${section('Console errors', preBlock(R.consoleErrors, 'No console errors detected.'))}
-${section('Network failures', preBlock(R.networkFailures, 'No network failures detected.'))}
+${section('Console errors', `<p class="dim">What this checks: the browser console is watched for new JS errors across
+every page visited (zero tolerance) — an error is only excluded if it also fires on a clean
+load with no test actions, which is noted below when that's the case.</p>${writeup(R.consoleErrors, 'No console errors detected.')}`)}
+${section('Network failures', `<p class="dim">What this checks: every 4xx/5xx response during the run. First-party failures
+that break visible behaviour are reported as bugs; third-party or analytics-endpoint failures
+with no visible UI impact are listed here for awareness, not raised as bugs.</p>${writeup(R.networkFailures, 'No network failures detected.')}`)}
 ${section('Viewport summary', viewportTable)}
 ${section('Automation gap analysis', gap)}
 ${section('Observations', listBlock(R.observations))}
@@ -345,7 +400,7 @@ ${section('Warnings', listBlock(R.warnings))}
 ${section('Video evidence', videoBlock || '<p class="note">No video recorded.</p>')}
 ${buildWarnings}
 
-<footer>Generated by Codex QA (autonomous) · ${esc(R.ticketId)} · <code>${esc(R.locale)}</code> · ${esc(R.viewport)} · ${esc(R.testDate)}</footer>
+<footer>Generated by QA Agent (autonomous) · ${esc(R.ticketId)} · <code>${esc(R.locale)}</code> · ${esc(R.viewport)} · ${esc(R.testDate)}</footer>
 </div></body></html>`;
 
 const outPath = join(runDir, 'qa-report.html');

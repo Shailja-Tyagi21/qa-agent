@@ -1,0 +1,993 @@
+- generic [active] [ref=e2943]:
+  - generic [ref=e2944]:
+    - generic:
+      - list:
+        - listitem [ref=e2945]:
+          - link "Go to page content" [ref=e2946] [cursor=pointer]:
+            - /url: "#page-content"
+        - listitem [ref=e2947]:
+          - link "Go to page navigation" [ref=e2948] [cursor=pointer]:
+            - /url: "#page-navigation"
+    - banner [ref=e2951]:
+      - generic [ref=e2953]:
+        - button [ref=e2955] [cursor=pointer]
+        - link "Go to home page" [ref=e2959] [cursor=pointer]:
+          - /url: https://www.michelinman.com/
+    - main [ref=e2962]:
+      - generic [ref=e2964]:
+        - generic [ref=e2966]:
+          - generic [ref=e2973]:
+            - generic [ref=e2975]:
+              - combobox "Enter a city, suburb, town or zip code" [ref=e2976]: Atlanta, GA, USA
+              - button "Clear" [ref=e2977] [cursor=pointer]
+              - button "Search" [ref=e2980] [cursor=pointer]
+            - combobox [ref=e2983]:
+              - button [ref=e2984]:
+                - generic [ref=e2987]: Locate me
+          - generic [ref=e2993]:
+            - generic [ref=e2994]:
+              - generic [ref=e2995]:
+                - paragraph [ref=e2996]: Browse all retailers near you
+                - heading "566 car tire dealers in Atlanta, GA, USA" [level=1] [ref=e2997]
+              - generic [ref=e2998]:
+                - button "Filters" [ref=e3001] [cursor=pointer]
+                - 'button "Sort by: Recommended" [ref=e3007] [cursor=pointer]'
+            - generic [ref=e3011]:
+              - generic [ref=e3013]:
+                - generic [ref=e3014]:
+                  - generic [ref=e3015]:
+                    - link [ref=e3016] [cursor=pointer]:
+                      - /url: https://www.michelinman.com/auto/dealer-locator/atlanta/yvmfbdq-midas
+                      - heading "MIDAS" [level=2] [ref=e3017]
+                    - generic [ref=e3018]: 2.34 mi
+                  - img "dealer logo" [ref=e3021]
+                - generic [ref=e3022]:
+                  - link "920 NORTHSIDE DR, Georgia, ATLANTA - 30318" [ref=e3025] [cursor=pointer]:
+                    - /url: https://www.google.com/maps?daddr=33.77985,-84.40789
+                  - generic [ref=e3032]:
+                    - button "Contact dealer" [ref=e3034] [cursor=pointer]
+                    - generic:
+                      - generic:
+                        - main
+              - generic [ref=e3039]:
+                - generic [ref=e3041]:
+                  - link [ref=e3042] [cursor=pointer]:
+                    - /url: https://www.michelinman.com/auto/dealer-locator/atlanta/ywxkbgj-gordy-tire-and-automotive
+                    - heading "GORDY TIRE AND AUTOMOTIVE" [level=2] [ref=e3043]
+                  - generic [ref=e3044]:
+                    - generic [ref=e3045]: 3.70 mi
+                    - generic [ref=e3047]:
+                      - strong [ref=e3052]: 4.5/5
+                      - generic [ref=e3053]: (254)
+                - generic [ref=e3054]:
+                  - link "1590 HOWELL MILL RD NW, Georgia, ATLANTA - 30318" [ref=e3057] [cursor=pointer]:
+                    - /url: https://www.google.com/maps?daddr=33.79845,-84.41649
+                  - generic [ref=e3064]:
+                    - button "Contact dealer" [ref=e3066] [cursor=pointer]
+                    - generic:
+                      - generic:
+                        - main
+              - generic [ref=e3071]:
+                - generic [ref=e3073]:
+                  - link [ref=e3074] [cursor=pointer]:
+                    - /url: https://www.michelinman.com/auto/dealer-locator/atlanta/ybvehmm-the-pep-boys-manny-moe-jack
+                    - heading "THE PEP BOYS-MANNY, MOE & JACK" [level=2] [ref=e3075]
+                  - generic [ref=e3076]:
+                    - generic [ref=e3077]: 3.78 mi
+                    - generic [ref=e3079]:
+                      - strong [ref=e3084]: 3.9/5
+                      - generic [ref=e3085]: (1081)
+                - generic [ref=e3086]:
+                  - link "1685 HOWELL MILL ROAD NW, Georgia, ATLANTA - 30318" [ref=e3089] [cursor=pointer]:
+                    - /url: https://www.google.com/maps?daddr=33.80005,-84.41558
+                  - generic [ref=e3095]:
+                    - generic [ref=e3096]:
+                      - button "Contact dealer" [ref=e3098] [cursor=pointer]
+                      - generic:
+                        - generic:
+                          - main
+                    - link "See Website" [ref=e3102] [cursor=pointer]:
+                      - /url: https://www.pepboys.com/tires/
+              - generic [ref=e3107]:
+                - generic [ref=e3108]:
+                  - generic [ref=e3109]:
+                    - link [ref=e3110] [cursor=pointer]:
+                      - /url: https://www.michelinman.com/auto/dealer-locator/atlanta/yffwohv-pep-boys-howell-mill
+                      - heading "PEP BOYS HOWELL MILL" [level=2] [ref=e3111]
+                    - generic [ref=e3112]:
+                      - generic [ref=e3113]: 3.78 mi
+                      - generic [ref=e3115]:
+                        - strong [ref=e3120]: 3.9/5
+                        - generic [ref=e3121]: (1081)
+                  - img "dealer logo" [ref=e3123]
+                - generic [ref=e3124]:
+                  - link "1685 HOWELL MILL ROAD NW, Georgia, ATLANTA - 30318" [ref=e3127] [cursor=pointer]:
+                    - /url: https://www.google.com/maps?daddr=33.80005,-84.41551
+                  - generic [ref=e3134]:
+                    - button "Contact dealer" [ref=e3136] [cursor=pointer]
+                    - generic:
+                      - generic:
+                        - main
+              - generic [ref=e3141]:
+                - generic [ref=e3142]:
+                  - generic [ref=e3143]:
+                    - link [ref=e3144] [cursor=pointer]:
+                      - /url: https://www.michelinman.com/auto/dealer-locator/atlanta/ycjcigs-mavis-tires-brakes
+                      - heading "Mavis Tires & Brakes" [level=2] [ref=e3145]
+                    - generic [ref=e3146]: 3.80 mi
+                  - img "dealer logo" [ref=e3149]
+                - generic [ref=e3150]:
+                  - link "1689 Howell Mill Dr., Georgia, Atlanta - 30318" [ref=e3153] [cursor=pointer]:
+                    - /url: https://www.google.com/maps?daddr=33.80025,-84.41555
+                  - generic [ref=e3160]:
+                    - button "Contact dealer" [ref=e3162] [cursor=pointer]
+                    - generic:
+                      - generic:
+                        - main
+              - generic [ref=e3167]:
+                - generic [ref=e3168]:
+                  - generic [ref=e3169]:
+                    - link [ref=e3170] [cursor=pointer]:
+                      - /url: https://www.michelinman.com/auto/dealer-locator/atlanta/ysqakco-pep-boys-piedmont-road
+                      - heading "PEP BOYS PIEDMONT ROAD" [level=2] [ref=e3171]
+                    - generic [ref=e3172]:
+                      - generic [ref=e3173]: 4.98 mi
+                      - generic [ref=e3175]:
+                        - strong [ref=e3180]: 3.6/5
+                        - generic [ref=e3181]: (1290)
+                  - img "dealer logo" [ref=e3183]
+                - generic [ref=e3184]:
+                  - link "2399 PIEDMONT RD, Georgia, ATLANTA - 30324" [ref=e3187] [cursor=pointer]:
+                    - /url: https://www.google.com/maps?daddr=33.81989,-84.36694
+                  - generic [ref=e3193]:
+                    - generic [ref=e3194]:
+                      - button "Contact dealer" [ref=e3196] [cursor=pointer]
+                      - generic:
+                        - generic:
+                          - main
+                    - link "See Website" [ref=e3200] [cursor=pointer]:
+                      - /url: https://www.pepboys.com/tires/
+              - generic [ref=e3205]:
+                - generic [ref=e3206]:
+                  - generic [ref=e3207]:
+                    - link [ref=e3208] [cursor=pointer]:
+                      - /url: https://www.michelinman.com/auto/dealer-locator/atlanta/yavduiz-mavis-tires-brakes
+                      - heading "Mavis Tires & Brakes" [level=2] [ref=e3209]
+                    - generic [ref=e3210]:
+                      - generic [ref=e3211]: 5.23 mi
+                      - generic [ref=e3213]:
+                        - strong [ref=e3218]: 4.5/5
+                        - generic [ref=e3219]: (2591)
+                  - img "dealer logo" [ref=e3221]
+                - generic [ref=e3222]:
+                  - link "2350 Cheshire Bridge Rd. NE, Georgia, Atlanta - 30324" [ref=e3225] [cursor=pointer]:
+                    - /url: https://www.google.com/maps?daddr=33.81942,-84.35195
+                  - generic [ref=e3232]:
+                    - button "Contact dealer" [ref=e3234] [cursor=pointer]
+                    - generic:
+                      - generic:
+                        - main
+              - generic [ref=e3239]:
+                - generic [ref=e3240]:
+                  - generic [ref=e3241]:
+                    - link [ref=e3242] [cursor=pointer]:
+                      - /url: https://www.michelinman.com/auto/dealer-locator/atlanta/yyylmbq-tesla-service-briarcliff
+                      - heading "TESLA SERVICE- BRIARCLIFF" [level=2] [ref=e3243]
+                    - generic [ref=e3244]:
+                      - generic [ref=e3245]: 5.53 mi
+                      - generic [ref=e3247]:
+                        - strong [ref=e3252]: 3.2/5
+                        - generic [ref=e3253]: (226)
+                  - img "dealer logo" [ref=e3255]
+                - generic [ref=e3256]:
+                  - link "2121 BRIARCLIFF RD NE, Georgia, ATLANTA - 30329" [ref=e3259] [cursor=pointer]:
+                    - /url: https://www.google.com/maps?daddr=33.81590,-84.33358
+                  - generic [ref=e3266]:
+                    - button "Contact dealer" [ref=e3268] [cursor=pointer]
+                    - generic:
+                      - generic:
+                        - main
+              - generic [ref=e3273]:
+                - generic [ref=e3274]:
+                  - generic [ref=e3275]:
+                    - link [ref=e3276] [cursor=pointer]:
+                      - /url: https://www.michelinman.com/auto/dealer-locator/atlanta/yitxdsc-mercedes-benz-of-buckhead
+                      - heading "MERCEDES-BENZ OF BUCKHEAD" [level=2] [ref=e3277]
+                    - generic [ref=e3278]:
+                      - generic [ref=e3279]: 5.71 mi
+                      - generic [ref=e3281]:
+                        - strong [ref=e3286]: 4.4/5
+                        - generic [ref=e3287]: (3824)
+                  - img "dealer logo" [ref=e3289]
+                - generic [ref=e3290]:
+                  - link "2799 PIEDMONT ROAD, Georgia, ATLANTA - 30305" [ref=e3293] [cursor=pointer]:
+                    - /url: https://www.google.com/maps?daddr=33.83091,-84.36747
+                  - generic [ref=e3300]:
+                    - button "Contact dealer" [ref=e3302] [cursor=pointer]
+                    - generic:
+                      - generic:
+                        - main
+              - generic [ref=e3307]:
+                - generic [ref=e3308]:
+                  - generic [ref=e3309]:
+                    - link [ref=e3310] [cursor=pointer]:
+                      - /url: https://www.michelinman.com/auto/dealer-locator/atlanta/yesouie-mercedes-benz-of-buckhead
+                      - heading "MERCEDES-BENZ OF BUCKHEAD" [level=2] [ref=e3311]
+                    - generic [ref=e3312]:
+                      - generic [ref=e3313]: 5.71 mi
+                      - generic [ref=e3315]:
+                        - strong [ref=e3320]: 4.4/5
+                        - generic [ref=e3321]: (3824)
+                  - img "dealer logo" [ref=e3323]
+                - generic [ref=e3324]:
+                  - link "2799 PIEDMONT ROAD, Georgia, ATLANTA - 30305" [ref=e3327] [cursor=pointer]:
+                    - /url: https://www.google.com/maps?daddr=33.83091,-84.36747
+                  - generic [ref=e3334]:
+                    - button "Contact dealer" [ref=e3336] [cursor=pointer]
+                    - generic:
+                      - generic:
+                        - main
+              - generic [ref=e3341]:
+                - generic [ref=e3342]:
+                  - generic [ref=e3343]:
+                    - link [ref=e3344] [cursor=pointer]:
+                      - /url: https://www.michelinman.com/auto/dealer-locator/atlanta/yiijyom-hennessy-jaguar
+                      - heading "HENNESSY JAGUAR" [level=2] [ref=e3345]
+                    - generic [ref=e3346]:
+                      - generic [ref=e3347]: 6.17 mi
+                      - generic [ref=e3349]:
+                        - strong [ref=e3354]: 4.6/5
+                        - generic [ref=e3355]: (1382)
+                  - img "dealer logo" [ref=e3357]
+                - generic [ref=e3358]:
+                  - link "3040 PIEDMONT RD. NE, Georgia, ATLANTA - 30305" [ref=e3361] [cursor=pointer]:
+                    - /url: https://www.google.com/maps?daddr=33.83796,-84.36909
+                  - generic [ref=e3368]:
+                    - button "Contact dealer" [ref=e3370] [cursor=pointer]
+                    - generic:
+                      - generic:
+                        - main
+              - generic [ref=e3375]:
+                - generic [ref=e3376]:
+                  - generic [ref=e3377]:
+                    - link [ref=e3378] [cursor=pointer]:
+                      - /url: https://www.michelinman.com/auto/dealer-locator/atlanta/yvwikyi-land-rover-buckhead
+                      - heading "LAND ROVER BUCKHEAD" [level=2] [ref=e3379]
+                    - generic [ref=e3380]:
+                      - generic [ref=e3381]: 6.17 mi
+                      - generic [ref=e3383]:
+                        - strong [ref=e3388]: 4.4/5
+                        - generic [ref=e3389]: (1509)
+                  - img "dealer logo" [ref=e3391]
+                - generic [ref=e3392]:
+                  - link "3040 PIEDMONT RD NE, Georgia, ATLANTA - 30305" [ref=e3395] [cursor=pointer]:
+                    - /url: https://www.google.com/maps?daddr=33.83796,-84.36909
+                  - generic [ref=e3402]:
+                    - button "Contact dealer" [ref=e3404] [cursor=pointer]
+                    - generic:
+                      - generic:
+                        - main
+              - generic [ref=e3409]:
+                - generic [ref=e3410]:
+                  - generic [ref=e3411]:
+                    - link [ref=e3412] [cursor=pointer]:
+                      - /url: https://www.michelinman.com/auto/dealer-locator/atlanta/ytqpvve-dekalb-tire
+                      - heading "Dekalb Tire" [level=2] [ref=e3413]
+                    - generic [ref=e3414]: 6.33 mi
+                  - img "dealer logo" [ref=e3417]
+                - generic [ref=e3418]:
+                  - link "3163 Roswell Rd., Georgia, Atlanta - 30305" [ref=e3421] [cursor=pointer]:
+                    - /url: https://www.google.com/maps?daddr=33.84141,-84.37859
+                  - generic [ref=e3428]:
+                    - button "Contact dealer" [ref=e3430] [cursor=pointer]
+                    - generic:
+                      - generic:
+                        - main
+              - generic [ref=e3435]:
+                - generic [ref=e3436]:
+                  - generic [ref=e3437]:
+                    - link [ref=e3438] [cursor=pointer]:
+                      - /url: https://www.michelinman.com/auto/dealer-locator/decatur/yvbpdvx-mavis-tires-brakes
+                      - heading "Mavis Tires & Brakes" [level=2] [ref=e3439]
+                    - generic [ref=e3440]:
+                      - generic [ref=e3441]: 6.51 mi
+                      - generic [ref=e3443]:
+                        - strong [ref=e3448]: 4.4/5
+                        - generic [ref=e3449]: (2282)
+                  - img "dealer logo" [ref=e3451]
+                - generic [ref=e3452]:
+                  - link "1471 Church St., Georgia, Decatur - 30030" [ref=e3455] [cursor=pointer]:
+                    - /url: https://www.google.com/maps?daddr=33.79036,-84.28596
+                  - generic [ref=e3462]:
+                    - button "Contact dealer" [ref=e3464] [cursor=pointer]
+                    - generic:
+                      - generic:
+                        - main
+              - generic [ref=e3469]:
+                - generic [ref=e3471]:
+                  - link [ref=e3472] [cursor=pointer]:
+                    - /url: https://www.michelinman.com/auto/dealer-locator/east-point/yodhldc-boyd-tire-co
+                    - heading "BOYD TIRE CO" [level=2] [ref=e3473]
+                  - generic [ref=e3474]:
+                    - generic [ref=e3475]: 6.65 mi
+                    - generic [ref=e3477]:
+                      - strong [ref=e3482]: 4.7/5
+                      - generic [ref=e3483]: (355)
+                - generic [ref=e3484]:
+                  - link "3495 NORMAN BERRY DR, Georgia, EAST POINT - 30344" [ref=e3487] [cursor=pointer]:
+                    - /url: https://www.google.com/maps?daddr=33.65993,-84.42867
+                  - generic [ref=e3493]:
+                    - generic [ref=e3494]:
+                      - button "Contact dealer" [ref=e3496] [cursor=pointer]
+                      - generic:
+                        - generic:
+                          - main
+                    - link "See Website" [ref=e3500] [cursor=pointer]:
+                      - /url: https://www.boydtire.com/
+              - generic [ref=e3505]:
+                - generic [ref=e3506]:
+                  - generic [ref=e3507]:
+                    - link [ref=e3508] [cursor=pointer]:
+                      - /url: https://www.michelinman.com/auto/dealer-locator/decatur/ygiwypr-nalley-bmw-of-decatur
+                      - heading "NALLEY BMW OF DECATUR" [level=2] [ref=e3509]
+                    - generic [ref=e3510]:
+                      - generic [ref=e3511]: 6.69 mi
+                      - generic [ref=e3513]:
+                        - strong [ref=e3518]: 4.4/5
+                        - generic [ref=e3519]: (5346)
+                  - img "dealer logo" [ref=e3521]
+                - generic [ref=e3522]:
+                  - link "1606 CHURCH ST, Georgia, DECATUR - 30033" [ref=e3525] [cursor=pointer]:
+                    - /url: https://www.google.com/maps?daddr=33.79403,-84.28474
+                  - generic [ref=e3532]:
+                    - button "Contact dealer" [ref=e3534] [cursor=pointer]
+                    - generic:
+                      - generic:
+                        - main
+              - generic [ref=e3539]:
+                - generic [ref=e3540]:
+                  - generic [ref=e3541]:
+                    - link [ref=e3542] [cursor=pointer]:
+                      - /url: https://www.michelinman.com/auto/dealer-locator/atlanta/yvaelgi-mavis-tires-brakes
+                      - heading "Mavis Tires & Brakes" [level=2] [ref=e3543]
+                    - generic [ref=e3544]: 6.90 mi
+                  - img "dealer logo" [ref=e3547]
+                - generic [ref=e3548]:
+                  - link "3369 Lenox Rd., Georgia, Atlanta - 30326" [ref=e3551] [cursor=pointer]:
+                    - /url: https://www.google.com/maps?daddr=33.84705,-84.35909
+                  - generic [ref=e3558]:
+                    - button "Contact dealer" [ref=e3560] [cursor=pointer]
+                    - generic:
+                      - generic:
+                        - main
+              - generic [ref=e3565]:
+                - generic [ref=e3566]:
+                  - generic [ref=e3567]:
+                    - link [ref=e3568] [cursor=pointer]:
+                      - /url: https://www.michelinman.com/auto/dealer-locator/decatur/ykjwsfb-mavis-tires-brakes
+                      - heading "Mavis Tires & Brakes" [level=2] [ref=e3569]
+                    - generic [ref=e3570]: 7.00 mi
+                  - img "dealer logo" [ref=e3573]
+                - generic [ref=e3574]:
+                  - link "425 Dekalb Industrial Way, Georgia, Decatur - 30030" [ref=e3577] [cursor=pointer]:
+                    - /url: https://www.google.com/maps?daddr=33.78836,-84.27562
+                  - generic [ref=e3584]:
+                    - button "Contact dealer" [ref=e3586] [cursor=pointer]
+                    - generic:
+                      - generic:
+                        - main
+              - generic [ref=e3591]:
+                - generic [ref=e3593]:
+                  - link [ref=e3594] [cursor=pointer]:
+                    - /url: https://www.michelinman.com/auto/dealer-locator/atlanta/yarqbyn-grahams-service-stations-inc
+                    - heading "GRAHAMS SERVICE STATIONS INC" [level=2] [ref=e3595]
+                  - generic [ref=e3596]:
+                    - generic [ref=e3597]: 7.23 mi
+                    - generic [ref=e3599]:
+                      - strong [ref=e3604]: 4/5
+                      - generic [ref=e3605]: (92)
+                - generic [ref=e3606]:
+                  - link "1400 W PACES FERRY RD N.W., Georgia, ATLANTA - 30327" [ref=e3609] [cursor=pointer]:
+                    - /url: https://www.google.com/maps?daddr=33.84842,-84.43193
+                  - generic [ref=e3616]:
+                    - button "Contact dealer" [ref=e3618] [cursor=pointer]
+                    - generic:
+                      - generic:
+                        - main
+              - generic [ref=e3623]:
+                - generic [ref=e3625]:
+                  - link [ref=e3626] [cursor=pointer]:
+                    - /url: https://www.michelinman.com/auto/dealer-locator/atlanta/yswymjm-sam-s-club-members-only-6643
+                    - 'heading "SAM''S CLUB MEMBERS ONLY #6643" [level=2] [ref=e3627]'
+                  - generic [ref=e3628]:
+                    - generic [ref=e3629]: 7.79 mi
+                    - generic [ref=e3631]:
+                      - strong [ref=e3636]: 4/5
+                      - generic [ref=e3637]: (1843)
+                - generic [ref=e3638]:
+                  - link "2901-A CLAIRMONT RD, Georgia, ATLANTA - 30329" [ref=e3641] [cursor=pointer]:
+                    - /url: https://www.google.com/maps?daddr=33.84268,-84.31125
+                  - generic [ref=e3647]:
+                    - generic [ref=e3648]:
+                      - button "Contact dealer" [ref=e3650] [cursor=pointer]
+                      - generic:
+                        - generic:
+                          - main
+                    - link "See Website" [ref=e3654] [cursor=pointer]:
+                      - /url: https://www.samsclub.com/
+            - generic "pagination" [ref=e3658]:
+              - list [ref=e3659]:
+                - listitem [ref=e3660]:
+                  - button [disabled] [ref=e3661]
+                - listitem [ref=e3664]:
+                  - link "go to page 1" [ref=e3665] [cursor=pointer]:
+                    - /url: https://www.michelinman.com/auto/dealer-locator/atlanta?sort=recommended
+                    - text: "1"
+                - listitem [ref=e3666]:
+                  - link "go to page 2" [ref=e3667] [cursor=pointer]:
+                    - /url: "?sort=recommended&page=2"
+                    - text: "2"
+                - listitem [ref=e3668]:
+                  - link "go to page 3" [ref=e3669] [cursor=pointer]:
+                    - /url: "?sort=recommended&page=3"
+                    - text: "3"
+                - listitem [ref=e3670]:
+                  - generic [ref=e3671]: …
+                - listitem [ref=e3672]:
+                  - link "go to page 29" [ref=e3673] [cursor=pointer]:
+                    - /url: "?sort=recommended&page=29"
+                    - text: "29"
+                - listitem [ref=e3674]:
+                  - link [ref=e3675] [cursor=pointer]:
+                    - /url: "?sort=recommended&page=2"
+        - generic [ref=e2771]:
+          - generic:
+            - button "Keyboard shortcuts"
+          - region "Map" [ref=e2772]
+          - generic [ref=e2773]:
+            - generic [ref=e2839]:
+              - generic:
+                - generic:
+                  - generic:
+                    - button [ref=e3775] [cursor=pointer]
+                    - button "+38" [ref=e3780] [cursor=pointer]
+                    - button [ref=e3784] [cursor=pointer]
+                    - button "+40" [ref=e3788] [cursor=pointer]
+                    - button "+31" [ref=e3792] [cursor=pointer]
+                    - button "+20" [ref=e3796] [cursor=pointer]
+                    - button "+10" [ref=e3800] [cursor=pointer]
+                    - button "+8" [ref=e3804] [cursor=pointer]
+                    - button "+29" [ref=e3808] [cursor=pointer]
+                    - button "+4" [ref=e3812] [cursor=pointer]
+                    - button "+37" [ref=e3816] [cursor=pointer]
+                    - button "+16" [ref=e3820] [cursor=pointer]
+                    - button "+9" [ref=e3824] [cursor=pointer]
+                    - button "+5" [ref=e3828] [cursor=pointer]
+                    - button "+18" [ref=e3832] [cursor=pointer]
+                    - button "+8" [ref=e3836] [cursor=pointer]
+                    - button "+14" [ref=e3840] [cursor=pointer]
+                    - button "+8" [ref=e3844] [cursor=pointer]
+                    - button "+12" [ref=e3848] [cursor=pointer]
+                    - button "+19" [ref=e3852] [cursor=pointer]
+                    - button "+4" [ref=e3856] [cursor=pointer]
+                    - button "+18" [ref=e3860] [cursor=pointer]
+                    - button "+5" [ref=e3864] [cursor=pointer]
+                    - button "+13" [ref=e3868] [cursor=pointer]
+                    - button "+2" [ref=e3872] [cursor=pointer]
+                    - button "+22" [ref=e3876] [cursor=pointer]
+                    - button "+14" [ref=e3880] [cursor=pointer]
+                    - button "+15" [ref=e3884] [cursor=pointer]
+                    - button "+19" [ref=e3888] [cursor=pointer]
+                    - button "+8" [ref=e3892] [cursor=pointer]
+                    - button "+5" [ref=e3896] [cursor=pointer]
+                    - button "+2" [ref=e3900] [cursor=pointer]
+                    - button "+6" [ref=e3904] [cursor=pointer]
+                    - button [ref=e3908] [cursor=pointer]
+                    - button "+12" [ref=e3912] [cursor=pointer]
+                    - button "+7" [ref=e3916] [cursor=pointer]
+                    - button "+3" [ref=e3920] [cursor=pointer]
+                    - button "+7" [ref=e3924] [cursor=pointer]
+                    - button "+5" [ref=e3928] [cursor=pointer]
+                    - button [ref=e3932] [cursor=pointer]
+                    - button [ref=e3936] [cursor=pointer]
+                    - button [ref=e3940] [cursor=pointer]
+                    - button "+10" [ref=e3944] [cursor=pointer]
+                    - button "+3" [ref=e3948] [cursor=pointer]
+                    - button "+2" [ref=e3952] [cursor=pointer]
+                    - button "+3" [ref=e3956] [cursor=pointer]
+                    - button "+5" [ref=e3960] [cursor=pointer]
+                    - button "+3" [ref=e3964] [cursor=pointer]
+                    - button [ref=e3968] [cursor=pointer]
+                    - button [ref=e3972] [cursor=pointer]
+                    - button "+2" [ref=e3976] [cursor=pointer]
+                    - button "+4" [ref=e3980] [cursor=pointer]
+                    - button [ref=e3984] [cursor=pointer]
+                    - button [ref=e3988] [cursor=pointer]
+                    - button [ref=e3992] [cursor=pointer]
+                    - button [ref=e3996] [cursor=pointer]
+                    - button [ref=e4000] [cursor=pointer]
+                    - button [ref=e4004] [cursor=pointer]
+                    - button [ref=e4008] [cursor=pointer]
+            - iframe [ref=e2913]:
+              
+            - menubar [ref=e2914] [cursor=pointer]:
+              - menuitemradio "Show street map" [checked] [ref=e2915]: Map
+              - menuitemradio "Show satellite imagery" [ref=e2916]: Satellite
+            - button "Toggle fullscreen view" [ref=e2917] [cursor=pointer]
+            - generic:
+              - generic:
+                - button "Map camera controls" [ref=e2919] [cursor=pointer]
+                - button "Drag Pegman onto the map to open Street View" [ref=e2920] [cursor=pointer]:
+                  - generic:
+                    - img "Street View Pegman Control"
+            - link "Open this area in Google Maps (opens a new window)" [ref=e2922] [cursor=pointer]:
+              - /url: https://maps.google.com/maps?ll=33.750128,-84.388521&z=10&t=m&hl=en-US&gl=US&mapclient=apiv3
+              - img "Google" [ref=e2924]
+            - generic [ref=e2925]:
+              - button "Keyboard shortcuts" [ref=e2931] [cursor=pointer]
+              - generic [ref=e2932]: Map data ©2026 Google
+              - link "Terms (opens in new tab)" [ref=e2941] [cursor=pointer]:
+                - /url: https://www.google.com/intl/en-US_US/help/terms_maps.html
+                - text: Terms
+              - link "Report a map error (opens in new tab)" [ref=e4016] [cursor=pointer]:
+                - /url: https://www.google.com/maps/@33.7501275,-84.3885209,10z/data=!10m1!1e1!12b1?source=apiv3&rapsrc=apiv3
+                - text: Report a map error
+      - navigation "Fil d'ariane" [ref=e4019]:
+        - button [ref=e4020] [cursor=pointer]
+        - generic [ref=e4023]: /
+        - list [ref=e4024]:
+          - listitem [ref=e4025]:
+            - link "Find a dealer" [ref=e4026] [cursor=pointer]:
+              - /url: https://www.michelinman.com/auto/dealer-locator
+          - listitem [ref=e4027]:
+            - text: /
+            - generic [ref=e4028]: Atlanta
+    - contentinfo [ref=e4032]:
+      - generic [ref=e4033]:
+        - list [ref=e4035]:
+          - listitem [ref=e4036]:
+            - link [ref=e4037] [cursor=pointer]:
+              - /url: https://www.facebook.com/MichelinUSA/
+              - img "Facebook" [ref=e4038]
+          - listitem [ref=e4040]:
+            - link [ref=e4041] [cursor=pointer]:
+              - /url: https://www.youtube.com/user/Michelin/playlists
+              - img "Youtube" [ref=e4042]
+          - listitem [ref=e4044]:
+            - link [ref=e4045] [cursor=pointer]:
+              - /url: https://www.instagram.com/michelinusa/
+              - img "Instagram" [ref=e4046]
+          - listitem [ref=e4048]:
+            - link [ref=e4049] [cursor=pointer]:
+              - /url: https://x.com/michelinusa
+              - img "Twitter" [ref=e4050]
+        - list [ref=e4054]:
+          - listitem [ref=e4055]:
+            - text: Automotive
+            - list "Automotive" [ref=e4057]:
+              - listitem [ref=e4058]:
+                - link "Browse All Car Tires" [ref=e4059] [cursor=pointer]:
+                  - /url: /auto/browse-tires/all-tires
+              - listitem [ref=e4061]:
+                - link "Browse by Car Tire Sizes" [ref=e4062] [cursor=pointer]:
+                  - /url: /auto/car-tire-sizes
+              - listitem [ref=e4064]:
+                - link "Browse by Vehicle Manufacturer" [ref=e4065] [cursor=pointer]:
+                  - /url: /auto/manufacturers
+              - listitem [ref=e4067]:
+                - link "Browse by Driving Needs" [ref=e4068] [cursor=pointer]:
+                  - /url: /auto/find-tires
+              - listitem [ref=e4070]:
+                - link "Browse by Season, Category or Family" [ref=e4071] [cursor=pointer]:
+                  - /url: /auto/find-tires-by-season-category-or-family
+              - listitem [ref=e4073]:
+                - link "Browse All Classic Tires" [ref=e4074] [cursor=pointer]:
+                  - /url: /classic/browse-tires/all-tires
+              - listitem [ref=e4076]:
+                - link "Browse Motorsports Tires" [ref=e4077] [cursor=pointer]:
+                  - /url: /motorsport/browse-tires/all-tires
+              - listitem [ref=e4079]:
+                - link "Michelin Tire Selector Tool" [ref=e4080] [cursor=pointer]:
+                  - /url: /auto/find-the-perfect-tire
+              - listitem [ref=e4082]:
+                - link "Car Tire Promotions" [ref=e4083] [cursor=pointer]:
+                  - /url: /deals-promotions-and-rebates
+              - listitem [ref=e4085]:
+                - link "Locate car tire dealers" [ref=e4086] [cursor=pointer]:
+                  - /url: /auto/dealer-locator
+          - listitem [ref=e4088]:
+            - text: Motorcycle
+            - list "Motorcycle" [ref=e4090]:
+              - listitem [ref=e4091]:
+                - link "Browse All Motorcycle Tires" [ref=e4092] [cursor=pointer]:
+                  - /url: /motorcycle/browse-tires/all-tires
+              - listitem [ref=e4094]:
+                - link "Browse by Motorcycle Tire Size" [ref=e4095] [cursor=pointer]:
+                  - /url: /motorcycle/motorcycle-tire-sizes
+              - listitem [ref=e4097]:
+                - link "Browse by Riding Experience" [ref=e4098] [cursor=pointer]:
+                  - /url: /motorcycle/browse-tires/by-usage
+              - listitem [ref=e4100]:
+                - link "Browse by Product Family" [ref=e4101] [cursor=pointer]:
+                  - /url: /motorcycle/browse-tires/by-family
+              - listitem [ref=e4103]:
+                - link "Browse by Manufacturer" [ref=e4104] [cursor=pointer]:
+                  - /url: /motorcycle/manufacturers
+              - listitem [ref=e4106]:
+                - link "Locate motorcycle tire dealers" [ref=e4107] [cursor=pointer]:
+                  - /url: /motorcycle/dealer-locator
+              - listitem [ref=e4109]:
+                - link "Motorcycle Tire Promotions" [ref=e4110] [cursor=pointer]:
+                  - /url: /motorcycle/promotions
+              - listitem [ref=e4112]:
+                - link "Michelin Bib Mousse" [ref=e4113] [cursor=pointer]:
+                  - /url: /motorcycle/accessories/michelin-bib-mousse
+              - listitem [ref=e4115]:
+                - link "Off-Road Rim Band" [ref=e4116] [cursor=pointer]:
+                  - /url: /motorcycle/accessories/off-road-rim-band
+          - listitem [ref=e4118]:
+            - text: Bicycle
+            - list "Bicycle" [ref=e4120]:
+              - listitem [ref=e4121]:
+                - link "Browse All Bicycle Tires" [ref=e4122] [cursor=pointer]:
+                  - /url: /bicycle/browse-tires/all-tires
+              - listitem [ref=e4124]:
+                - link "Browse by Road Usage" [ref=e4125] [cursor=pointer]:
+                  - /url: /bicycle/road
+              - listitem [ref=e4127]:
+                - link "Browse by Gravel Usage" [ref=e4128] [cursor=pointer]:
+                  - /url: /bicycle/gravel
+              - listitem [ref=e4130]:
+                - link "Browse by MTB Usage" [ref=e4131] [cursor=pointer]:
+                  - /url: /bicycle/mtb
+              - listitem [ref=e4133]:
+                - link "Browse by E-Bike Usage" [ref=e4134] [cursor=pointer]:
+                  - /url: /bicycle/e-bike
+              - listitem [ref=e4136]:
+                - link "Browse by Commuting & Tour Usage" [ref=e4137] [cursor=pointer]:
+                  - /url: /bicycle/city
+              - listitem [ref=e4139]:
+                - link "Browse by Kids Usage" [ref=e4140] [cursor=pointer]:
+                  - /url: /bicycle/kids
+              - listitem [ref=e4142]:
+                - link "Browse by City Tubes" [ref=e4143] [cursor=pointer]:
+                  - /url: /bicycle/bicycle-tubes/bicycle-tubes-city
+              - listitem [ref=e4145]:
+                - link "Browse by MTB Tubes" [ref=e4146] [cursor=pointer]:
+                  - /url: /bicycle/bicycle-tubes/bicycle-tubes-mtb
+              - listitem [ref=e4148]:
+                - link "Browse by Road Tubes" [ref=e4149] [cursor=pointer]:
+                  - /url: /bicycle/bicycle-tubes/bicycle-tubes-road
+          - listitem [ref=e4151]:
+            - text: Find Tires by Vehicle Type
+            - list [ref=e4153]:
+              - listitem [ref=e4154]:
+                - link "EV Ready" [ref=e4155] [cursor=pointer]:
+                  - /url: /auto/browse-tires/by-category/ev-ready
+              - listitem [ref=e4157]:
+                - link "Light Truck" [ref=e4158] [cursor=pointer]:
+                  - /url: /auto/browse-tires/by-category/light-truck
+              - listitem [ref=e4160]:
+                - link "Luxury Performance Touring" [ref=e4161] [cursor=pointer]:
+                  - /url: /auto/browse-tires/by-category/luxury-performance-touring
+              - listitem [ref=e4163]:
+                - link "Passenger Car / Minivan" [ref=e4164] [cursor=pointer]:
+                  - /url: /auto/browse-tires/by-category/passenger-car-minivan
+              - listitem [ref=e4166]:
+                - link "SUV Crossover" [ref=e4167] [cursor=pointer]:
+                  - /url: /auto/browse-tires/by-category/suv-crossover
+              - listitem [ref=e4169]:
+                - link "Ultra high performance" [ref=e4170] [cursor=pointer]:
+                  - /url: /auto/browse-tires/by-category/ultra-high-performance-sport
+          - listitem [ref=e4172]:
+            - text: Automotive Support
+            - list "Automotive" [ref=e4174]:
+              - listitem [ref=e4175]:
+                - link "Newsletter Subscription" [ref=e4176] [cursor=pointer]:
+                  - /url: /auto/newsletter
+              - listitem [ref=e4178]:
+                - link "FAQs for Car Tires" [ref=e4179] [cursor=pointer]:
+                  - /url: /auto/assistance/michelin-faqs
+              - listitem [ref=e4181]:
+                - link "Register Your Car Tires" [ref=e4182] [cursor=pointer]:
+                  - /url: /auto/registertires
+              - listitem [ref=e4184]:
+                - link "Automotive Tires Warranty" [ref=e4185] [cursor=pointer]:
+                  - /url: /auto/assistance/warranty
+              - listitem [ref=e4187]:
+                - link "Car Owner's Manual" [ref=e4188] [cursor=pointer]:
+                  - /url: https://dgaddcosprod.blob.core.windows.net/b2c-experience-production/attachments/cl3t42v4v06oc01qvi1ihty9p-michelin-replacement-tires-owner-s-manual-warranty.pdf
+              - listitem [ref=e4190]:
+                - link "Car Tire Promo Redemption" [ref=e4191] [cursor=pointer]:
+                  - /url: https://www.tirerewardcenter.com/Michelin/MichHome.aspx
+              - listitem [ref=e4193]:
+                - link "Safety Recalls" [ref=e4194] [cursor=pointer]:
+                  - /url: /why-michelin/safety-recalls
+              - listitem [ref=e4196]:
+                - link "Automotive Press Room" [ref=e4197] [cursor=pointer]:
+                  - /url: https://michelinmedia.com/
+          - listitem [ref=e4199]:
+            - text: Motorcycle Support
+            - list "Motorcycle" [ref=e4201]:
+              - listitem [ref=e4202]:
+                - link "Motorcycle Tires Newsletter Subscription" [ref=e4203] [cursor=pointer]:
+                  - /url: /motorcycle/newsletter-2w
+              - listitem [ref=e4205]:
+                - link "FAQs for Motorcycle Tires" [ref=e4206] [cursor=pointer]:
+                  - /url: /motorcycle/faq-motorcycle
+              - listitem [ref=e4208]:
+                - link "Register Your Motorcycle Tires" [ref=e4209] [cursor=pointer]:
+                  - /url: /motorcycle/registertires
+              - listitem [ref=e4211]:
+                - link "Motorcycle Tires Warranty" [ref=e4212] [cursor=pointer]:
+                  - /url: /motorcycle/assistance/motorcycle-and-scooter-warranty
+              - listitem [ref=e4214]:
+                - link "Motorcycle Tires Owner's Manual" [ref=e4215] [cursor=pointer]:
+                  - /url: https://cxf-prod.azureedge.net/b2c-experience-production/attachments/clr7ywsfy05nq01m33a1d9cks-motorcycle-tire-owner-s-manual-warranty-12-23-eng-final.pdf
+          - listitem [ref=e4217]:
+            - text: Bicycle Support
+            - list "Bicycle" [ref=e4219]:
+              - listitem [ref=e4220]:
+                - link "Bicycle Retailer News" [ref=e4221] [cursor=pointer]:
+                  - /url: /bicycle/retailer-news
+              - listitem [ref=e4223]:
+                - link "World Series Main Partner" [ref=e4224] [cursor=pointer]:
+                  - /url: /bicycle/whoop-uci-mtb-world-series-main-partner
+              - listitem [ref=e4226]:
+                - link "Bicycle Technologies" [ref=e4227] [cursor=pointer]:
+                  - /url: /bicycle/technologies-bicycle
+              - listitem [ref=e4229]:
+                - link "Bicycle Tires Promotions" [ref=e4230] [cursor=pointer]:
+                  - /url: /deals-promotions-and-rebates
+              - listitem [ref=e4232]:
+                - link "Locate Bicycle Tire Dealers" [ref=e4233] [cursor=pointer]:
+                  - /url: /bicycle/dealer-locator
+          - listitem [ref=e4235]:
+            - text: Car Tires Tips and Advice
+            - list [ref=e4237]:
+              - listitem [ref=e4238]:
+                - link "Tires 101" [ref=e4239] [cursor=pointer]:
+                  - /url: /auto/auto-tips-and-advice/tires-101
+              - listitem [ref=e4241]:
+                - link "Michelin Tire Maintenance" [ref=e4242] [cursor=pointer]:
+                  - /url: /auto/auto-tips-and-advice/tire-maintenance
+              - listitem [ref=e4244]:
+                - link "Tire Buying Guide" [ref=e4245] [cursor=pointer]:
+                  - /url: /auto/auto-tips-and-advice/tire-buying-guide
+              - listitem [ref=e4247]:
+                - link "Driving Tips" [ref=e4248] [cursor=pointer]:
+                  - /url: /auto/auto-tips-and-advice/driving-tips
+              - listitem [ref=e4250]:
+                - link "Car Emergencies" [ref=e4251] [cursor=pointer]:
+                  - /url: /auto/auto-tips-and-advice/car-emergencies
+              - listitem [ref=e4253]:
+                - link "Tire Damage" [ref=e4254] [cursor=pointer]:
+                  - /url: /auto/auto-tips-and-advice/tire-damage
+              - listitem [ref=e4256]:
+                - link "Electric Mobility Guide" [ref=e4257] [cursor=pointer]:
+                  - /url: /auto/auto-tips-and-advice/electric-mobility-guide
+              - listitem [ref=e4259]:
+                - link "Car Tire Pressure Guide" [ref=e4260] [cursor=pointer]:
+                  - /url: /auto/auto-tips-and-advice/tire-pressure
+              - listitem [ref=e4262]:
+                - link "Winter Driving" [ref=e4263] [cursor=pointer]:
+                  - /url: /auto/auto-tips-and-advice/winter-driving
+              - listitem [ref=e4265]:
+                - link "Preparation for Winter" [ref=e4266] [cursor=pointer]:
+                  - /url: /auto/auto-tips-and-advice/preparation-for-winter
+          - listitem [ref=e4268]:
+            - text: Auto Sizes
+            - list [ref=e4270]:
+              - listitem [ref=e4271]:
+                - link "Shop 15-Inch Car Tires" [ref=e4272] [cursor=pointer]:
+                  - /url: /auto/car-tire-sizes/15-inch-tires
+              - listitem [ref=e4274]:
+                - link "Shop 16-Inch Car Tires" [ref=e4275] [cursor=pointer]:
+                  - /url: /auto/car-tire-sizes/16-inch-tires
+              - listitem [ref=e4277]:
+                - link "Shop 17-Inch Car Tires" [ref=e4278] [cursor=pointer]:
+                  - /url: /auto/car-tire-sizes/17-inch-tires
+              - listitem [ref=e4280]:
+                - link "Shop 18-Inch Car Tires" [ref=e4281] [cursor=pointer]:
+                  - /url: /auto/car-tire-sizes/18-inch-tires
+              - listitem [ref=e4283]:
+                - link "Shop 19-Inch Car Tires" [ref=e4284] [cursor=pointer]:
+                  - /url: /auto/car-tire-sizes/19-inch-tires
+              - listitem [ref=e4286]:
+                - link "Shop 19.5-Inch Car Tires" [ref=e4287] [cursor=pointer]:
+                  - /url: /auto/car-tire-sizes/19.5-inch-tires
+              - listitem [ref=e4289]:
+                - link "Shop 20-Inch Car Tires" [ref=e4290] [cursor=pointer]:
+                  - /url: /auto/car-tire-sizes/20-inch-tires
+              - listitem [ref=e4292]:
+                - link "Shop 21-Inch Car Tires" [ref=e4293] [cursor=pointer]:
+                  - /url: /auto/car-tire-sizes/21-inch-tires
+              - listitem [ref=e4295]:
+                - link "Shop 22-Inch Car Tires" [ref=e4296] [cursor=pointer]:
+                  - /url: /auto/car-tire-sizes/22-inch-tires
+              - listitem [ref=e4298]:
+                - link "Shop 23-Inch Car Tires" [ref=e4299] [cursor=pointer]:
+                  - /url: /auto/car-tire-sizes/23-inch-tires
+              - listitem [ref=e4301]:
+                - link "Shop 24-Inch Car Tires" [ref=e4302] [cursor=pointer]:
+                  - /url: /auto/car-tire-sizes/24-inch-tires
+          - listitem [ref=e4304]:
+            - text: Moto Sizes
+            - list [ref=e4306]:
+              - listitem [ref=e4307]:
+                - link "Shop 8-Inch Motorcycle Tires" [ref=e4308] [cursor=pointer]:
+                  - /url: /motorcycle/motorcycle-tire-sizes/8-inch-tires
+              - listitem [ref=e4310]:
+                - link "Shop 10-Inch Motorcycle Tires" [ref=e4311] [cursor=pointer]:
+                  - /url: /motorcycle/motorcycle-tire-sizes/10-inch-tires
+              - listitem [ref=e4313]:
+                - link "Shop 11-Inch Motorcycle Tires" [ref=e4314] [cursor=pointer]:
+                  - /url: /motorcycle/motorcycle-tire-sizes/11-inch-tires
+              - listitem [ref=e4316]:
+                - link "Shop 12-Inch Motorcycle Tires" [ref=e4317] [cursor=pointer]:
+                  - /url: /motorcycle/motorcycle-tire-sizes/12-inch-tires
+              - listitem [ref=e4319]:
+                - link "Shop 13-Inch Motorcycle Tires" [ref=e4320] [cursor=pointer]:
+                  - /url: /motorcycle/motorcycle-tire-sizes/13-inch-tires
+              - listitem [ref=e4322]:
+                - link "Shop 14-Inch Motorcycle Tires" [ref=e4323] [cursor=pointer]:
+                  - /url: /motorcycle/motorcycle-tire-sizes/14-inch-tires
+              - listitem [ref=e4325]:
+                - link "Shop 15-Inch Motorcycle Tires" [ref=e4326] [cursor=pointer]:
+                  - /url: /motorcycle/motorcycle-tire-sizes/15-inch-tires
+              - listitem [ref=e4328]:
+                - link "Shop 16-Inch Motorcycle Tires" [ref=e4329] [cursor=pointer]:
+                  - /url: /motorcycle/motorcycle-tire-sizes/16-inch-tires
+              - listitem [ref=e4331]:
+                - link "Shop 16.5-Inch Motorcycle Tires" [ref=e4332] [cursor=pointer]:
+                  - /url: /motorcycle/motorcycle-tire-sizes/16.5-inch-tires
+              - listitem [ref=e4334]:
+                - link "Shop 17-Inch Motorcycle Tires" [ref=e4335] [cursor=pointer]:
+                  - /url: /motorcycle/motorcycle-tire-sizes/17-inch-tires
+              - listitem [ref=e4337]:
+                - link "Shop 18-Inch Motorcycle Tires" [ref=e4338] [cursor=pointer]:
+                  - /url: /motorcycle/motorcycle-tire-sizes/18-inch-tires
+              - listitem [ref=e4340]:
+                - link "Shop 19-Inch Motorcycle Tires" [ref=e4341] [cursor=pointer]:
+                  - /url: /motorcycle/motorcycle-tire-sizes/19-inch-tires
+              - listitem [ref=e4343]:
+                - link "Shop 21-Inch Motorcycle Tires" [ref=e4344] [cursor=pointer]:
+                  - /url: /motorcycle/motorcycle-tire-sizes/21-inch-tires
+          - listitem [ref=e4346]:
+            - text: Auto Manufacturer
+            - list [ref=e4348]:
+              - listitem [ref=e4349]:
+                - link "Toyota" [ref=e4350] [cursor=pointer]:
+                  - /url: /auto/manufacturers/toyota
+              - listitem [ref=e4352]:
+                - link "Honda" [ref=e4353] [cursor=pointer]:
+                  - /url: /auto/manufacturers/honda
+              - listitem [ref=e4355]:
+                - link "Ford" [ref=e4356] [cursor=pointer]:
+                  - /url: /auto/manufacturers/ford
+              - listitem [ref=e4358]:
+                - link "Chevrolet" [ref=e4359] [cursor=pointer]:
+                  - /url: /auto/manufacturers/chevrolet
+              - listitem [ref=e4361]:
+                - link "Nissan" [ref=e4362] [cursor=pointer]:
+                  - /url: /auto/manufacturers/nissan
+              - listitem [ref=e4364]:
+                - link "Hyundai" [ref=e4365] [cursor=pointer]:
+                  - /url: /auto/manufacturers/hyundai
+              - listitem [ref=e4367]:
+                - link "Kia" [ref=e4368] [cursor=pointer]:
+                  - /url: /auto/manufacturers/kia
+              - listitem [ref=e4370]:
+                - link "Jeep" [ref=e4371] [cursor=pointer]:
+                  - /url: /auto/manufacturers/jeep
+              - listitem [ref=e4373]:
+                - link "Subaru" [ref=e4374] [cursor=pointer]:
+                  - /url: /auto/manufacturers/subaru
+              - listitem [ref=e4376]:
+                - link "Volkswagen" [ref=e4377] [cursor=pointer]:
+                  - /url: /auto/manufacturers/volkswagen
+              - listitem [ref=e4379]:
+                - link "BMW" [ref=e4380] [cursor=pointer]:
+                  - /url: /auto/manufacturers/bmw
+              - listitem [ref=e4382]:
+                - link "Mercedes-Benz" [ref=e4383] [cursor=pointer]:
+                  - /url: /auto/manufacturers/mercedes-benz
+              - listitem [ref=e4385]:
+                - link "Audi" [ref=e4386] [cursor=pointer]:
+                  - /url: /auto/manufacturers/audi
+              - listitem [ref=e4388]:
+                - link "Lexus" [ref=e4389] [cursor=pointer]:
+                  - /url: /auto/manufacturers/lexus
+              - listitem [ref=e4391]:
+                - link "Mazda" [ref=e4392] [cursor=pointer]:
+                  - /url: /auto/manufacturers/mazda
+              - listitem [ref=e4394]:
+                - link "GMC" [ref=e4395] [cursor=pointer]:
+                  - /url: /auto/manufacturers/gmc
+              - listitem [ref=e4397]:
+                - link "Dodge" [ref=e4398] [cursor=pointer]:
+                  - /url: /auto/manufacturers/dodge
+              - listitem [ref=e4400]:
+                - link "Ram" [ref=e4401] [cursor=pointer]:
+                  - /url: /auto/manufacturers/ram
+              - listitem [ref=e4403]:
+                - link "Tesla" [ref=e4404] [cursor=pointer]:
+                  - /url: /auto/manufacturers/tesla
+              - listitem [ref=e4406]:
+                - link "Volvo" [ref=e4407] [cursor=pointer]:
+                  - /url: /auto/manufacturers/volvo
+          - listitem [ref=e4409]:
+            - text: Moto Manufacturer
+            - list [ref=e4411]:
+              - listitem [ref=e4412]:
+                - link "Harley-Davidson" [ref=e4413] [cursor=pointer]:
+                  - /url: /motorcycle/manufacturers/harley-davidson
+              - listitem [ref=e4415]:
+                - link "Honda" [ref=e4416] [cursor=pointer]:
+                  - /url: /motorcycle/manufacturers/honda
+              - listitem [ref=e4418]:
+                - link "Yamaha" [ref=e4419] [cursor=pointer]:
+                  - /url: /motorcycle/manufacturers/yamaha
+              - listitem [ref=e4421]:
+                - link "Kawasaki" [ref=e4422] [cursor=pointer]:
+                  - /url: /motorcycle/manufacturers/kawasaki
+              - listitem [ref=e4424]:
+                - link "Suzuki" [ref=e4425] [cursor=pointer]:
+                  - /url: /motorcycle/manufacturers/suzuki
+              - listitem [ref=e4427]:
+                - link "BMW Motorrad" [ref=e4428] [cursor=pointer]:
+                  - /url: /motorcycle/manufacturers/bmw
+              - listitem [ref=e4430]:
+                - link "Ducati" [ref=e4431] [cursor=pointer]:
+                  - /url: /motorcycle/manufacturers/ducati
+              - listitem [ref=e4433]:
+                - link "Triumph" [ref=e4434] [cursor=pointer]:
+                  - /url: /motorcycle/manufacturers/triumph
+              - listitem [ref=e4436]:
+                - link "KTM" [ref=e4437] [cursor=pointer]:
+                  - /url: /motorcycle/manufacturers/ktm
+              - listitem [ref=e4439]:
+                - link "Indian Motorcycle" [ref=e4440] [cursor=pointer]:
+                  - /url: /motorcycle/manufacturers/indian-motorcycle
+              - listitem [ref=e4442]:
+                - link "Aprilia" [ref=e4443] [cursor=pointer]:
+                  - /url: /motorcycle/manufacturers/aprilia
+              - listitem [ref=e4445]:
+                - link "Husqvarna" [ref=e4446] [cursor=pointer]:
+                  - /url: /motorcycle/manufacturers/husqvarna
+              - listitem [ref=e4448]:
+                - link "Vespa" [ref=e4449] [cursor=pointer]:
+                  - /url: /motorcycle/manufacturers/vespa
+              - listitem [ref=e4451]:
+                - link "Moto Guzzi" [ref=e4452] [cursor=pointer]:
+                  - /url: /motorcycle/manufacturers/moto-guzzi
+              - listitem [ref=e4454]:
+                - link "Royal Enfield" [ref=e4455] [cursor=pointer]:
+                  - /url: /motorcycle/manufacturers/royal-enfield
+      - generic [ref=e4458]:
+        - list [ref=e4459]:
+          - listitem [ref=e4460]:
+            - link "Legal & Privacy Center" [ref=e4461] [cursor=pointer]:
+              - /url: /legal-privacy-center
+          - listitem [ref=e4463]:
+            - link "Privacy Notice" [ref=e4464] [cursor=pointer]:
+              - /url: /legal-privacy-center/privacy-notice
+          - listitem [ref=e4466]:
+            - link "Website Terms of Use" [ref=e4467] [cursor=pointer]:
+              - /url: /legal-privacy-center/terms-of-use
+          - listitem [ref=e4469]:
+            - link "Accessibility Statement" [ref=e4470] [cursor=pointer]:
+              - /url: /accessibility-statement
+          - listitem [ref=e4472]:
+            - button "Your Privacy Choices" [ref=e4473] [cursor=pointer]
+          - listitem [ref=e4476]:
+            - link "Site map" [ref=e4477] [cursor=pointer]:
+              - /url: /auto/assistance/site-map
+          - listitem [ref=e4479]:
+            - link "Careers" [ref=e4480] [cursor=pointer]:
+              - /url: https://jobs.michelinman.com/
+          - listitem [ref=e4482]:
+            - link "Code of Ethics" [ref=e4483] [cursor=pointer]:
+              - /url: https://ethique.michelin.com/en/
+        - generic [ref=e4485]: Copyright © 2026 Michelin North America, Inc. All rights reserved. The Michelin Man is a registered trademark owned by Michelin.
+  - generic [ref=e4486]: Car tire Dealers in Atlanta, Georgia, US | Michelin USA

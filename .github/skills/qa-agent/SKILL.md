@@ -11,7 +11,7 @@ argument-hint: '<Jira ticket ID or URL, e.g. SCRUM-1> [optional page URL overrid
 user-invocable: true
 ---
 
-# Codex QA — Autonomous QA Agent
+# QA Agent — Autonomous QA Agent
 
 You are a Senior QA Engineer. You read a ticket, test the real page in a real
 browser while recording, and ship an HTML report with video evidence.
@@ -49,32 +49,58 @@ Never work from memory of these docs.
 
 ## Running under GitHub Copilot
 
-Phases 3–6 (recording, plan, execute, finalize) as written assume a live,
-stateful browser-scripting MCP tool — the kind that keeps a `page` object alive
-across calls. Copilot's agent mode does not reliably provide that; what it
-reliably provides is **terminal command execution**.
+Use the **Playwright MCP** (`@playwright/mcp`) as the primary browser interaction
+tool. It provides live, stateful browser control through accessibility snapshots
+— click, fill, navigate, take screenshots, all via MCP tool calls that Copilot
+can adapt on the fly.
 
-So under Copilot, treat `scripts/qa-record.mjs` as the primary driver for
-Phases 3–6, not the fallback described in its own header comment:
+This is how the agent should interact with the browser in Phases 3–6:
+
+- **Navigate** to the target URL via Playwright MCP's `browser_navigate`
+- **Dismiss consent banners** by inspecting the accessibility snapshot and
+  clicking the accept button directly — no preset sequence, read the page
+- **Interact** using `browser_click`, `browser_type`, `browser_hover` etc. —
+  these use accessibility references from the snapshot, not CSS selectors
+- **Take screenshots** with `browser_take_screenshot` — for evidence
+- **Retry and adapt** — if an element isn't found or a click doesn't produce
+  the expected result, try a different approach. Read the snapshot again.
+  Never give up after a single failure; never write "SKIPPED" because the
+  first selector attempt missed. You have a live browser — use it.
+
+### Screenshot highlighting
+
+Before each screenshot, highlight the element under test with a red outline:
+
+```
+browser_execute_javascript:
+  document.querySelector('<selector>').style.outline = '3px solid red';
+  document.querySelector('<selector>').style.boxShadow = '0 0 0 4px rgba(255,0,0,0.3)';
+```
+
+Then take the screenshot. Clear the highlight after. Every screenshot in the
+report should show what was tested, visually.
+
+### What the registry is NOT
+
+`support/pages.js` is never a precondition for testing. The registry exists for
+two things only: the hand-written Cucumber suite's step definitions, and
+composing Phase 7's generated `.feature` file (`@todo` for unregistered elements
+in that file is correct). Live testing via Playwright MCP targets elements by
+their accessibility role and name from the snapshot — no registry entry needed.
+
+### When to fall back to `scripts/qa-record.mjs`
+
+Only when Playwright MCP is unavailable or for a deterministic evidence-capture
+pass (e.g., a clean video recording of the core happy path for the demo). In
+that case, use Lipsha's approach: write a short steps JSON and run:
 
 ```bash
 node .github/skills/qa-agent/scripts/qa-record.mjs \
-  --ticket {ticketId} --url {target_url} --locale {locale} \
-  --steps {path-to-a-steps-json-you-write-for-this-run}
+  --ticket {ticketId} --url {target_url} --steps {steps-file-or-preset}
 ```
 
-Write the steps JSON per scenario batch (see `assets/steps.example.json` for the
-format), run it, then read the `evidence-{label}.json` it emits — it already
-contains screenshots, console errors, network failures, and an element census,
-which is most of what Phase 4's regression inventory needs. Chain several runs
-with different `--label` values if the plan needs more than one recorded
-session. This still satisfies every Absolute Rule (native interactions,
-one context per recording, video finalized in the correct order) because the
-script itself enforces them.
-
-If a genuine browser MCP tool *is* connected (check the tool list before
-assuming), use it for one-off verification — re-checking a single element,
-confirming a fix — not as the primary interaction path.
+Delete any temp files after the run. Never leave intermediate JSON files in the
+workspace.
 
 ---
 
@@ -88,7 +114,7 @@ confirming a fix — not as the primary interaction path.
 | 4 | Plan | `references/execution.md` § Phase 4 |
 | 5 | Execute | `references/execution.md` § Phase 5 |
 | 6 | Evidence finalization | `references/execution.md` § Phase 6 |
-| 7 | Report & close | `references/report-format.md`, `references/gherkin-and-gaps.md` |
+| 7 | Report & close | `assets/report-format.md`, `references/gherkin-and-gaps.md` |
 
 Read `references/testing-rules.md` before Phase 4 and again before Phase 7 —
 it governs verdicts, severities and the fail-recheck gate.
@@ -160,11 +186,6 @@ Extract and record:
 Create the run folder: `qa-runs/{ticketId}-{YYYY-MM-DD-HHmm}/` with
 `images/` and `videos/` subfolders. Every artefact for this run goes here.
 
-**Optional GitLab enrichment** — only if the ticket description contains a GitLab
-MR URL *and* the `gitlab-mcp` server is configured. Derive `project_path` and
-`mr_id` from the URL (never hardcode), then call `fetch_mr`, `get_mr_diff` and
-`get_mr_comments` in parallel to enrich `mrChangeSummary` and the AC list. If
-GitLab is absent, skip this silently — it is an enhancement, not a dependency.
 
 ---
 
@@ -254,7 +275,7 @@ original and record a focused clip instead — never loop ffmpeg.
 ### PHASE 7 — Report & close
 
 Write `qa-report.json` first — it is the single source of truth. Schema and
-field rules: `references/report-format.md`.
+field rules: `assets/report-format.md`.
 
 Then render and verify:
 
@@ -296,11 +317,20 @@ fix the feature file, do not fix the suite.
 
 #### Close out
 
-- `jira-mcp/add_comment` — post the verdict, counts and the report path
-- If GitLab is configured and an MR was linked: `gitlab-mcp/post_qa_report`
-  then `gitlab-mcp/update_labels` (pass labels as **plain comma-separated
-  strings**, never JSON arrays — GitLab will create a label literally named
-  `["qa::passed"]`)
+- `jira-mcp/post_qa_report` — pass `{ ticket_id, report_path }` pointing at
+  `qa-report.json`. It reads the file, uploads every screenshot/video the
+  report references, embeds each inline next to its scenario or bug, and
+  posts the finished ADF comment. This is the default — one call, no manual
+  orchestration. Full behavior: `assets/report-format.md`.
+- Skip uploads for a faster/cheaper text-only comment by passing
+  `upload_media: false`.
+- **Never use full file paths** anywhere in the comment — ticket ID,
+  filename, and relative paths only.
+- For a comment that doesn't map onto an existing `qa-report.json` (e.g. an
+  ad-hoc delta retest), fall back to `jira-mcp/upload_screenshots` +
+  `jira-mcp/post_qa_summary`, or `jira-mcp/add_comment` with a hand-built
+  `adf` object for anything simpler. Jira does not render markdown (`**`,
+  `|`, `#`) — never pass markdown as `body` expecting formatting.
 
 | Worst finding | Verdict | Label |
 |---|---|---|

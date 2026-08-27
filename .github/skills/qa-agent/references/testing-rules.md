@@ -120,7 +120,7 @@ Add mobile or tablet only when the ticket explicitly signals it — keywords
 | Viewport | Size |
 |---|---|
 | Desktop | 1280 × 800 |
-| Mobile | 390 × 844 |
+| Mobile | 360 × 640 |
 | Tablet | 768 × 1024 |
 
 If triggered: use exactly the size named, re-run all feature cases at that size,

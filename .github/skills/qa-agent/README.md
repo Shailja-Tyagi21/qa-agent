@@ -1,4 +1,4 @@
-# Codex QA — autonomous QA agent
+# QA Agent — autonomous QA agent
 
 Give it a Jira ticket ID. It reads the ticket and its comments, plans a test
 suite, drives a real browser while recording, and produces a self-contained HTML
@@ -80,7 +80,7 @@ node scripts/build-report.mjs qa-runs/DEMO-1-*/qa-report.json   # after you writ
 **The agent writes JSON. A script renders the HTML.**
 
 Both source versions had the agent hand-author the report — one a 300-line HTML
-template, the other a GitLab markdown block. That is slow, eats context, and
+template, the other a markdown comment. That is slow, eats context, and
 drifts between runs. Here the agent fills a schema and `build-report.mjs` renders
 it, which buys three things:
 
@@ -101,7 +101,7 @@ tells you.
 
 | From the May version | From the second version | New here |
 |---|---|---|
-| HTML + JSON report | Verdict honesty rules | Jira-first intake (no GitLab dependency) |
+| HTML + JSON report | Verdict honesty rules | Jira-first intake |
 | Gherkin `.feature` output | Fail Recheck Gate (fresh context) | `build-report.mjs` generator + validator |
 | Automation gap analysis | Native-interactions-only rule | Public-site reference, secrets stripped |
 | Live-DOM regression census | Analytics `TC-AN1` check | Run-folder structure, relative media paths |
@@ -113,14 +113,12 @@ tells you.
 Conflicts resolved:
 
 - **Compression** — "exactly once" (v1) beats "compress until it fits" (v2). The
-  loop was a hang risk. Threshold raised to 20 MB since there is no GitLab upload
-  limit to satisfy locally; an mp4 is produced alongside the webm for players
+  loop was a hang risk. Threshold raised to 20 MB 
   that will not take webm.
 - **Browser control** — v2's native-methods rule wins outright and is promoted to
   an absolute rule. `evaluate()` clicks do not appear in the recording, which
   silently guts the primary deliverable.
-- **Report channel** — v1's HTML wins; the GitLab comment becomes optional
-  enrichment, and the Jira comment becomes the default notification.
+- **Report channel** — HTML report is the primary deliverable, Jira comment is the notification.
 - **Pre-existing bugs** — v2's hard line ("if you see it, report it") is kept, but
   paired with v1's reproduce-twice gate so the report is neither green-washed nor
   full of false positives. Both failure modes are called out explicitly in

@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-08-20T13:48:02.370Z",
+  "generatedAt": "2026-08-26T12:19:01.658Z",
   "root": "michelin-qa",
   "framework": "cucumber-js + playwright",
   "counts": {
     "stepDefinitions": 35,
     "featureFiles": 2,
     "scenarios": 7,
-    "generatedFeatureFiles": 1,
+    "generatedFeatureFiles": 0,
     "knownGaps": 24
   },
   "registry": {
@@ -436,73 +436,7 @@
       ]
     }
   ],
-  "generated": [
-    {
-      "file": "features/generated/EXAMPLE-1.feature",
-      "feature": "EXAMPLE-1 — Dealer results sorting",
-      "tags": [
-        "@generated",
-        "@EXAMPLE-1"
-      ],
-      "scenarios": [
-        {
-          "name": "S1 — Dealer locator loads with search, map and top cities",
-          "tags": [
-            "@generated",
-            "@sanity"
-          ],
-          "steps": [
-            "Then the \"dealer search container\" should be visible",
-            "And the \"map\" should be visible",
-            "And the \"top cities list\" should be visible",
-            "And there should be no console errors"
-          ]
-        },
-        {
-          "name": "S3 — City search reaches a results page with multiple dealers",
-          "tags": [
-            "@generated",
-            "@ac-1"
-          ],
-          "steps": [
-            "When I search for the city \"Atlanta\"",
-            "And I select the first autocomplete suggestion",
-            "Then the dealer results should be visible",
-            "And I should see more than 1 \"dealer cards\""
-          ]
-        },
-        {
-          "name": "S7 — Back from a dealer returns to the results list",
-          "tags": [
-            "@generated",
-            "@from-comment"
-          ],
-          "steps": [
-            "When I click the first top city",
-            "And I open the first dealer",
-            "Then the dealer details page should be visible",
-            "When I go back",
-            "Then the dealer results should be visible"
-          ]
-        },
-        {
-          "name": "S9 — Sorting by rating does not reorder results",
-          "tags": [
-            "@generated",
-            "@todo",
-            "@bug-1"
-          ],
-          "steps": [
-            "When I click the first top city",
-            "Then the dealer results should be visible",
-            "When I click the \"sort control\"",
-            "And I select the \"Highest rated\" sort option",
-            "Then the dealer results should be ordered by rating descending"
-          ]
-        }
-      ]
-    }
-  ],
+  "generated": [],
   "knownGaps": [
     "Filter panel — opening, applying, clearing, and the result-count badge",
     "Sort control — every option, and whether results actually reorder",

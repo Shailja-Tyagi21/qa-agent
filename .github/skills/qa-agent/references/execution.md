@@ -1,4 +1,4 @@
-# Execution — Codex QA
+# Execution — QA Agent
 
 Detailed procedure for phases 3–6 and the delta path.
 Phases 1–2 and 7 are defined in [SKILL.md](../SKILL.md).
