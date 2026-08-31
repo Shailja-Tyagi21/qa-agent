@@ -70,16 +70,29 @@ This is how the agent should interact with the browser in Phases 3–6:
 
 ### Screenshot highlighting
 
-Before each screenshot, highlight the element under test with a red outline:
+Before each screenshot, highlight the element under test with a red outline
+using `browser_evaluate` — never `browser_execute_javascript` (not a real
+tool in `@playwright/mcp`'s toolset) and never a hand-typed CSS selector.
+Address the element the same way every other interaction already does: by
+the `ref` this MCP server gave you in the most recent `browser_snapshot` for
+this exact element — the same `ref` you just used to click or fill it.
+`browser_evaluate`'s real parameters are `function`, `element`, and `ref`
+(there is no `expression` parameter):
 
 ```
-browser_execute_javascript:
-  document.querySelector('<selector>').style.outline = '3px solid red';
-  document.querySelector('<selector>').style.boxShadow = '0 0 0 4px rgba(255,0,0,0.3)';
+browser_evaluate:
+  element: "<short human-readable description, e.g. 'Locate me button'>"
+  ref: "<the ref for this exact element from the latest snapshot>"
+  function: "(element) => { element.style.outline = '3px solid red'; element.style.boxShadow = '0 0 0 4px rgba(255,0,0,0.3)'; }"
 ```
 
-Then take the screenshot. Clear the highlight after. Every screenshot in the
-report should show what was tested, visually.
+Then take the screenshot. Clear the highlight after with a second
+`browser_evaluate` call on the same `ref` and `element`, resetting `outline`
+and `boxShadow` to empty strings. Every screenshot in the report should show
+what was tested, visually — this only works reliably when addressed by `ref`
+rather than a guessed CSS selector, since most elements discovered during the
+live-DOM census have no meaningful class or id to select by in the first
+place.
 
 ### What the registry is NOT
 
@@ -279,11 +292,57 @@ Non-negotiables during execution:
 - **Native interactions only** (Rule 3) — the video is the deliverable
 - **Screenshot 6-step sequence** per scenario: clear highlights → highlight →
   scroll to viewport centre → capture → move into `images/` → verify on disk
-- **Bug Verification Protocol** — no bug is reported until reproduced twice, the
-  second time in a fresh context (the Fail Recheck Gate)
+- **Bug Verification Protocol** — see below.
 - **End-to-end means end-to-end** — visibility is not a test, counting is not a
   test; type *and* submit, click *every* tab, follow *every* CTA
 - Console and network checked after load, after each major action, and at the end
+
+#### Bug Verification Protocol
+
+No bug is reported until reproduced twice, the second time in a fresh context
+(the Fail Recheck Gate). But the Fail Recheck Gate only catches flakiness — a
+timing race, a page that hadn't settled — it does not catch a wrong
+verification method, since repeating the same flawed test twice just
+reproduces the same symptom twice with total, misleading consistency.
+
+- **Correlation is not causation.** If `elementFromPoint` (or similar)
+  resolves to an unexpected element at the point of interaction, that's a
+  reportable *observation* on its own — but before writing "X is blocking Y"
+  in a bug report, prove it: disable X (`pointer-events: none` via
+  `evaluate`, read-only per Rule 3, or hide it) and retry the interaction on
+  Y. If Y now works, causation is confirmed. If Y still fails, X was not the
+  reason — report what actually is, don't keep the first guess.
+- **Confirm the correct interaction verb before reporting a click failure on
+  a third-party embedded widget** (maps, calendars, chat, payment embeds).
+  Many have their own established gesture — e.g. a Google Maps
+  Pegman/street-view control is drag-only in every embed, never
+  click-activated. A native click "failing" there may mean nothing more than
+  the wrong gesture was used, not a bug in the host page.
+- **Try the canonical interaction path, not only a diagnostic one.** This
+  skill's own interaction model is accessibility-ref based (`browser_click`
+  on a snapshot ref), not raw coordinates — `elementFromPoint` and a
+  coordinate-based native click are diagnostic tools for understanding *why*
+  something failed, not the primary way to test *whether* it works. Before
+  reporting an element "unreachable," also try `browser_click` on its actual
+  accessibility ref. If that succeeds while the coordinate-based click
+  didn't, the bug is in the diagnostic method, not the page.
+- **`confidence` must reflect how much of the above was actually done — it
+  is not a self-assessment.**
+  - `HIGH` — reproduced twice in fresh contexts, **and** either the failure
+    is self-evidently mechanical (a thrown console error, a 404, a literal
+    count that's just wrong — no causal inference needed), **or** a claimed
+    root cause passed the isolating test above.
+  - `MEDIUM` — reproduced twice, but a claimed root cause is inferred from
+    correlation only (isolating test not performed, or not possible in the
+    time available). The bug's `actual` field must say so explicitly — e.g.
+    "likely caused by X (unconfirmed — isolating test not run)" — so a
+    reader knows not to treat the named cause as settled.
+  - `LOW` — reproduced only once, or the failure is real but its mechanism
+    is genuinely unclear.
+
+  A bug marked `HIGH` should be able to survive someone else manually
+  reproducing it and checking the named cause — that's the actual bar, not
+  "the agent tried twice and got the same result twice."
 
 ---
 

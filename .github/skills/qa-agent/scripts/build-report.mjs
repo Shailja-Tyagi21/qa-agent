@@ -75,10 +75,16 @@ inventory.forEach((e, i) => {
   }
 });
 
-const failIds = new Set(scenarios.filter(s => s.status === 'FAIL').map(s => s.id));
+// A bug's linked scenario must be FAIL or PARTIAL — PARTIAL exists precisely
+// for cases like "core behavior works, but a MINOR issue was also observed"
+// (e.g. a console error on an otherwise-clean load). Only flag a genuine
+// mismatch: a bug pointing at a scenario recorded as a clean PASS.
+const failOrPartialIds = new Set(
+  scenarios.filter(s => s.status === 'FAIL' || s.status === 'PARTIAL').map(s => s.id)
+);
 bugs.forEach(b => {
-  if (b.scenario && !failIds.has(b.scenario)) {
-    warn(`${b.id || b.title}: linked scenario ${b.scenario} is not marked FAIL`);
+  if (b.scenario && !failOrPartialIds.has(b.scenario)) {
+    warn(`${b.id || b.title}: linked scenario ${b.scenario} is not marked FAIL or PARTIAL`);
   }
   if (!b.scenario) warn(`${b.id || b.title}: no linked scenario`);
 });
@@ -267,21 +273,41 @@ ${has(R.automationGap.missingSteps) ? `<p class="lbl">Missing step definitions</
 ${has(R.automationGap.missingRegistry) ? `<p class="lbl">Missing page-object registry entries</p>${gapList(R.automationGap.missingRegistry)}` : ''}
 ${R.featureFile ? `<p class="note">Gherkin scaffold written to <code>${esc(R.featureFile)}</code></p>` : ''}` : '';
 
+const videoFileSizeMB = (relPath) => {
+  try {
+    return (statSync(resolve(runDir, relPath)).size / 1024 / 1024).toFixed(1);
+  } catch {
+    return null;
+  }
+};
+
 const videoBlock = (() => {
   const one = (path, mp4, label) => {
     if (!path) return '';
     const mp4Uri = mp4 ? embedIfSmallEnough(mp4, 'video/mp4', MAX_INLINE_VIDEO_BYTES) : null;
     const webmUri = embedIfSmallEnough(path, 'video/webm', MAX_INLINE_VIDEO_BYTES);
     const embedded = Boolean(mp4Uri || webmUri);
-    const sources = [mp4 ? `<source src="${esc(mp4Uri || mp4)}" type="video/mp4">` : '',
-                     `<source src="${esc(webmUri || path)}" type="video/webm">`].join('');
-    const standaloneNote = embedded ? '' :
-      `<p class="dim">Video not embedded (over ${(MAX_INLINE_VIDEO_BYTES / 1024 / 1024).toFixed(0)}MB) —
-       keep this file next to <code>${esc(path)}</code> on disk, or grab the video as its own
-       Jira attachment, for it to play if this report is opened on its own.</p>`;
+
+    if (!embedded) {
+      // Deliberately no <video> tag and no "Download" link here — both would
+      // point at a relative path (videos/…webm) that only resolves when the
+      // videos/ folder sits next to this file. That looks like a working
+      // player/link right up until this report is opened on its own (e.g.
+      // downloaded alone from Jira's Attachments panel), where it silently
+      // 404s. Plain text pointing at the real location is honest instead.
+      const sizeMB = videoFileSizeMB(path);
+      const capMB = (MAX_INLINE_VIDEO_BYTES / 1024 / 1024).toFixed(0);
+      return `<div class="vid"><p class="lbl">${esc(label)}</p>
+        <p class="dim">Not embedded in this file${sizeMB ? ` (${sizeMB}MB, over the ${capMB}MB cap for
+        embedding directly)` : ''} — this recording is attached separately to the Jira ticket (see the
+        Attachments panel), or on disk at <code>${esc(path)}</code> next to this report.</p></div>`;
+    }
+
+    const sources = [mp4Uri ? `<source src="${esc(mp4Uri)}" type="video/mp4">` : '',
+                     `<source src="${esc(webmUri)}" type="video/webm">`].join('');
     return `<div class="vid"><p class="lbl">${esc(label)}</p>
-      <video controls preload="metadata">${sources}</video>${standaloneNote}
-      <a class="dl" href="${esc(webmUri || path)}" download>Download ${esc(path.split('/').pop())}</a></div>`;
+      <video controls preload="metadata">${sources}</video>
+      <a class="dl" href="${esc(webmUri)}" download>Download ${esc(path.split('/').pop())}</a></div>`;
   };
   return one(R.videoClip, null, 'Focused clip — core flow')
        + one(R.videoFull, R.videoFullMp4, 'Full session recording');

@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-08-27T10:59:57.498Z",
+  "generatedAt": "2026-08-31T12:01:31.899Z",
   "root": "michelin-qa",
   "framework": "cucumber-js + playwright",
   "counts": {
     "stepDefinitions": 35,
     "featureFiles": 2,
     "scenarios": 7,
-    "generatedFeatureFiles": 1,
+    "generatedFeatureFiles": 2,
     "knownGaps": 24
   },
   "registry": {
@@ -438,15 +438,195 @@
   ],
   "generated": [
     {
+      "file": "features/generated/SCRUM-1.feature",
+      "feature": "SCRUM-1 — Dealer Locator Test",
+      "tags": [
+        "@generated",
+        "@SCRUM-1"
+      ],
+      "scenarios": [
+        {
+          "name": "S1 — Homepage loads with header, hero widget and footer",
+          "tags": [
+            "@generated",
+            "@sanity"
+          ],
+          "steps": [
+            "Given I am on the \"home\" page",
+            "Then the \"header\" should be visible",
+            "And the \"tire search widget\" should be visible",
+            "And the \"footer\" should be visible",
+            "And there should be no console errors"
+          ]
+        },
+        {
+          "name": "S2 — \"Find Dealers\" link is visible on the homepage",
+          "tags": [
+            "@generated",
+            "@ac-1"
+          ],
+          "steps": [
+            "Given I am on the \"home\" page",
+            "Then the \"find dealers link\" should be visible"
+          ]
+        },
+        {
+          "name": "S4 — Clicking \"Find Dealers\" navigates to the dealer locator page",
+          "tags": [
+            "@generated",
+            "@ac-1"
+          ],
+          "steps": [
+            "Given I am on the \"home\" page",
+            "When I click the \"find dealers link\"",
+            "Then the URL should contain \"dealer-locator\""
+          ]
+        },
+        {
+          "name": "S5 — Back button after reaching the dealer locator restores the homepage",
+          "tags": [
+            "@generated",
+            "@ac-1",
+            "@boundary"
+          ],
+          "steps": [
+            "Given I am on the \"dealer locator\" page",
+            "When I go back",
+            "Then the \"tire search widget\" should be visible"
+          ]
+        },
+        {
+          "name": "S6 — Top-cities list has at least 5 cities",
+          "tags": [
+            "@generated",
+            "@ac-2"
+          ],
+          "steps": [
+            "Given I am on the \"dealer locator\" page",
+            "Then I should see at least 5 \"top cities\""
+          ]
+        },
+        {
+          "name": "S7 — First top-city link is keyboard-reachable and Enter navigates to its results page",
+          "tags": [
+            "@generated",
+            "@todo",
+            "@ac-2",
+            "@boundary"
+          ],
+          "steps": [
+            "Given I am on the \"dealer locator\" page",
+            "When I focus the first top city link and press \"Enter\"",
+            "Then the dealer results should be visible"
+          ]
+        },
+        {
+          "name": "S8 — Selecting a city shows more than one dealer with name, address and a CTA",
+          "tags": [
+            "@generated",
+            "@ac-3"
+          ],
+          "steps": [
+            "Given I am on the \"dealer locator\" page",
+            "When I click the first top city",
+            "Then the dealer results should be visible",
+            "And I should see more than 1 \"dealer cards\"",
+            "And every dealer card should have a \"title\"",
+            "And every dealer card should have a \"address\""
+          ]
+        },
+        {
+          "name": "S9 — Searching a nonsense city shows a graceful empty state",
+          "tags": [
+            "@generated",
+            "@todo",
+            "@ac-3",
+            "@boundary"
+          ],
+          "steps": [
+            "Given I am on the \"dealer locator\" page",
+            "When I search for the city \"Zzxqvplonk9999\"",
+            "Then a \"no results\" message should be visible"
+          ]
+        },
+        {
+          "name": "S10 — Sort by Name reorders dealer results and a Services filter actually refines them",
+          "tags": [
+            "@generated",
+            "@todo",
+            "@from-comment"
+          ],
+          "steps": [
+            "Given I am on the \"dealer locator\" page",
+            "When I click the first top city",
+            "And I click the \"sort control\"",
+            "And I select the \"Name\" sort option",
+            "Then the dealer results should be reordered by name",
+            "When I click the \"filters button\"",
+            "And I check the \"Oil, Filter and Lube\" service filter",
+            "And I click the \"see results button\"",
+            "Then the dealer results count should decrease"
+          ]
+        },
+        {
+          "name": "S11 — A filtered and sorted results URL restores the same state in a fresh tab",
+          "tags": [
+            "@generated",
+            "@todo",
+            "@ac-3",
+            "@boundary"
+          ],
+          "steps": [
+            "Given I am on the \"dealer locator\" page",
+            "When I click the first top city",
+            "And I open the current URL in a new tab",
+            "Then I should see more than 1 \"dealer cards\""
+          ]
+        },
+        {
+          "name": "S12 — Rapidly clicking Sort right after applying Filters does not leave the page stuck",
+          "tags": [
+            "@generated",
+            "@todo",
+            "@bug-1",
+            "@boundary"
+          ],
+          "steps": [
+            "Given I am on the \"dealer locator\" page",
+            "When I click the first top city",
+            "And I click the \"filters button\"",
+            "And I click the \"see results button\"",
+            "And I rapidly click the \"sort control\" 5 times",
+            "Then the page should remain responsive with no crash"
+          ]
+        },
+        {
+          "name": "S13 — \"Contact dealer\" CTA on a dealer card reveals contact options",
+          "tags": [
+            "@generated",
+            "@todo",
+            "@ac-3",
+            "@regression"
+          ],
+          "steps": [
+            "Given I am on the \"dealer locator\" page",
+            "When I click the first top city",
+            "And I click the \"contact dealer button\" on the first dealer card",
+            "Then a \"Phone\" contact option should be visible"
+          ]
+        }
+      ]
+    },
+    {
       "file": "features/generated/SCRUM-68.feature",
-      "feature": "SCRUM-68 — Dealer locator renders and functions correctly at mobile viewport 390x844",
+      "feature": "SCRUM-68 — Dealer locator mobile behaviour at 360x600",
       "tags": [
         "@generated",
         "@SCRUM-68"
       ],
       "scenarios": [
         {
-          "name": "S1 — Dealer locator page loads with its core elements at 390x844",
+          "name": "S1 — Dealer locator page loads with its core mobile elements",
           "tags": [
             "@generated",
             "@sanity"
@@ -454,93 +634,126 @@
           "steps": [
             "Then the \"dealer search input\" should be visible",
             "And the \"top cities list\" should be visible",
-            "And the \"map\" should be visible",
             "And there should be no console errors"
           ]
         },
         {
-          "name": "S3 — \"Locate me\" button is visible and tappable on load",
+          "name": "S2 — Search input is fully visible with no horizontal page overflow",
           "tags": [
             "@generated",
-            "@ac-1",
-            "@bug-1",
-            "@todo"
+            "@todo",
+            "@ac-1"
           ],
           "steps": [
+            "Then the \"dealer search input\" should be visible"
+          ]
+        },
+        {
+          "name": "S3 — Locate me becomes visible once the search input is focused",
+          "tags": [
+            "@generated",
+            "@ac-1"
+          ],
+          "steps": [
+            "When I click the \"dealer search input\"",
             "Then the \"locate me button\" should be visible"
           ]
         },
         {
-          "name": "S7 — Selecting a city reaches the results page",
+          "name": "S4 — Locate me is keyboard-reachable (Tab, then Enter) once visible",
           "tags": [
             "@generated",
+            "@todo",
+            "@from-comment",
+            "@bug-1"
+          ],
+          "steps": [
+            "When I click the \"dealer search input\"",
+            "And I press \"Tab\"",
+            "Then the \"locate me button\" should be visible"
+          ]
+        },
+        {
+          "name": "S5 — Top-cities scroller is swipeable and its fade gradients never block a tap",
+          "tags": [
+            "@generated",
+            "@todo",
+            "@ac-2"
+          ],
+          "steps": [
+            "Then the \"top cities list\" should be visible"
+          ]
+        },
+        {
+          "name": "S6 — Selecting a top city reaches its dealer results page",
+          "tags": [
+            "@generated",
+            "@ac-2"
+          ],
+          "steps": [
+            "When I click the first top city",
+            "Then the dealer results should be visible",
+            "And the URL should contain \"dealer-locator\""
+          ]
+        },
+        {
+          "name": "S7 — Dealer results stack single-column with no truncation at mobile width",
+          "tags": [
+            "@generated",
+            "@todo",
             "@ac-3"
           ],
           "steps": [
             "When I click the first top city",
             "Then the dealer results should be visible",
-            "And I should see more than 1 \"dealer cards\""
-          ]
-        },
-        {
-          "name": "S8 — Dealer card addresses are not truncated on mobile",
-          "tags": [
-            "@generated",
-            "@ac-3",
-            "@bug-2",
-            "@todo"
-          ],
-          "steps": [
-            "When I click the first top city",
-            "Then the dealer results should be visible",
+            "And I should see more than 1 \"dealer cards\"",
             "And every dealer card should have a \"address\""
           ]
         },
         {
-          "name": "S10 — Find Dealers is reachable from the mobile nav in under 3 taps",
+          "name": "S8 — Dealer search page should have more than 5 cities",
           "tags": [
             "@generated",
-            "@from-comment",
-            "@todo"
+            "@ac-4",
+            "@bug-2"
           ],
           "steps": [
-            "When I click the \"main navigation\"",
-            "Then the \"find dealers link\" should be visible"
+            "Then I should see more than 5 \"top cities\""
           ]
         },
         {
-          "name": "S11 — Back button restores the search page after selecting a city",
+          "name": "S9 — Back button after viewing results restores the search page",
           "tags": [
             "@generated",
-            "@boundary"
+            "@regression"
           ],
           "steps": [
-            "When I click the first top city",
-            "And I go back",
+            "Given I am on the \"dealer results atlanta\" page",
+            "When I go back",
             "Then the \"dealer search input\" should be visible"
           ]
         },
         {
-          "name": "S12 — Atlanta results state persists on a fresh URL load",
+          "name": "S10 — A results URL opened directly restores state (URL persistence)",
           "tags": [
             "@generated",
-            "@boundary"
+            "@regression"
           ],
           "steps": [
             "Given I am on the \"dealer results atlanta\" page",
-            "Then the dealer results should be visible",
-            "And the URL should contain \"atlanta\""
+            "Then the URL should contain \"atlanta\"",
+            "And I should see more than 1 \"dealer cards\""
           ]
         },
         {
-          "name": "S13 — Dealer locator product-line switch (Auto to Motorcycle)",
+          "name": "S12 — Analytics fires on interaction (TC-AN1)",
           "tags": [
             "@generated",
-            "@regression",
-            "@todo"
+            "@todo",
+            "@analytics"
           ],
           "steps": [
-            "When I click the \"auto productline tab\"",
+            "When I click the first top city",
             "Then the dealer results should be visible"
           ]
         }

@@ -6,8 +6,8 @@
       "args": ["${workspaceFolder}/mcp-servers/jira-mcp-server.mjs"]
     },
     "playwright": {
-      "command": "npx",
-      "args": ["-y", "@playwright/mcp@latest"]
-    }
+    "command": "npx",
+    "args": ["-y", "@playwright/mcp@latest", "--isolated"]
+  }
   }
 }

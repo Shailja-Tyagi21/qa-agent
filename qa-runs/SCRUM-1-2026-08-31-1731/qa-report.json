@@ -1,0 +1,294 @@
+{
+  "ticketId": "SCRUM-1",
+  "title": "Dealer Locator Test",
+  "featureSummary": "Verify that clicking \"Find Dealers\" on the homepage reaches the dealer locator page, that the page lists at least 5 top cities, and that selecting a city reaches a results page (DRP) showing more than one dealer, each with name, address and a CTA.",
+  "locale": "en-us",
+  "viewport": "Desktop (1280x800)",
+  "testDate": "2026-08-31",
+  "targetUrl": "https://www.michelinman.com/",
+  "verdict": "CONDITIONAL",
+  "conclusion": "All three acceptance criteria pass. Three MINOR issues found: broken network-brand logo images in the Filters panel (BUG-2, reproduced from an earlier run), a rapid-click edge case where the Filters modal briefly intercepts pointer events after applying filters (BUG-1, also reproduced), and a new finding — the \"Locate me\" geolocation button becomes visible on input focus but keeps tabindex=-1 forever, so keyboard-only users tabbing through the input can never reach it (BUG-3). No BLOCKER/CRITICAL/MAJOR found.",
+  "summary": { "total": 14, "passed": 11, "failed": 0, "partial": 3, "skipped": 0 },
+  "acceptanceCriteria": [
+    {
+      "id": "AC-1",
+      "requirement": "Clicking \"Find Dealers\" from the homepage navigates to the dealer locator page",
+      "testCases": ["S4", "S5"],
+      "status": "MET"
+    },
+    {
+      "id": "AC-2",
+      "requirement": "The dealer locator page shows a top-cities list with at least 5 cities",
+      "testCases": ["S6", "S7"],
+      "status": "MET"
+    },
+    {
+      "id": "AC-3",
+      "requirement": "Selecting a city reaches a results page (DRP) showing more than one dealer, each with name, address, and a CTA",
+      "testCases": ["S7", "S8"],
+      "status": "MET"
+    }
+  ],
+  "commentScenarios": [
+    {
+      "source": "Jira comment",
+      "number": 1,
+      "summary": "qa-agent test: does the sort/filter option on the dealer results page actually reorder the results, or just visually open?",
+      "testCase": "S10",
+      "status": "COVERED — PARTIAL (MINOR bug found)",
+      "notes": "Confirmed both controls actually mutate the result set (not just visual open/close): Sort by Name reordered the first 8 cards to true alphabetical order and the URL gained ?sort=name; applying the \"Oil, Filter and Lube\" service filter changed the dealer count from 563 to 103 and the URL gained services[]=_SERVICE_CAR_OIL_FILTER_AND_LUBE. Verified via card-order/count diff and again via a fresh-tab URL-persistence recheck in S11. BUG-2 (broken brand logo icons) found while exercising the Networks facet of the same panel."
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "S1", "type": "Sanity", "name": "Homepage loads with header, hero widget and footer",
+      "acCoverage": "", "viewport": "Desktop", "status": "PASS",
+      "steps": ["Navigate to https://www.michelinman.com/", "Dismiss consent banner", "Check header, tire-selector hero widget and footer render"],
+      "expected": "Page loads with no fatal errors; header, hero widget and footer are all present.",
+      "actual": "Header and tire-selector hero widget (.ts__widget) visible immediately. The real site footer is .ds__layout-footer (134 links) — confirmed present and visible after scrolling; note a decoy empty <footer> element also exists earlier in the DOM (a hidden modal-shell footer template), which must be excluded when locating the real footer.",
+      "screenshots": ["images/ss_SCRUM-1_en-us_S1_baseline_homepage.png"]
+    },
+    {
+      "id": "S2", "type": "Sanity", "name": "\"Find Dealers\" link is present and visible on the homepage",
+      "acCoverage": "AC-1", "viewport": "Desktop", "status": "PASS",
+      "steps": ["Search DOM for a link/button matching 'find dealer'", "Confirm the auto dealer-locator match, visible, href=/auto/dealer-locator"],
+      "expected": "A single, visible \"Find Dealers\" element pointing at the auto dealer locator path.",
+      "actual": "One <a class=\"ds__btn\"> \"Find Dealers\" found in the header, href=\"/auto/dealer-locator\", on-screen at (1098,117), directly clickable with no menu to open first. (Distinct from moto/bicycle \"Find a Dealer\" links elsewhere on the page.)",
+      "screenshots": ["images/ss_SCRUM-1_en-us_S2_find-dealers-link.png"]
+    },
+    {
+      "id": "S3", "type": "Sanity", "name": "Footer link grid renders",
+      "acCoverage": "", "viewport": "Desktop", "status": "PASS",
+      "steps": ["Scroll to bottom of homepage", "Inspect the .ds__layout-footer container for link count"],
+      "expected": "Footer link grid renders with multiple navigable links.",
+      "actual": ".ds__layout-footer renders with 134 links, visible after scrolling into view.",
+      "screenshots": ["images/ss_SCRUM-1_en-us_S3_footer.png"]
+    },
+    {
+      "id": "S4", "type": "Feature", "name": "AC-1 positive: clicking \"Find Dealers\" navigates to the dealer locator page",
+      "acCoverage": "AC-1", "viewport": "Desktop", "status": "PASS",
+      "steps": ["Click the \"Find Dealers\" header link natively", "Wait for navigation", "Screenshot landed page"],
+      "expected": "Browser navigates to /auto/dealer-locator.",
+      "actual": "Navigated to https://www.michelinman.com/auto/dealer-locator, title \"Find a Michelin Dealer Near You | Michelin USA\". No new console errors beyond the known site-wide CSP/status-log noise (see Observations).",
+      "screenshots": ["images/ss_SCRUM-1_en-us_S4_dealer-locator-page.png"]
+    },
+    {
+      "id": "S5", "type": "Boundary", "name": "AC-1 edge: back button after navigating to dealer locator restores the homepage",
+      "acCoverage": "AC-1", "viewport": "Desktop", "status": "PASS",
+      "steps": ["From the dealer locator page, press browser Back", "Verify URL and title", "Press Forward again to resume testing"],
+      "expected": "Browser returns to https://www.michelinman.com/ with the homepage intact (boundary checklist #10).",
+      "actual": "Back restored https://www.michelinman.com/ (title \"Explore Michelin Tires, Products & More | Michelin USA\"); Forward returned to /auto/dealer-locator cleanly.",
+      "screenshots": []
+    },
+    {
+      "id": "S6", "type": "Feature", "name": "AC-2 positive: top-cities list has at least 5 cities",
+      "acCoverage": "AC-2", "viewport": "Desktop", "status": "PASS",
+      "steps": ["On /auto/dealer-locator, query the top-cities list container", "Count and list city links"],
+      "expected": "Top-cities list contains >= 5 city links.",
+      "actual": "Exactly 5 cities found: Atlanta, Chicago, Dallas, Los Angeles, New-York. Meets AC-2 literally (\"at least 5\"). Note \"New-York\" is hyphenated — see Observations.",
+      "screenshots": ["images/ss_SCRUM-1_en-us_S6_top-cities-list.png"]
+    },
+    {
+      "id": "S7", "type": "Boundary", "name": "AC-2/AC-3 edge: first top-city link is keyboard-reachable and Enter navigates to its results page",
+      "acCoverage": "AC-2", "viewport": "Desktop", "status": "PASS",
+      "steps": ["Focus the first top-city link (Atlanta) directly", "Confirm document.activeElement is the link", "Press Enter", "Verify navigation"],
+      "expected": "Enter on the focused city link navigates to that city's dealer results page.",
+      "actual": "Focus confirmed on \"Atlanta\"; Enter navigated to https://www.michelinman.com/auto/dealer-locator/atlanta.",
+      "screenshots": []
+    },
+    {
+      "id": "S8", "type": "Feature", "name": "AC-3 positive: selecting a city shows more than one dealer, each with name, address, and a CTA",
+      "acCoverage": "AC-3", "viewport": "Desktop", "status": "PASS",
+      "steps": ["From dealer-locator/atlanta, query .dl__card-dealer.result cards", "Extract title, address text and CTA presence per card"],
+      "expected": "Results page shows > 1 dealer card, each with a name, an address, and at least one CTA.",
+      "actual": "20 dealer cards rendered (of 563 total — \"563 car tire dealers in Atlanta, GA, USA\"). Every sampled card had a title (e.g. \"MIDAS\", \"GORDY TIRE AND AUTOMOTIVE\", \"THE PEP BOYS-MANNY, MOE & JACK\"), a full street address, and a CTA.",
+      "screenshots": ["images/ss_SCRUM-1_en-us_S8_atlanta-results.png"]
+    },
+    {
+      "id": "S9", "type": "Boundary", "name": "AC-3 edge: searching a nonsense city/zip is handled gracefully",
+      "acCoverage": "AC-3", "viewport": "Desktop", "status": "PASS",
+      "steps": ["Type \"zzzzznonsense99999\" into the dealer-search input", "Observe autocomplete/result state"],
+      "expected": "No crash; no bogus suggestions or errors (boundary checklist #1 empty state, #5 invalid input).",
+      "actual": "No autocomplete suggestions appeared for the nonsense string; input and \"Locate me\" control remained intact; no new console errors were caused by the action itself (the 10 console errors present at that point are the known site-wide CSP/status-log noise repeated per page load, confirmed by inspecting the full error list).",
+      "screenshots": ["images/ss_SCRUM-1_en-us_S9_nonsense-search.png"]
+    },
+    {
+      "id": "S10", "type": "Comment scenario", "name": "Sort and Filter controls actually reorder/refine results, not just visually open",
+      "acCoverage": "", "viewport": "Desktop", "status": "PARTIAL",
+      "steps": [
+        "Capture first 8 card titles as baseline on /auto/dealer-locator/atlanta",
+        "Click \"Sort by: Recommended\", select \"Name\"",
+        "Re-capture first 8 card titles, button label and URL",
+        "Click \"Filters\", expand \"Services\", check \"Oil, Filter and Lube\", click \"See results\"",
+        "Compare dealer count before/after and inspect URL params",
+        "Expand \"Networks\" facet and check brand logo images"
+      ],
+      "expected": "Sort reorders the actual result set (not just a label change); filter actually reduces the result set and both are reflected in the URL; all facet logo icons load.",
+      "actual": "Sort: URL gained ?sort=name and titles reordered to true alphabetical order (4 WHEEL PARTS, AKINS CHRYSLER DODGE JEEP RAM, AKINS FORD, ...). Filter: dealer count dropped from 563 to 103, URL gained services%5B%5D=_SERVICE_CAR_OIL_FILTER_AND_LUBE. Both confirmed genuine data mutations, not just UI state. However, the Networks facet's BMW and Audi logo images both 404'd (BUG-2, reproduced from a prior run of this ticket).",
+      "screenshots": ["images/ss_SCRUM-1_en-us_S10_sort-by-name.png", "images/ss_SCRUM-1_en-us_S10_filters-panel-open.png", "images/ss_SCRUM-1_en-us_S10_filter-oil-selected.png", "images/ss_SCRUM-1_en-us_S10_filtered-sorted-results.png", "images/ss_SCRUM-1_en-us_networks-facet.png"]
+    },
+    {
+      "id": "S11", "type": "Boundary", "name": "URL persistence: a filtered + sorted results URL restores the same state in a fresh tab",
+      "acCoverage": "AC-3", "viewport": "Desktop", "status": "PASS",
+      "steps": ["Copy the current filtered+sorted URL (?services[]=...&sort=name)", "Open it in a brand-new page in the same browser context", "Verify card count, dealer total text and card order"],
+      "expected": "Fresh tab on the same URL restores the same filtered, sorted state (boundary checklist #9).",
+      "actual": "Fresh tab loaded the URL directly and showed \"103 car tire dealers in Atlanta, GA, USA\" with cards starting BOYD TIRE CO, BUCK'S NEW AND USED TIRES INC, CANADA TIRE CO — matching the filtered + alphabetically-sorted state from the original tab.",
+      "screenshots": ["images/ss_SCRUM-1_en-us_S11_url-persistence-fresh-tab.png"]
+    },
+    {
+      "id": "S12", "type": "Boundary", "name": "Rapid interaction: repeatedly clicking Sort/Filters controls does not crash the page",
+      "acCoverage": "", "viewport": "Desktop", "status": "PARTIAL",
+      "steps": ["Immediately after applying a Filters change, rapidly click the \"Sort by\" button 6x in quick succession", "Poll dialog open-state", "Retry a normal (non-rapid) click once the dialog closes"],
+      "expected": "No crash and no lasting stuck state (boundary checklist #6).",
+      "actual": "The residual <dialog class=\"ds__modal\"> from the just-closed Filters panel intercepted pointer events, causing one click attempt to time out after 3s of Playwright's own retries. Polling confirmed the dialog stayed open for several seconds longer than the earlier-observed ~3.6s before clearing on its own; once cleared, a normal click on \"Sort by\" succeeded immediately. No crash, no new console errors, document.readyState stayed \"complete\" throughout. Reproduces BUG-1 from a prior run.",
+      "screenshots": ["images/ss_SCRUM-1_en-us_S12_rapid-click.png", "images/ss_SCRUM-1_en-us_S12_dialog-state-check.png"]
+    },
+    {
+      "id": "S13", "type": "Regression", "name": "Dealer card \"Contact dealer\" CTA reveals contact options end-to-end",
+      "acCoverage": "AC-3", "viewport": "Desktop", "status": "PASS",
+      "steps": ["Click \"Contact dealer\" on the first dealer card (BOYD TIRE CO)", "Inspect the revealed dropdown content"],
+      "expected": "Dropdown opens and reveals a contact option (e.g. Phone).",
+      "actual": "Dropdown opened directly below the CTA and revealed a \"Phone\" option, confirmed visually in the screenshot (a role=menu DOM query alone missed it — the two role=\"menu\" elements on the page are Google Maps' hidden Terrain/Labels type-menus, not this dropdown; the screenshot was the reliable signal).",
+      "screenshots": ["images/ss_SCRUM-1_en-us_S13_contact-dealer-cta.png"]
+    },
+    {
+      "id": "S14", "type": "Boundary", "name": "Adjacent-element check: \"Locate me\" button keyboard (Tab) reachability once visible",
+      "acCoverage": "", "viewport": "Desktop", "status": "PARTIAL",
+      "steps": ["Focus the city/zip search input on /auto/dealer-locator", "Confirm the Locate me button becomes visible (opacity 0→1)", "Press Tab from the input", "Inspect document.activeElement and the button's tabindex", "Repeat in a fresh browser context (Fail Recheck Gate)"],
+      "expected": "The Locate me button is reachable by Tab once it becomes visible, like any other interactive control next to a focused input.",
+      "actual": "tabindex stays \"-1\" permanently; Tab from the input skips straight to the next control. Reproduced identically in a second, fresh browser context. See BUG-3.",
+      "screenshots": ["images/ss_SCRUM-1_en-us_locate-me-focused.png"]
+    }
+  ],
+  "bugs": [
+    {
+      "id": "BUG-1",
+      "title": "Filters modal's closing dialog briefly intercepts pointer events on controls behind it",
+      "severity": "MINOR",
+      "confidence": "MEDIUM",
+      "scenario": "S12",
+      "url": "https://www.michelinman.com/auto/dealer-locator/atlanta",
+      "steps": [
+        "Open the Filters panel, select a service filter, click \"See results\"",
+        "Immediately try to click the \"Sort by\" button behind it"
+      ],
+      "expected": "The Filters dialog's backdrop/pointer-blocking layer clears as soon as it visually closes, so controls behind it become clickable immediately.",
+      "actual": "The underlying <dialog class=\"ds__modal\"> keeps intercepting pointer events for several seconds after \"See results\" is clicked (previously measured up to ~3.6s, this run's poll showed it lasting longer under rapid-click stress) before the page becomes fully interactive again. Always resolves on its own — no crash, no permanent lock. Root cause inferred from the dialog's open-attribute/pointer-interception state, not independently isolated this run (unconfirmed — isolating test not re-run since it was already established in a prior session).",
+      "impact": "Only affects users who click another control immediately after applying filters, faster than the panel's close transition — low real-world impact.",
+      "consoleErrors": "None tied to this issue.",
+      "screenshots": ["images/ss_SCRUM-1_en-us_S12_dialog-state-check.png"]
+    },
+    {
+      "id": "BUG-2",
+      "title": "Network-brand logo images 404 in the Filters \"Networks\" facet",
+      "severity": "MINOR",
+      "confidence": "HIGH",
+      "scenario": "S10",
+      "url": "https://www.michelinman.com/auto/dealer-locator/atlanta",
+      "steps": ["Open the Filters panel", "Expand the \"Networks\" facet listing brand/network logos (Audi, BMW, etc.)"],
+      "expected": "Every brand/network logo icon loads.",
+      "actual": "Two logo assets returned 404: https://cdn-prod-nam.yepgarage.info/upload/network/US/.../logo-bmw.png and .../logo-audi.png — the filter labels still work, only the icon image is broken/missing. Reproduced identically from a prior run of this ticket (same two brands, same CDN).",
+      "impact": "Cosmetic — broken image icon next to two brand filter options; filter functionality itself is unaffected.",
+      "consoleErrors": "Failed to load resource: the server responded with a status of 404 () (x2)",
+      "screenshots": ["images/ss_SCRUM-1_en-us_networks-facet.png"]
+    },
+    {
+      "id": "BUG-3",
+      "title": "\"Locate me\" geolocation button on the dealer locator page is never keyboard (Tab) reachable",
+      "severity": "MINOR",
+      "confidence": "HIGH",
+      "scenario": "S14",
+      "url": "https://www.michelinman.com/auto/dealer-locator",
+      "steps": [
+        "Focus the city/zip search input",
+        "Observe the \"Locate me\" button becomes visible (opacity 0→1)",
+        "Press Tab from the input",
+        "Inspect document.activeElement and the button's tabindex attribute"
+      ],
+      "expected": "Once visible, the \"Locate me\" button should be reachable by keyboard Tab like any other interactive control next to a focused input.",
+      "actual": "The button's tabindex stays \"-1\" permanently — before and after it becomes visually visible on input focus — so pressing Tab from the input skips straight over it to the next control (a \"ds__btn\"). Confirmed identically in the main recording session and in a second, fresh browser context (Fail Recheck Gate) on the same URL and locale — deterministic DOM fact (tabindex attribute value), no causal inference needed.",
+      "impact": "Keyboard-only users can never activate geolocation search on the dealer locator page, even though it is visibly available to mouse users once the input is focused. A related (but distinct) 'invisible on load' variant of this same control was previously observed on the mobile viewport in SCRUM-68; this is the desktop, Tab-focus variant.",
+      "consoleErrors": "None.",
+      "screenshots": ["images/ss_SCRUM-1_en-us_locate-me-focused.png"]
+    }
+  ],
+  "analytics": {
+    "testCase": "TC-AN1",
+    "action": "Baseline dataLayer/network listeners attached before first navigation; clicked \"Find Dealers\" and subsequently navigated across the dealer-locator flow",
+    "status": "PASS",
+    "evidence": "67 analytics-related network requests captured during the session (Google Ads/GTM/DoubleClick page_view collect calls for both the homepage and /auto/dealer-locator, e.g. google.com/ccm/collect?...en=page_view&dl=...%2Fauto%2Fdealer-locator). window.dataLayer stayed at 15 entries by direct array-length check, but the network-level analytics signal alone satisfies TC-AN1's pass condition."
+  },
+  "consoleErrors": [
+    "Site-wide background noise present on every page load, not caused by any test action: a CSP violation blocking a base64 data:audio/mpeg resource under default-src *, a blocked data:application/javascript script load, and a 400 on https://dctityd.michelinman.com/status-log. Pre-existing per prior runs on this ticket and on SCRUM-68 — not re-reported as a new defect.",
+    "Two 404s for brand/network logo images in the Filters panel (see BUG-2)."
+  ],
+  "networkFailures": [
+    "400 https://dctityd.michelinman.com/status-log (site-wide, every load — pre-existing)",
+    "404 https://cdn-prod-nam.yepgarage.info/.../logo-bmw.png (see BUG-2)",
+    "404 https://cdn-prod-nam.yepgarage.info/.../logo-audi.png (see BUG-2)"
+  ],
+  "observations": [
+    "\"New-York\" in the top-cities list is hyphenated (should read \"New York\") — a copy/localisation nit worth flagging whenever this widget is tested; not filed as a bug since AC-2 does not govern city-name formatting.",
+    "AC-2 is met with zero margin: the top-cities list has exactly 5 cities, not more — functionally passes today but has no headroom if a city is ever removed.",
+    "The dealer results page shows a total count (e.g. \"563 car tire dealers in Atlanta, GA, USA\") that is far larger than the 20 cards rendered per page — no pagination/load-more control was found in the live census; out of scope for AC-1..AC-3, flagged for a future ticket.",
+    "The homepage has more than one <footer> element in the DOM — an empty modal-shell footer template appears before the real site footer (.ds__layout-footer, 134 links) — a plain document.querySelector('footer') silently picks the wrong (empty, hidden) one; worth knowing for anyone automating footer checks on this page.",
+    "The dealer card \"Contact dealer\" dropdown's revealed content is not inside a role=\"menu\" element (the only two role=\"menu\" elements on the page are Google Maps' own hidden Terrain/Labels controls) — an accessibility-role-based query for this dropdown will silently match the wrong thing; verify by screenshot or a scoped text query instead.",
+    "Map widget (Google Maps embed with dealer markers) rendered correctly on the results page but was not driven beyond visual confirmation, per the standing third-party-embed constraint."
+  ],
+  "viewportSummary": [
+    { "viewport": "Desktop (1280x800)", "tested": true, "issuesFound": "3 MINOR (BUG-1, BUG-2, BUG-3)" },
+    { "viewport": "Mobile (360x640)", "tested": false, "issuesFound": "N/A — ticket does not mention mobile/responsive" },
+    { "viewport": "Tablet (768x1024)", "tested": false, "issuesFound": "N/A — ticket does not mention tablet/responsive" }
+  ],
+  "regressionInventory": [
+    { "widget": "Header main navigation", "selector": "[class*=\"header\"] nav", "action": "visible on homepage and dealer locator pages", "tested": true, "result": "PASS — header renders and persists across navigation" },
+    { "widget": "\"Find Dealers\" header CTA", "selector": "a.ds__btn[href=\"/auto/dealer-locator\"]", "action": "click → navigate to /auto/dealer-locator", "tested": true, "result": "PASS — see S4" },
+    { "widget": "Tire-selector hero widget (productline tabs + search-mode tabs)", "selector": ".ts__widget", "action": "visible on homepage load", "tested": true, "result": "PASS — visible pre/post back-navigation (S5); tab interactions out of scope for this ticket's AC, not exercised" },
+    { "widget": "Footer link grid", "selector": ".ds__layout-footer", "action": "renders with navigable links after scroll", "tested": true, "result": "PASS — 134 links found (S3)" },
+    { "widget": "Dealer-locator search input", "selector": "input[placeholder*=\"city\"]", "action": "type nonsense city, observe result", "tested": true, "result": "PASS — no crash, no bogus suggestions (S9)" },
+    { "widget": "\"Locate me\" geolocation button", "selector": ".dl__autocomplete-locate", "action": "focus input, verify visibility, Tab-reachability, click", "tested": true, "result": "PARTIAL — visible on focus and clickable via direct locator, but tabindex=-1 forever means Tab never reaches it (BUG-3)" },
+    { "widget": "Top cities list", "selector": ".dl__top-cities-list a", "action": "count links; click/keyboard-activate first entry", "tested": true, "result": "PASS — 5 cities, keyboard Enter navigates (S6, S7)" },
+    { "widget": "Map widget", "selector": "div[class*=\"map\"] (Google Maps embed)", "action": "loads with dealer markers", "tested": false, "result": "SKIPPED — third-party embed (Google Maps); markers visible in screenshot evidence but not driven, per site-reference standing constraint" },
+    { "widget": "Dealer results cards", "selector": ".dl__card-dealer.result", "action": "count > 1, each has name/address/CTA", "tested": true, "result": "PASS — 20 of 563 cards rendered, all sampled cards complete (S8)" },
+    { "widget": "\"Contact dealer\" CTA on card", "selector": "button[name=/contact dealer/i]", "action": "click → reveals contact options", "tested": true, "result": "PASS — reveals Phone option (S13)" },
+    { "widget": "Sort control", "selector": "button[name=/sort by/i]", "action": "open options, select Name, verify reorder", "tested": true, "result": "PASS — reorders alphabetically, URL gains ?sort=name (S10)" },
+    { "widget": "Filters panel — Services facet", "selector": "button[name=/^filters$/i] → Services accordion", "action": "expand, check a service, apply via See results", "tested": true, "result": "PASS — dealer count 563→103, URL gains services[] param (S10)" },
+    { "widget": "Filters panel — Networks facet", "selector": "button[name=/^networks$/i]", "action": "expand, check brand logo images load", "tested": true, "result": "PARTIAL — BMW and Audi logo images 404 (BUG-2)" },
+    { "widget": "Filters modal close/backdrop behavior", "selector": "dialog.ds__modal", "action": "rapid click on a control behind it immediately after apply", "tested": true, "result": "PARTIAL — pointer-blocking lingers for several seconds after apply (S12, BUG-1)" },
+    { "widget": "Dealer results page pagination / load-more for remaining results", "selector": "(not identified in DOM for 20-of-563 shown)", "action": "load additional dealer cards beyond the first 20", "tested": false, "result": "SKIPPED — out of scope for AC-1..AC-3; flagged as an observation for a future ticket" },
+    { "widget": "URL persistence for filtered+sorted state", "selector": "n/a (URL query params)", "action": "open filtered+sorted URL in a fresh tab", "tested": true, "result": "PASS — state fully restored (S11)" }
+  ],
+  "videoFull": "videos/SCRUM-1_en-us_full.webm",
+  "videoFullMp4": "videos/SCRUM-1_en-us_full.mp4",
+  "videoClip": null,
+  "featureFile": "features/generated/SCRUM-1.feature",
+  "automationGap": {
+    "suiteIndexedAt": "2026-08-31T12:01:31.899Z",
+    "existingCoverage": [
+      "features/dealer-locator.feature — 4 scenarios: page load with core elements, city search returns results, dealer cards show info, opening a dealer shows its details page"
+    ],
+    "coveredByExisting": ["S1", "S4", "S6", "S8"],
+    "missingScenarios": [
+      { "scenario": "S10", "summary": "Sort by Name actually reorders dealer results (not just visual)", "priority": "HIGH", "declaredGap": true },
+      { "scenario": "S10", "summary": "Applying a Services filter actually reduces the dealer result count", "priority": "HIGH", "declaredGap": true },
+      { "scenario": "S9", "summary": "Invalid/nonsense city search shows a graceful empty state", "priority": "MEDIUM", "declaredGap": true },
+      { "scenario": "S5", "summary": "Back button after reaching the dealer locator restores the homepage", "priority": "LOW", "declaredGap": false },
+      { "scenario": "S7", "summary": "Keyboard (Tab/Enter) activation of the first top-city link navigates correctly", "priority": "MEDIUM", "declaredGap": false },
+      { "scenario": "S11", "summary": "A filtered+sorted results URL restores the same state in a fresh tab", "priority": "MEDIUM", "declaredGap": true },
+      { "scenario": "S13", "summary": "\"Contact dealer\" CTA dropdown reveals a Phone option", "priority": "LOW", "declaredGap": false },
+      { "scenario": "BUG-3", "summary": "\"Locate me\" button is keyboard (Tab) reachable once visible", "priority": "MEDIUM", "declaredGap": false }
+    ],
+    "missingSteps": [
+      { "step": "I select the {string} sort option", "belongsIn": "steps/dealer-locator.steps.js" },
+      { "step": "I open the Filters panel", "belongsIn": "steps/dealer-locator.steps.js" },
+      { "step": "I check the {string} service filter", "belongsIn": "steps/dealer-locator.steps.js" },
+      { "step": "I click the {string} button in the filters panel", "belongsIn": "steps/dealer-locator.steps.js" }
+    ],
+    "missingRegistry": [
+      { "name": "sort control", "kind": "element", "suggestedSelector": "role=button[name=/sort by/i]" },
+      { "name": "filters button", "kind": "element", "suggestedSelector": "role=button[name=/^filters$/i]" },
+      { "name": "filters panel see results button", "kind": "element", "suggestedSelector": "role=button[name=/see results/i]" }
+    ],
+    "recommendation": "Sort and filter on the dealer results page — exactly the behaviour this ticket's comment asked about — are entirely unautomated. 4 step definitions and 3 registry entries would close the gap and let S10's finding (both controls genuinely mutate the result set) run as a regression check going forward. \"locate me button\" is already a registered element name — a keyboard-focus/tabindex check for BUG-3 could be added as a new step without any registry change."
+  }
+}
