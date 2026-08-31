@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-31T12:01:31.899Z",
+  "generatedAt": "2026-08-31T13:42:43.587Z",
   "root": "michelin-qa",
   "framework": "cucumber-js + playwright",
   "counts": {
@@ -613,6 +613,21 @@
             "When I click the first top city",
             "And I click the \"contact dealer button\" on the first dealer card",
             "Then a \"Phone\" contact option should be visible"
+          ]
+        },
+        {
+          "name": "S14 — \"Locate me\" button is keyboard (Tab) reachable once visible",
+          "tags": [
+            "@generated",
+            "@todo",
+            "@bug-3",
+            "@boundary"
+          ],
+          "steps": [
+            "Given I am on the \"dealer locator\" page",
+            "When I click the \"dealer search input\"",
+            "And I press \"Tab\"",
+            "Then the \"locate me button\" should be focused"
           ]
         }
       ]

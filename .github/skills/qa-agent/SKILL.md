@@ -61,7 +61,12 @@ This is how the agent should interact with the browser in Phases 3–6:
 - **Dismiss consent banners** by inspecting the accessibility snapshot and
   clicking the accept button directly — no preset sequence, read the page
 - **Interact** using `browser_click`, `browser_type`, `browser_hover` etc. —
-  these use accessibility references from the snapshot, not CSS selectors
+  these use accessibility references from the snapshot, not CSS selectors.
+  When diagnosing *why* something failed (e.g. `elementFromPoint` at the
+  interaction's coordinates), that's a read-only diagnostic, not the primary
+  test — before reporting an element "unreachable," also try `browser_click`
+  on its actual accessibility ref. If that succeeds while a coordinate-based
+  check didn't, the bug is in the diagnostic method, not the page.
 - **Take screenshots** with `browser_take_screenshot` — for evidence
 - **Retry and adapt** — if an element isn't found or a click doesn't produce
   the expected result, try a different approach. Read the snapshot again.
@@ -292,57 +297,13 @@ Non-negotiables during execution:
 - **Native interactions only** (Rule 3) — the video is the deliverable
 - **Screenshot 6-step sequence** per scenario: clear highlights → highlight →
   scroll to viewport centre → capture → move into `images/` → verify on disk
-- **Bug Verification Protocol** — see below.
+- **Bug Verification Protocol** — `references/testing-rules.md`. Read it before
+  reporting any bug, not just before Phase 4 — it governs the Fail Recheck
+  Gate, when a claimed cause needs an isolating test before it can be named,
+  and what `confidence` actually requires.
 - **End-to-end means end-to-end** — visibility is not a test, counting is not a
   test; type *and* submit, click *every* tab, follow *every* CTA
 - Console and network checked after load, after each major action, and at the end
-
-#### Bug Verification Protocol
-
-No bug is reported until reproduced twice, the second time in a fresh context
-(the Fail Recheck Gate). But the Fail Recheck Gate only catches flakiness — a
-timing race, a page that hadn't settled — it does not catch a wrong
-verification method, since repeating the same flawed test twice just
-reproduces the same symptom twice with total, misleading consistency.
-
-- **Correlation is not causation.** If `elementFromPoint` (or similar)
-  resolves to an unexpected element at the point of interaction, that's a
-  reportable *observation* on its own — but before writing "X is blocking Y"
-  in a bug report, prove it: disable X (`pointer-events: none` via
-  `evaluate`, read-only per Rule 3, or hide it) and retry the interaction on
-  Y. If Y now works, causation is confirmed. If Y still fails, X was not the
-  reason — report what actually is, don't keep the first guess.
-- **Confirm the correct interaction verb before reporting a click failure on
-  a third-party embedded widget** (maps, calendars, chat, payment embeds).
-  Many have their own established gesture — e.g. a Google Maps
-  Pegman/street-view control is drag-only in every embed, never
-  click-activated. A native click "failing" there may mean nothing more than
-  the wrong gesture was used, not a bug in the host page.
-- **Try the canonical interaction path, not only a diagnostic one.** This
-  skill's own interaction model is accessibility-ref based (`browser_click`
-  on a snapshot ref), not raw coordinates — `elementFromPoint` and a
-  coordinate-based native click are diagnostic tools for understanding *why*
-  something failed, not the primary way to test *whether* it works. Before
-  reporting an element "unreachable," also try `browser_click` on its actual
-  accessibility ref. If that succeeds while the coordinate-based click
-  didn't, the bug is in the diagnostic method, not the page.
-- **`confidence` must reflect how much of the above was actually done — it
-  is not a self-assessment.**
-  - `HIGH` — reproduced twice in fresh contexts, **and** either the failure
-    is self-evidently mechanical (a thrown console error, a 404, a literal
-    count that's just wrong — no causal inference needed), **or** a claimed
-    root cause passed the isolating test above.
-  - `MEDIUM` — reproduced twice, but a claimed root cause is inferred from
-    correlation only (isolating test not performed, or not possible in the
-    time available). The bug's `actual` field must say so explicitly — e.g.
-    "likely caused by X (unconfirmed — isolating test not run)" — so a
-    reader knows not to treat the named cause as settled.
-  - `LOW` — reproduced only once, or the failure is real but its mechanism
-    is genuinely unclear.
-
-  A bug marked `HIGH` should be able to survive someone else manually
-  reproducing it and checking the named cause — that's the actual bar, not
-  "the agent tried twice and got the same result twice."
 
 ---
 

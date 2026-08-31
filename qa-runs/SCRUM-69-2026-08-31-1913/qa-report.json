@@ -1,0 +1,163 @@
+{
+  "ticketId": "SCRUM-69",
+  "title": "Dealer Locator Test new",
+  "featureSummary": "Verify the dealer locator page (search input, top-cities scroller, results page) renders and behaves correctly on a 360x600 mobile viewport.",
+  "locale": "en-us",
+  "viewport": "Mobile (360x600)",
+  "testDate": "2026-08-31",
+  "targetUrl": "https://www.michelinman.com/auto/dealer-locator",
+
+  "verdict": "REJECTED",
+  "conclusion": "CRITICAL: the top-cities list exposes exactly 5 cities, but AC-4 explicitly requires more than 5 - confirmed in the live DOM twice, including a fresh-context recheck. Two further MAJOR defects were confirmed: dealer card addresses are CSS-truncated with an ellipsis on the results page (violates AC-3's 'no text truncation' requirement), and the 'Locate me' control - though it does become visually visible on input focus per AC-1 - permanently keeps tabindex=\"-1\", so it can never be reached via keyboard Tab (the exact scenario asked about in the Jira comment). AC-1's overflow/visibility clauses and AC-2's scroller/tap-blocking clauses both passed.",
+
+  "summary": { "total": 14, "passed": 11, "failed": 3, "partial": 0, "skipped": 0 },
+
+  "acceptanceCriteria": [
+    { "id": "AC-1", "requirement": "The dealer search input is fully visible and tappable at 360px width, with no horizontal overflow on the page. The \"Locate me\" control may be hidden until the search input is focused, but must become fully visible once focus occurs.", "testCases": ["S2"], "status": "MET" },
+    { "id": "AC-2", "requirement": "The top cities horizontal scroller is swipeable on mobile, and every city (Atlanta, Chicago, Dallas, Los Angeles, New-York) can be scrolled into view and tapped - the fade gradient on the scroller's edges must not visually cover or block taps on the last visible city.", "testCases": ["S3", "S5"], "status": "MET" },
+    { "id": "AC-3", "requirement": "Selecting a city from mobile reaches the results page, and dealer cards stack in a single readable column with no text truncation or overlapping elements.", "testCases": ["S6"], "status": "NOT MET" },
+    { "id": "AC-4", "requirement": "Dealer search page should have more than 5 cities.", "testCases": ["S4"], "status": "NOT MET" }
+  ],
+
+  "commentScenarios": [
+    { "source": "Jira comment", "number": 1, "summary": "Once the \"Locate me\" control becomes visible after focusing the search input, can it actually be reached and activated using only the keyboard (Tab, then Enter) - not just a mouse or touch tap?", "testCase": "S10", "status": "FAIL", "notes": "Locate me stays tabindex=\"-1\" permanently even after opacity goes 0->1 on focus, so pressing Tab from the input skips straight over it to the next real focusable control; reproduced in a fresh context." }
+  ],
+
+  "scenarios": [
+    { "id": "S1", "name": "Dealer locator page loads at 360x600 with core elements rendered", "type": "Sanity", "viewport": "Mobile (360x600)", "status": "PASS", "steps": ["Navigate to /auto/dealer-locator on a 360x600 viewport", "Dismiss the consent banner", "Confirm hero title, productline dropdown, search input and top-cities list are all rendered"], "expected": "Page loads with all core dealer-locator widgets rendered, no blocking errors.", "actual": "Header, hero title, search input and top-cities scroller all rendered correctly.", "screenshots": ["images/ss_SCRUM-69_en-us_S1_page-load.png"] },
+
+    { "id": "S2", "name": "Search input visible/tappable with no horizontal overflow; Locate me becomes visible on focus", "type": "Feature", "acCoverage": "AC-1", "viewport": "Mobile (360x600)", "status": "PASS", "steps": ["Measure document.scrollWidth vs window.innerWidth", "Measure the search input's bounding rect against the 360px viewport", "Click the search input and re-measure the Locate me button's opacity and viewport position"], "expected": "No horizontal overflow; input fully within the 360px viewport; Locate me becomes fully visible (opacity 1, within viewport bounds) once the input is focused.", "actual": "scrollWidth === innerWidth === 360 (no overflow). Input rect: x=16, width=328 - fully inside the viewport. After focusing the input, Locate me's opacity went from 0 to 1 and its rect (x=24, width=312) is fully within the viewport.", "screenshots": ["images/ss_SCRUM-69_en-us_S2_locate-visible-on-focus.png"] },
+
+    { "id": "S3", "name": "Top-cities scroller is swipeable and its edge fade gradients don't block or visually cover taps", "type": "Feature", "acCoverage": "AC-2", "viewport": "Mobile (360x600)", "status": "PASS", "steps": ["Inspect .dl__top-cities-list overflow-x and scrollWidth/clientWidth", "Locate the .dl__top-cities--gradient-left/right overlay elements and read pointer-events/z-index/background", "Scroll the list to its maximum scrollLeft and screenshot the last visible city under the gradient"], "expected": "The scroller is horizontally scrollable and the fade gradients do not visually cover or block taps on the last visible city.", "actual": "overflowX:auto, scrollWidth 550 > clientWidth 328 (genuinely scrollable). Both gradient overlays have pointer-events:none, so they cannot intercept taps. The gradient's own color fades to the same navy background used by the page/pills, so the city name text stays fully legible in the screenshot even though its bounding box geometrically overlaps the gradient region.", "screenshots": ["images/ss_SCRUM-69_en-us_S3_gradient-fade-check.png"] },
+
+    { "id": "S4", "name": "Top-cities list has more than 5 cities", "type": "Feature", "acCoverage": "AC-4", "viewport": "Mobile (360x600)", "status": "FAIL", "steps": ["Query all .dl__top-cities-list a elements and count them", "Repeat the count in a fresh browser context"], "expected": "More than 5 cities listed, per AC-4.", "actual": "Exactly 5 cities (Atlanta, Chicago, Dallas, Los Angeles, New-York) in both the original context and a fresh-context recheck.", "screenshots": ["images/ss_SCRUM-69_en-us_bug3_only-5-cities.png"] },
+
+    { "id": "S5", "name": "Autocomplete search end-to-end: type a city, select a suggestion, reach results", "type": "Feature", "acCoverage": "AC-2", "viewport": "Mobile (360x600)", "status": "PASS", "steps": ["Type \"Atlan\" into the search input", "Read the autocomplete suggestion list", "Click the \"Atlanta, GA\" suggestion", "Wait for the results page to finish loading"], "expected": "Selecting a suggestion navigates to a results page showing dealer cards.", "actual": "Suggestion list populated with Atlanta, GA / Atlantic City, NJ / etc. Clicking \"Atlanta, GA\" showed a loading state then landed on /auto/dealer-locator/atlanta,-ga with 20 dealer cards rendered.", "screenshots": ["images/ss_SCRUM-69_en-us_S5_autocomplete-search-results.png"] },
+
+    { "id": "S6", "name": "Results page: single-column card stacking, no overlap, no text truncation", "type": "Feature", "acCoverage": "AC-3", "viewport": "Mobile (360x600)", "status": "FAIL", "steps": ["Load the New York results page", "Measure each dealer card's bounding rect to confirm no vertical overlap between consecutive cards", "Measure each .dl__card-dealer__address-direction-text span's scrollWidth vs clientWidth"], "expected": "Cards stack in a single readable column with no overlapping elements and no truncated text, per AC-3.", "actual": "Cards stack correctly in a single column with zero overlap detected across 6 sampled cards. However every sampled address span (8/8) has white-space:nowrap, text-overflow:ellipsis and a fixed 270px width, and scrollWidth consistently exceeds clientWidth (e.g. 352px content in a 270px box) - the address is visibly cut off with an ellipsis. Reproduced identically in a fresh context.", "screenshots": ["images/ss_SCRUM-69_en-us_S6_results-single-column.png", "images/ss_SCRUM-69_en-us_bug1_address-truncation.png"] },
+
+    { "id": "S7", "name": "Mobile hamburger navigation opens and closes", "type": "Regression", "viewport": "Mobile (360x600)", "status": "PASS", "steps": ["Click the header's icon button (hamburger)", "Confirm a nav/dialog element becomes visible", "Click the same button again to close it"], "expected": "The mobile nav opens and closes on tap.", "actual": "A '.ds__nav' element became visible after the first click; the same control closed it again on a second click.", "screenshots": ["images/ss_SCRUM-69_en-us_S7_mobile-nav-open.png"] },
+
+    { "id": "S8", "name": "Chat assistant widget (\"Mitch\"/Virtual tire expert) opens", "type": "Regression", "viewport": "Mobile (360x600)", "status": "PASS", "steps": ["Click the \"Chat with us\" floating launcher button", "Confirm the chat panel renders"], "expected": "The chat launcher opens the assistant panel (third-party embed - opened only, internals not driven further, per standing constraints).", "actual": "The 'Virtual tire expert' panel opened with quick-reply chips (Tire Specs, Tire Warranty, Motorcycle Tires, Bicycle Tires) and a text input, rendered correctly.", "screenshots": ["images/ss_SCRUM-69_en-us_S8_chat-widget-open.png"] },
+
+    { "id": "S9", "name": "Boundary: invalid/nonsense search input is handled gracefully", "type": "Boundary", "viewport": "Mobile (360x600)", "status": "PASS", "steps": ["Type \"zzzznotarealcity12345\" into the search input", "Confirm no crash and no spurious suggestion results"], "expected": "Natural graceful handling of an implausible query - no crash, no console error, no injected results.", "actual": "0 city suggestions returned, only the \"Locate me\" option remained in the dropdown; no crash, no new console errors attributable to the input.", "screenshots": ["images/ss_SCRUM-69_en-us_S9_invalid-search-input.png"] },
+
+    { "id": "S10", "name": "Keyboard reachability of \"Locate me\" once visible (comment scenario)", "type": "Feature", "viewport": "Mobile (360x600)", "status": "FAIL", "steps": ["Focus the search input (Locate me becomes visually visible)", "Press Tab", "Read document.activeElement and the Locate me button's tabindex attribute", "Repeat in a fresh browser context"], "expected": "Once visible, Locate me should be reachable via Tab and activatable with Enter.", "actual": "Tab moves focus straight to the next 'ds__btn' anchor, never landing on Locate me. Its tabindex attribute is permanently \"-1\" even after opacity goes 0->1 on focus. Reproduced identically in a fresh context.", "screenshots": ["images/ss_SCRUM-69_en-us_bug2_locate-keyboard-baseline.png", "images/ss_SCRUM-69_en-us_bug2_locate-keyboard-after-tab.png"] },
+
+    { "id": "S11", "name": "Boundary: clearing the search input restores the original state", "type": "Boundary", "viewport": "Mobile (360x600)", "status": "PASS", "steps": ["Type \"Dallas\" into the search input", "Clear the input", "Confirm the input value is empty and the top-cities list is present again"], "expected": "Clearing the input restores the exact original state.", "actual": "Input value returned to \"\" and the top-cities list (5 links) was present and unchanged.", "screenshots": [] },
+
+    { "id": "S12", "name": "Boundary: back button after selecting a city restores the search page", "type": "Boundary", "viewport": "Mobile (360x600)", "status": "PASS", "steps": ["From the Atlanta results page, trigger the browser back button", "Confirm the search input and top-cities list are present again"], "expected": "Back button restores the dealer-locator search page gracefully.", "actual": "Landed back on /auto/dealer-locator with the search input present and 5 top-cities links intact.", "screenshots": [] },
+
+    { "id": "S13", "name": "TC-AN1 - analytics fires on navigation", "type": "Analytics", "viewport": "Mobile (360x600)", "status": "PASS", "steps": ["Snapshot window.dataLayer length before navigating", "Click a footer link to navigate to a new page", "Compare dataLayer length and capture analytics network requests"], "expected": "At least one analytics request or dataLayer push captured after an interaction.", "actual": "window.dataLayer grew to 31 entries and multiple googleads.g.doubleclick.net/pagead/viewthroughconversion requests fired for both the dealer-locator and destination page views.", "screenshots": [] },
+
+    { "id": "S14", "name": "Footer link grid renders and navigates", "type": "Regression", "viewport": "Mobile (360x600)", "status": "PASS", "steps": ["Scroll to the bottom of the page", "Identify the visible (non-hidden) footer link grid", "Click the \"Accessibility Statement\" link and confirm navigation"], "expected": "The footer link grid renders and at least one link navigates correctly.", "actual": "Navigated successfully to /accessibility-statement. Note: the DOM also contains a separate, entirely visibility:hidden duplicate footer/subnav tree with the same links - only the visible one is used, no functional impact.", "screenshots": [] }
+  ],
+
+  "bugs": [
+    {
+      "id": "BUG-1",
+      "title": "Dealer card address text is truncated with an ellipsis on the results page - AC-3 not fully met",
+      "severity": "MAJOR",
+      "confidence": "HIGH",
+      "scenario": "S6",
+      "url": "https://www.michelinman.com/auto/dealer-locator/new-york",
+      "steps": ["Load a dealer results page at 360x600", "Read each .dl__card-dealer__address-direction-text span's computed style and scrollWidth/clientWidth", "Repeat in a fresh browser context"],
+      "expected": "Dealer card addresses display with no text truncation, per AC-3.",
+      "actual": "Every sampled address span (8/8, e.g. \"396-420 MARIN BLVD, New Jersey, JERSEY CITY - 07302\") has white-space:nowrap, text-overflow:ellipsis and a fixed 270px width; scrollWidth exceeds clientWidth in every case (e.g. 352px vs 270px). Reproduced identically in a fresh context.",
+      "impact": "Mobile users at 360px width cannot read the full street address on a dealer card without opening the \"See map\"/directions link - a workaround exists, but the AC's explicit \"no text truncation\" requirement is not met.",
+      "screenshots": ["images/ss_SCRUM-69_en-us_bug1_address-truncation.png"]
+    },
+    {
+      "id": "BUG-2",
+      "title": "\"Locate me\" control cannot be reached via keyboard Tab even after becoming visible on focus",
+      "severity": "MAJOR",
+      "confidence": "HIGH",
+      "scenario": "S10",
+      "url": "https://www.michelinman.com/auto/dealer-locator",
+      "steps": ["Focus the search input (Locate me opacity goes 0 -> 1)", "Press Tab", "Read document.activeElement and Locate me's tabindex attribute", "Repeat in a fresh browser context"],
+      "expected": "Once visually visible, Locate me should receive focus via Tab and be activatable with Enter, per the Jira comment scenario.",
+      "actual": "Tab moves focus past Locate me directly to the next real focusable element; Locate me's tabindex attribute is permanently \"-1\" regardless of its visibility state. Reproduced identically in a fresh context - this is a DOM attribute value, not an inference.",
+      "impact": "Keyboard-only users can never activate the geolocation shortcut, even though it is visually present - a real accessibility gap on a control the page itself makes visible for exactly this purpose.",
+      "screenshots": ["images/ss_SCRUM-69_en-us_bug2_locate-keyboard-baseline.png", "images/ss_SCRUM-69_en-us_bug2_locate-keyboard-after-tab.png"]
+    },
+    {
+      "id": "BUG-3",
+      "title": "Top-cities list exposes only 5 cities - AC-4 requires more than 5",
+      "severity": "CRITICAL",
+      "confidence": "HIGH",
+      "scenario": "S4",
+      "url": "https://www.michelinman.com/auto/dealer-locator",
+      "steps": ["Load the dealer locator page at 360x600", "Query all .dl__top-cities-list a elements and count them", "Repeat in a fresh browser context"],
+      "expected": "More than 5 cities listed, per AC-4.",
+      "actual": "Exactly 5 cities (Atlanta, Chicago, Dallas, Los Angeles, New-York) in both the original run and a fresh-context recheck - a DOM element count, not an inference.",
+      "impact": "The literal, testable acceptance criterion (\"more than 5 cities\") is not met at all - there is no ambiguity in this failure.",
+      "screenshots": ["images/ss_SCRUM-69_en-us_bug3_only-5-cities.png"]
+    }
+  ],
+
+  "analytics": { "testCase": "TC-AN1", "action": "Clicked a footer link to navigate from the dealer-locator page to /accessibility-statement", "status": "PASS", "evidence": "window.dataLayer grew from 16 to 31 entries; googleads.g.doubleclick.net/pagead/viewthroughconversion requests fired tagged with both the origin and destination page URLs." },
+
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 400 () - dctityd.michelinman.com/status-log",
+    "CSP violation: blocked loading a base64 data:audio/mpeg resource under default-src *",
+    "Failed to load resource: the server responded with a status of 404 () - network-facet logo CDN"
+  ],
+  "networkFailures": [
+    "400 https://dctityd.michelinman.com/status-log",
+    "404 https://cdn-prod-nam.yepgarage.info/upload/network/US/67f69a104e0a5bda041da3ab/en_XX/logo-audi.png",
+    "404 https://cdn-prod-nam.yepgarage.info/upload/network/US/67f69a104e0a5bda041da3ac/en_XX/logo-bmw.png"
+  ],
+
+  "viewportSummary": [
+    { "viewport": "Mobile (360x600)", "tested": true, "issuesFound": 3 }
+  ],
+
+  "regressionInventory": [
+    { "widget": "search input + autocomplete", "selector": ".dl__autocomplete-input-searchbar", "action": "type a query, select a suggestion, verify navigation to results", "tested": true, "result": "typing 'Atlan' populated 5 suggestions; selecting 'Atlanta, GA' navigated to /auto/dealer-locator/atlanta,-ga with 20 cards" },
+    { "widget": "Locate me button", "selector": ".dl__autocomplete-locate", "action": "focus input to reveal it, then Tab to reach it via keyboard", "tested": true, "result": "becomes visually visible (opacity 0->1) but tabindex stays -1 forever - keyboard-unreachable (BUG-2)" },
+    { "widget": "top-cities horizontal scroller", "selector": ".dl__top-cities-list", "action": "scroll to end, native-click the last visible city, verify navigation", "tested": true, "result": "genuinely scrollable (scrollWidth 550 > clientWidth 328); native click on New-York navigated correctly; only 5 cities exist total (BUG-3)" },
+    { "widget": "mobile hamburger nav", "selector": "header button (icon)", "action": "open and close the nav panel", "tested": true, "result": "opens '.ds__nav' on click, closes again on second click" },
+    { "widget": "chat assistant (\"Mitch\")", "selector": "button[aria-label='Chat with us']", "action": "open the panel (third-party embed - opened only)", "tested": true, "result": "opened correctly, showed quick-reply chips and a text input" },
+    { "widget": "dealer results cards", "selector": ".dl__card-dealer.result", "action": "verify single-column stacking, address text, ratings render", "tested": true, "result": "20 cards, no overlap between cards, but every address span is truncated with an ellipsis (BUG-1)" },
+    { "widget": "footer link grid (visible)", "selector": "a[href='/accessibility-statement'] and siblings below scrollY 500", "action": "click a link, verify navigation", "tested": true, "result": "navigated correctly to /accessibility-statement" },
+    { "widget": "footer link grid (hidden duplicate)", "selector": ".ds__subnav a[href='/auto/browse-tires/all-tires']", "action": "n/a - discovered via census, entire ancestor chain is visibility:hidden", "tested": false, "result": "SKIPPED - this DOM subtree is visibility:hidden end-to-end (not the footer users actually see); noted as an observation, not exercised as a user-facing control" },
+    { "widget": "Google Map embed", "selector": ".dl__map", "action": "n/a - third-party embed", "tested": false, "result": "SKIPPED - third-party embed (Google Maps); per standing constraints, drive only as far as opening, not its internals" },
+    { "widget": "productline dropdown (Auto/Motorcycle/Bicycle)", "selector": ".dl__product-line-switch__dropdown-button", "action": "n/a - out of scope for this ticket", "tested": false, "result": "SKIPPED - not referenced by any AC or comment scenario in SCRUM-69; the dealer-search widget itself (input, Locate me, top cities) was the ticket's full scope" },
+    { "widget": "breadcrumb (Home / Auto)", "selector": ".ds__block-breadcrumb a", "action": "click the \"Home\" breadcrumb link, verify navigation", "tested": true, "result": "navigated correctly to the homepage" }
+  ],
+
+  "automationGap": {
+    "suiteIndexedAt": "2026-08-31T13:42:43.587Z",
+    "existingCoverage": [
+      "features/dealer-locator.feature - 4 scenarios: page load with core elements, city search reaches results, dealer card fields, dealer details navigation"
+    ],
+    "coveredByExisting": ["S1", "S5", "S6"],
+    "missingScenarios": [
+      { "scenario": "S4", "summary": "Top-cities list should expose more than 5 cities", "priority": "HIGH", "declaredGap": false },
+      { "scenario": "S2", "summary": "No horizontal overflow at 360px and Locate me becomes visible on input focus", "priority": "MEDIUM", "declaredGap": false },
+      { "scenario": "S3", "summary": "Top-cities scroller fade gradients don't block taps on the last visible city", "priority": "MEDIUM", "declaredGap": false },
+      { "scenario": "S10", "summary": "Locate me is keyboard-reachable via Tab once visible", "priority": "HIGH", "declaredGap": false },
+      { "scenario": "S9", "summary": "Invalid search input is handled gracefully", "priority": "LOW", "declaredGap": false }
+    ],
+    "missingSteps": [
+      { "step": "the {string} should have more than {int} characters visible with no truncation", "belongsIn": "steps/dealer-locator.steps.js" },
+      { "step": "the document should have no horizontal overflow", "belongsIn": "steps/common.steps.js" },
+      { "step": "I press {string} and the {string} should receive focus", "belongsIn": "steps/common.steps.js" }
+    ],
+    "missingRegistry": [
+      { "name": "dealer card address text", "kind": "element", "suggestedSelector": ".dl__card-dealer__address-direction-text" }
+    ],
+    "recommendation": "The top-cities count (AC-4) is already expressible with the existing 'I should see more than {int} \"top cities\"' step and the registered 'top cities' collection - it just needs to be added as a scenario; it would fail today and codify the CRITICAL gap. Keyboard-focus assertions and truncation checks are the two real vocabulary gaps: a small focus-assertion step and a truncation-check step would close both, and both map directly to this run's two MAJOR bugs."
+  },
+
+  "observations": [
+    "Console/network noise (CSP block on a base64 data:audio resource, a 400 on dctityd.michelinman.com/status-log, 404s on cdn-prod-nam.yepgarage.info network-facet logos) is site-wide background noise present on a clean load with zero test actions - not something this run's actions caused.",
+    "The autocomplete-selected results page URL contains a literal comma in its slug (/auto/dealer-locator/atlanta,-ga) - a cosmetic URL-formatting nit, the page itself loads and functions correctly.",
+    "The DOM contains a second, entirely visibility:hidden duplicate of the footer/subnav link tree alongside the real visible footer - only the visible one is used by the page; no functional impact observed, but worth a developer's attention as dead markup."
+  ],
+
+  "videoFull": "videos/SCRUM-69_en-us_full.webm",
+  "videoFullMp4": null,
+  "videoClip": null,
+  "featureFile": "SCRUM-69.feature"
+}

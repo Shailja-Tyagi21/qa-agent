@@ -1120,5 +1120,763 @@
       }
     ],
     "uri": "features/generated/SCRUM-68.feature"
+  },
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "scrum-69-—-dealer-locator-mobile-viewport-(360x600);s1-—-dealer-locator-page-loads-with-core-elements",
+        "keyword": "Scenario",
+        "line": 13,
+        "name": "S1 — Dealer locator page loads with core elements",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 10,
+            "name": "I am on the \"dealer locator\" page",
+            "match": {
+              "location": "steps/common.steps.js:15"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 14,
+            "name": "the \"dealer search input\" should be visible",
+            "match": {
+              "location": "steps/common.steps.js:35"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "the \"top cities list\" should be visible",
+            "match": {
+              "location": "steps/common.steps.js:35"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 16,
+            "name": "there should be no console errors",
+            "match": {
+              "location": "steps/common.steps.js:116"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@generated",
+            "line": 6
+          },
+          {
+            "name": "@SCRUM-69",
+            "line": 6
+          },
+          {
+            "name": "@generated",
+            "line": 12
+          },
+          {
+            "name": "@sanity",
+            "line": 12
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "scrum-69-—-dealer-locator-mobile-viewport-(360x600);s2-—-search-input-visible;-locate-me-becomes-visible-on-focus",
+        "keyword": "Scenario",
+        "line": 19,
+        "name": "S2 — Search input visible; Locate me becomes visible on focus",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 10,
+            "name": "I am on the \"dealer locator\" page",
+            "match": {
+              "location": "steps/common.steps.js:15"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 20,
+            "name": "the \"dealer search input\" should be visible",
+            "match": {
+              "location": "steps/common.steps.js:35"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 21,
+            "name": "I click the \"dealer search input\"",
+            "match": {
+              "location": "steps/common.steps.js:56"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 22,
+            "name": "the \"locate me button\" should be visible",
+            "match": {
+              "location": "steps/common.steps.js:35"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@generated",
+            "line": 6
+          },
+          {
+            "name": "@SCRUM-69",
+            "line": 6
+          },
+          {
+            "name": "@generated",
+            "line": 18
+          },
+          {
+            "name": "@ac-1",
+            "line": 18
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "scrum-69-—-dealer-locator-mobile-viewport-(360x600);s4-—-top-cities-list-should-expose-more-than-5-cities",
+        "keyword": "Scenario",
+        "line": 32,
+        "name": "S4 — Top-cities list should expose more than 5 cities",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 10,
+            "name": "I am on the \"dealer locator\" page",
+            "match": {
+              "location": "steps/common.steps.js:15"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 33,
+            "name": "I should see more than 5 \"top cities\"",
+            "match": {
+              "location": "steps/common.steps.js:43"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@generated",
+            "line": 6
+          },
+          {
+            "name": "@SCRUM-69",
+            "line": 6
+          },
+          {
+            "name": "@generated",
+            "line": 31
+          },
+          {
+            "name": "@ac-4",
+            "line": 31
+          },
+          {
+            "name": "@bug-3",
+            "line": 31
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "scrum-69-—-dealer-locator-mobile-viewport-(360x600);s5-—-autocomplete-search-reaches-the-results-page",
+        "keyword": "Scenario",
+        "line": 36,
+        "name": "S5 — Autocomplete search reaches the results page",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 10,
+            "name": "I am on the \"dealer locator\" page",
+            "match": {
+              "location": "steps/common.steps.js:15"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 37,
+            "name": "I search for the city \"Atlanta\"",
+            "match": {
+              "location": "steps/dealer-locator.steps.js:15"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 38,
+            "name": "I select the first autocomplete suggestion",
+            "match": {
+              "location": "steps/dealer-locator.steps.js:23"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 39,
+            "name": "the dealer results should be visible",
+            "match": {
+              "location": "steps/dealer-locator.steps.js:41"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 40,
+            "name": "the URL should contain \"atlanta\"",
+            "match": {
+              "location": "steps/common.steps.js:112"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@generated",
+            "line": 6
+          },
+          {
+            "name": "@SCRUM-69",
+            "line": 6
+          },
+          {
+            "name": "@generated",
+            "line": 35
+          },
+          {
+            "name": "@ac-2",
+            "line": 35
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "scrum-69-—-dealer-locator-mobile-viewport-(360x600);s8-—-chat-assistant-widget-opens",
+        "keyword": "Scenario",
+        "line": 56,
+        "name": "S8 — Chat assistant widget opens",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 10,
+            "name": "I am on the \"dealer locator\" page",
+            "match": {
+              "location": "steps/common.steps.js:15"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 57,
+            "name": "I click the \"chat assistant\"",
+            "match": {
+              "location": "steps/common.steps.js:56"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 58,
+            "name": "the \"chat assistant\" should be visible",
+            "match": {
+              "location": "steps/common.steps.js:35"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@generated",
+            "line": 6
+          },
+          {
+            "name": "@SCRUM-69",
+            "line": 6
+          },
+          {
+            "name": "@generated",
+            "line": 55
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "scrum-69-—-dealer-locator-mobile-viewport-(360x600);s9-—-invalid-search-input-is-handled-gracefully",
+        "keyword": "Scenario",
+        "line": 61,
+        "name": "S9 — Invalid search input is handled gracefully",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 10,
+            "name": "I am on the \"dealer locator\" page",
+            "match": {
+              "location": "steps/common.steps.js:15"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 62,
+            "name": "I type \"zzzznotarealcity12345\" into the \"dealer search input\"",
+            "match": {
+              "location": "steps/common.steps.js:73"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 63,
+            "name": "there should be no console errors",
+            "match": {
+              "location": "steps/common.steps.js:116"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@generated",
+            "line": 6
+          },
+          {
+            "name": "@SCRUM-69",
+            "line": 6
+          },
+          {
+            "name": "@generated",
+            "line": 60
+          },
+          {
+            "name": "@boundary",
+            "line": 60
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "scrum-69-—-dealer-locator-mobile-viewport-(360x600);s12-—-back-button-restores-the-search-page-after-selecting-a-city",
+        "keyword": "Scenario",
+        "line": 79,
+        "name": "S12 — Back button restores the search page after selecting a city",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 10,
+            "name": "I am on the \"dealer locator\" page",
+            "match": {
+              "location": "steps/common.steps.js:15"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 80,
+            "name": "I click the first top city",
+            "match": {
+              "location": "steps/dealer-locator.steps.js:33"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 81,
+            "name": "the dealer results should be visible",
+            "match": {
+              "location": "steps/dealer-locator.steps.js:41"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 82,
+            "name": "I go back",
+            "match": {
+              "location": "steps/common.steps.js:23"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 83,
+            "name": "the \"dealer search input\" should be visible",
+            "match": {
+              "location": "steps/common.steps.js:35"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@generated",
+            "line": 6
+          },
+          {
+            "name": "@SCRUM-69",
+            "line": 6
+          },
+          {
+            "name": "@generated",
+            "line": 78
+          },
+          {
+            "name": "@boundary",
+            "line": 78
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "scrum-69-—-dealer-locator-mobile-viewport-(360x600);s14-—-footer-link-grid-renders-and-navigates",
+        "keyword": "Scenario",
+        "line": 92,
+        "name": "S14 — Footer link grid renders and navigates",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 10,
+            "name": "I am on the \"dealer locator\" page",
+            "match": {
+              "location": "steps/common.steps.js:15"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 93,
+            "name": "the \"footer\" should be visible",
+            "match": {
+              "location": "steps/common.steps.js:35"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 94,
+            "name": "I click the \"Accessibility Statement\" link",
+            "match": {
+              "location": "steps/common.steps.js:63"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 95,
+            "name": "the URL should contain \"accessibility-statement\"",
+            "match": {
+              "location": "steps/common.steps.js:112"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@generated",
+            "line": 6
+          },
+          {
+            "name": "@SCRUM-69",
+            "line": 6
+          },
+          {
+            "name": "@generated",
+            "line": 91
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "scrum-69-—-dealer-locator-mobile-viewport-(360x600)",
+    "line": 7,
+    "keyword": "Feature",
+    "name": "SCRUM-69 — Dealer locator mobile viewport (360x600)",
+    "tags": [
+      {
+        "name": "@generated",
+        "line": 6
+      },
+      {
+        "name": "@SCRUM-69",
+        "line": 6
+      }
+    ],
+    "uri": "features/generated/SCRUM-69.feature"
   }
 ]
